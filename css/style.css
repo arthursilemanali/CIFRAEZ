@@ -1,6 +1,6 @@
 body{
     margin: 0;
-    background-color: #a4abac;
+    background-color: #d3fcd3;
     overflow-x: hidden;
 }
 
@@ -10,7 +10,7 @@ body{
     align-items: center;
     height: 20vh;
     width: 100%;
-    background-color: rgb(65, 0, 71);
+    background-color: #dfa923;
 }
 
 .footer {
@@ -19,7 +19,7 @@ body{
     justify-content: center;
     height: 10%;
     width: 100%;
-    background-color: rgb(65, 0, 71);
+    background-color: #dfa923;
   }
   
   
@@ -33,7 +33,7 @@ body{
 
   .tela_superior{
     display: flex;
-    background-color: #a4abac;
+    background-color: #d3fcd3;
     height: 75vh;
     width: 100%;
     margin-top: 5%;
@@ -45,7 +45,7 @@ body{
     height: 75%;
     border: 2px solid black;
     border-radius: 4px;
-    background-color: rgb(180, 180, 180);
+    background-color: #d3fcd3;
     margin: 0 2%;
     transition: 1s;
   }
@@ -56,7 +56,7 @@ body{
     height: 75%;
     border: 2px solid black;
     border-radius: 4px;
-    background-color: rgb(180, 180, 180);
+    background-color: #d3fcd3;
     margin: 0 2%;
   }
 
@@ -71,11 +71,14 @@ body{
 
   .ranking_musicas{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     width: 35%;
     height: 100%;
     border: 2px solid black;
     border-radius: 4px;
-    background-color: rgb(180, 180, 180);
+    background-color: #d3fcd3;
     margin: 0 2%;
     margin-bottom: 5%;
   }
@@ -85,7 +88,7 @@ body{
     height: 100%;
     border: 2px solid black;
     border-radius: 4px;
-    background-color: rgb(180, 180, 180);
+    background-color: #d3fcd3;
     margin: 0 2%;
     margin-bottom: 5%;
   }
@@ -103,7 +106,7 @@ body{
   }
 
   #ipt_pesquisa{
-    background-color: rgba(164, 171, 172, 0.7);
+    background-color: #d3fcd3;
     width: 35%;
     height: 35%;
     border: 1px solid #808080;
@@ -125,5 +128,23 @@ body{
   .logo_pagina{
     width: 10%;
     height: 100%;
-    background-color: blue;
+    background-color: greenyellow;
   }
+  .musicas_ranking{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    height: 10%;
+    width: 100%;
+    background-color: #808080;
+    border: 1px solid black;
+    transition: 0.3s;
+  }
+
+  .musicas_ranking:hover{
+    transition: 0.3s;
+    width: 105%;
+    height: 11%;
+  }
+
+  
