@@ -1,6 +1,6 @@
 body{
     margin: 0;
-    background-color: #d3fcd3;
+    background-color: #c5c4c4;
     overflow-x: hidden;
 }
 
@@ -33,10 +33,15 @@ body{
 
   .tela_superior{
     display: flex;
-    background-color: #d3fcd3;
+    background-color: #c5c4c4;
     height: 75vh;
     width: 100%;
     margin-top: 5%;
+  }
+  .tela_inteira{
+    display: flex;
+    width: 100%;
+    height: 100%;
   }
 
   .container-1{
@@ -45,7 +50,7 @@ body{
     height: 75%;
     border: 2px solid black;
     border-radius: 4px;
-    background-color: #d3fcd3;
+    background-color: #c5c4c4;
     margin: 0 2%;
     transition: 1s;
   }
@@ -56,7 +61,7 @@ body{
     height: 75%;
     border: 2px solid black;
     border-radius: 4px;
-    background-color: #d3fcd3;
+    background-color: #c5c4c4;
     margin: 0 2%;
   }
 
@@ -69,6 +74,12 @@ body{
     margin-top: 5%;
   }
 
+  .container_home{
+    display: flex;
+    width: 50vw;
+    height: 100vh;
+  }
+
   .ranking_musicas{
     display: flex;
     justify-content: center;
@@ -78,7 +89,7 @@ body{
     height: 100%;
     border: 2px solid black;
     border-radius: 4px;
-    background-color: #d3fcd3;
+    background-color: #c5c4c4;
     margin: 0 2%;
     margin-bottom: 5%;
   }
@@ -88,7 +99,7 @@ body{
     height: 100%;
     border: 2px solid black;
     border-radius: 4px;
-    background-color: #d3fcd3;
+    background-color: #c5c4c4;
     margin: 0 2%;
     margin-bottom: 5%;
   }
@@ -106,10 +117,10 @@ body{
   }
 
   #ipt_pesquisa{
-    background-color: #d3fcd3;
+    background-color: #d4a3009a;
     width: 35%;
     height: 35%;
-    border: 1px solid #808080;
+    border: 1px solid #645202be;
     border-radius: 10px;
     transition: 1s;
   }
@@ -118,12 +129,6 @@ body{
     color: rgb(42, 42, 42);
   }
 
-  /* .conteudo_header{
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-  } */
 
   .logo_pagina{
     width: 10%;
