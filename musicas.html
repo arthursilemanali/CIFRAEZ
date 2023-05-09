@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    <div class="gradiente_fundo"></div>
     <div class="header">
 
         <div class="logo_pagina">
@@ -37,9 +38,11 @@
     <h2>RANKING DE MÚSICAS MAIS PROCURADAS</h2>
     <div class="tela_meio_musicas">
         <div class="rankings">
-            <div class="ranking">
+            
+            <div class="ranking" onclick="exibir_cifra()">
                 <p>Behind blue eyes - Limp Zisnik</p>
             </div>
+            
             <div class="ranking">
                 <p>João e Maria - Chico Buarque</p>
             </div>
@@ -149,25 +152,11 @@
 
         </div>
     </div>
-    <!-- <div class="container">
-        <h2>Wonderwall</h2>
-        <div class="chords">
-            <pre>
-D       A     Em      <spam>G</spam>
-Today is gonna be the day
-D       A     Em          G
-That they're gonna throw it back to you
-D       A     Em          G
-By now you should've somehow
-D       A     Em          G
-Realized what you gotta do
-            </pre>
-        </div>
-    </div> -->
+ 
     <div class="footer">
         <div class="redes_sociais">
             <div><a href="https://instagram.com/ali_aonde?igshid=ZDdkNTZiNTM="><img src="css/logo_insta.png"></a></div>
-            <div><a href="facebook.com"><img src="css/logo_face.png"></a></div>
+            <div><a href="facebook.com"><img src="css/Facebook-logo-circular.png"></a></div>
             <div><a href="github.com"><img src="css/logo_github.png"></a></div>
             <div><a href="Wa.me/5511975757745"><img src="css/logo_wpp.png"></a></div>
         </div>
@@ -177,3 +166,11 @@ Realized what you gotta do
 </body>
 
 </html>
+
+<script>
+    function exibir_cifra(){
+        
+            window.location.href = "formato_padrao_cifra.html"
+        }
+    
+</script>
