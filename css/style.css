@@ -360,6 +360,9 @@ b {
 }
 
 #imagem_x {
-  height: 100px;
-  width: 100px;
+  position: fixed;
+  left: 81%;
+  top: 45%;
+  height: 50px;
+  width: 50px;
 }

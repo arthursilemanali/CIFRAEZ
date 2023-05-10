@@ -22,9 +22,9 @@
         <button id="btn_login" onclick="login()">LOGIN</button>
       </div>
     </div>
+    <img src="../css/fotos_usadas/x.png" class="escondido" id="imagem_x" />
     <div class="tela_inteira">
       <div class="container_cifra">
-        <img src="../css/fotos_usadas/x.png" class="" id="imagem_x" />
         <div class="menu_cifra">
           <div class="opcoes_cifra" onclick="mostrar_musicas()">
             Músicas disponíveis
@@ -152,12 +152,23 @@
     window.location.href = "home.html";
   }
 
+  var imagem_fechar = document.querySelector("#imagem_x");
+
   function correr_pagina() {
     var range = document.getElementById("rolar");
     var intervalo = parseInt(rolar.value);
+    var intervalo_liso = intervalo / 10;
+
+    imagem_fechar.classList.remove("escondido");
+
+    imagem_fechar.addEventListener("click", function () {
+      clearInterval(scrollInterval);
+      range.value = "";
+      imagem_fechar.classList.add("escondido");
+    });
 
     var scrollInterval = setInterval(function () {
-      window.scrollBy(0, 10);
+      window.scrollBy(0, 1);
       range.value = 0;
 
       if (
@@ -167,6 +178,6 @@
         clearInterval(scrollInterval);
         range.value = "";
       }
-    }, intervalo);
+    }, intervalo_liso);
   }
 </script>
