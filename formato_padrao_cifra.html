@@ -72,6 +72,7 @@ function correr_pagina() {
   var range = document.getElementById("rolar");
   var intervalo = parseInt(rolar.value);
   var intervalo_liso = intervalo / 10
+  
 
   var scrollInterval = setInterval(function() {
     window.scrollBy(0, 1);
@@ -81,6 +82,8 @@ function correr_pagina() {
       clearInterval(scrollInterval);
       range.value = "";
     }
+
+    
   }, intervalo_liso);
 }
 
