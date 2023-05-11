@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CIFRA | CIFRAEZ</title>
-    <link rel="stylesheet" href="../css/style.css" />
-  </head>
-  <body>
-    <div class="gradiente_fundo"></div>
-    <div class="header">
-      <div class="logo_pagina"></div>
-      <input type="text" id="ipt_pesquisa" placeholder="Buscar..." />
-      <div class="navbar">
-        <a href="musicas.html">MÚSICAS</a>
-        <div><a href="#">|</a></div>
-        <a href="home.html">HOME</a>
-        <div><a href="#">|</a></div>
-        <a href="#">SOBRE MIM</a>
-        <div><a href="#">|</a></div>
-        <button id="btn_login" onclick="login()">LOGIN</button>
-      </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CIFRA | CIFRAEZ</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body>
+  <div class="gradiente_fundo"></div>
+  <div class="header">
+    <div class="logo_pagina">
+      <h1>
+        CIFRAEZ
+      </h1>
     </div>
+    <input type="text" id="ipt_pesquisa" placeholder="Buscar..." />
+    <div class="navbar">
+      <a href="sobre.html">Sobre</a>
+  
+      <button id="btn_login" onclick="login()">login</button>
+    </div>
+  </div>
+
+    <img src="../css/fotos_usadas/x.png"  id="imagem_x" class="escondido"/>
 
     <div class="tela_inteira">
       <div class="container_cifra">
@@ -433,22 +437,32 @@
     window.location.href = "home.html";
   }
 
-  function correr_pagina() {
-    var range = document.getElementById("rolar");
-    var intervalo = parseInt(rolar.value);
-    var intervalo_liso = intervalo / 10;
+  var imagem_fechar = document.querySelector("#imagem_x");
 
-    var scrollInterval = setInterval(function () {
-      window.scrollBy(0, 1);
-      range.value = 0;
+function correr_pagina() {
+  var range = document.getElementById("rolar");
+  var intervalo = parseInt(rolar.value);
+  var intervalo_liso = intervalo / 10;
 
-      if (
-        window.innerHeight + window.pageYOffset >=
-        document.body.offsetHeight
-      ) {
-        clearInterval(scrollInterval);
-        range.value = "";
-      }
-    }, intervalo_liso);
-  }
+  imagem_fechar.classList.remove("escondido");
+
+  imagem_fechar.addEventListener("click", function () {
+    clearInterval(scrollInterval);
+    range.value = "";
+    imagem_fechar.classList.add("escondido");
+  });
+
+  var scrollInterval = setInterval(function () {
+    window.scrollBy(0, 1);
+    range.value = 0;
+
+    if (
+      window.innerHeight + window.pageYOffset >=
+      document.body.offsetHeight
+    ) {
+      clearInterval(scrollInterval);
+      range.value = "";
+    }
+  }, intervalo_liso);
+}
 </script>
