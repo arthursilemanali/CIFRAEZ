@@ -1,61 +1,53 @@
 <!DOCTYPE html>
 <html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CIFRA | CIFRAEZ</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CIFRA | CIFRAEZ</title>
-  <link rel="stylesheet" href="../css/style.css" />
-</head>
+  <body>
+    <header>
+      <div class="gradiente_fundo"></div>
+      <div class="header">
+        <div class="logo_pagina">
+          <h1>CIFRAEZ</h1>
+        </div>
+        <input type="text" id="ipt_pesquisa" placeholder="Buscar..." />
+        <div class="navbar">
+          <a href="sobre.html">Sobre</a>
 
-<body>
-  <header>
-  <div class="gradiente_fundo"></div>
-  <div class="header">
-    <div class="logo_pagina">
-      <h1>
-        CIFRAEZ
-      </h1>
-    </div>
-    <input type="text" id="ipt_pesquisa" placeholder="Buscar..." />
-    <div class="navbar">
-      <a href="sobre.html">Sobre</a>
-  
-      <button id="btn_login" onclick="login()">Login</button>
-    </div>
-  </div>
-  </header>
-
-
-  
-<div class="gradiente_fundo_violao"></div>
-  <div class="tela_inteira_cifra">
-    <div class="menu_cifra">
-      <div class="nome_da_musica">
-        <h4>
-          Behind blue eyes - <b>Limp Biskit</b>
-        </h4>
+          <button id="btn_login" onclick="login()">Login</button>
+        </div>
       </div>
-      <div class="rolar_pagina">
-        <h5>Auto rolagem</h5>
-        
+    </header>
 
+    <div class="gradiente_fundo_violao"></div>
+    <div class="tela_inteira_cifra">
+      <div class="menu_cifra">
+        <div class="nome_da_musica">
+          <h4>Behind blue eyes <b>Limp Biskit</b></h4>
+        </div>
+        <div class="rolar_pagina">
+          Auto rolagem
 
+          <label class="switch">
+            <input
+              id="checkboxScroll"
+              type="checkbox"
+              value="0"
+              onchange="opçao_rolar(this)"
+            />
+            <span class="slider round"></span>
+          </label>
+        </div>
 
-    <label class="switch">
-     <input type="checkbox" value="0" onclick="opçao_rolar()">
-     <span class="slider round"></span>
-    </label>
-
-       </div> 
-      
-        <img src="../css/fotos_usadas/background.jpg">
-
-      
-    </div>
-    <div id="cifra">
-      <pre>Intro: <b>Em</b>  <b>G6</b>  <b>D5(9)</b>  <b>C9</b>  <b>A5(9)</b>
+        <img src="../css/fotos_usadas/background.jpg" />
+      </div>
+      <div id="cifra">
+        <pre>Intro: <b>Em</b>  <b>G6</b>  <b>D5(9)</b>  <b>C9</b>  <b>A5(9)</b>
         <b>Em</b>                <b>G6</b>
      <span class="tablatura"><span class="cnt">E|<u>----------</u>0<u>-----------------</u>0<u>------------</u>
      B|<u>------------</u>0<u>------------------</u>3<u>---------</u>
@@ -174,89 +166,101 @@
      No one knows what it's like, to be the bad man,
                 <b>C9</b>         <b>A5(9)</b>
      To be the sad man, behind blue eyes</pre>
-    </div>
-    </div>
-    <div class="escondido" id="range">
-      <input type="range" min="0" max="1000" step="10" value="0" id="rolar" onclick="correr_pagina()" class="range"/>
-      </div>
-      <img src="../css/fotos_usadas/x.png" id="imagem_x" class="escondido" />
-    <div></div>
-  </div>
-        
-     
-        
-  <div class="footer">
-    <div class="redes_sociais">
-      <div>
-        <a href="https://instagram.com/ali_aonde?igshid=ZDdkNTZiNTM="><img src="../css/logo_insta.png" /></a>
-      </div>
-      <div>
-        <a href="facebook.com"><img src="../css/Facebook-logo-circular.png" /></a>
-      </div>
-      <div>
-        <a href="github.com"><img src="" /></a>
-      </div>
-      <div>
-        <a href="Wa.me/5511975757745"><img src="../css/logo_wpp.png" /></a>
       </div>
     </div>
-  </div>
-</body>
+    <div class="escondido range_valor" id="range">
+      Auto rolagem
+      <input
+        type="range"
+        min="0"
+        max="1000"
+        step="10"
+        value="0"
+        id="rolar"
+        class="range"
+        onclick="correr_pagina()" 
+      />
 
+      <div class="svg-btn" onclick="parar_rolagem()">
+        <svg
+          class="fechar"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 2048 2048"
+        >
+          <path
+            fill="currentColor"
+            d="m1115 1024l690 691l-90 90l-691-690l-691 690l-90-90l690-691l-690-691l90-90l691 690l691-690l90 90l-690 691z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div></div>
+
+    <div class="footer">
+      <div class="redes_sociais">
+        <div>
+          <a href="https://instagram.com/ali_aonde?igshid=ZDdkNTZiNTM="
+            ><img src="../css/logo_insta.png"
+          /></a>
+        </div>
+        <div>
+          <a href="facebook.com"
+            ><img src="../css/Facebook-logo-circular.png"
+          /></a>
+        </div>
+        <div>
+          <a href="github.com"><img src="" /></a>
+        </div>
+        <div>
+          <a href="Wa.me/5511975757745"><img src="../css/logo_wpp.png" /></a>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
 
 <script>
-  function mostrar_musicas() {
-    window.location.href = "./musicas.html";
+  var checkboxScroll = document.querySelector("#checkboxScroll");
+  var velocidade_range = document.querySelector("#range");
+  var range = document.getElementById("rolar");
+
+  var scrollInterval;
+
+  function opçao_rolar(element) {
+    if (element.checked) {
+      velocidade_range.classList.remove("escondido");
+    } else {
+      velocidade_range.classList.add("escondido");
+      range.classList.remove("escondido")
+      stopScroll();
+    }
   }
-
-  var imagem_fechar = document.querySelector("#imagem_x");
-
-  
-  var velocidade_range = document.querySelector("#range")
- 
-
-
-  function opçao_rolar(){
-    velocidade_range.classList.remove("escondido")
-    velocidade_range.classList.add("range_valor")
-
-  }
-
-
 
   function correr_pagina() {
-    var range = document.getElementById("rolar");
-    var intervalo = parseInt(rolar.value);
+    
+    var intervalo = parseInt(range.value);
     var intervalo_liso = intervalo / 10;
-
-    imagem_fechar.classList.remove("escondido");
-
-    imagem_fechar.addEventListener("click", function () {
-      clearInterval(scrollInterval);
-      range.value = "";
-      imagem_fechar.classList.add("escondido");
-      velocidade_range.classList.add("escondido")
-      
-    });
-
-    var scrollInterval = setInterval(function () {
+    range.classList.add("escondido")
+    scrollInterval = setInterval(function () {
       window.scrollBy(0, 1);
-      range.value = 0;
-
       if (
         window.innerHeight + window.pageYOffset >=
         document.body.offsetHeight
       ) {
         clearInterval(scrollInterval);
         range.value = "";
-        imagem_fechar.classList.add("escondido");
-        velocidade_range.classList.remove("range_valor")
-        velocidade_range.classList.add("escondido")
+        parar_rolagem();
+        range.classList.remove("escondido")
       }
     }, intervalo_liso);
   }
 
+  function parar_rolagem() {
+    clearInterval(scrollInterval);
+    velocidade_range.classList.add("escondido");
+    range.classList.remove("escondido")
+    checkboxScroll.checked = false;
+  }
 </script>
-
-  
