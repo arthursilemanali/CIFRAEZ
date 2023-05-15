@@ -68,6 +68,11 @@ header{
   background-color:#1E1E1E;
 }
 
+.header a{
+  color: white;
+  text-decoration: none;
+}
+
 .navbar {
   display: flex;
   justify-content: space-around;
@@ -552,12 +557,13 @@ input:checked + .slider:before {
   margin-left: 2.5%;
   background-color: #d69b11;
   border-radius: 10px;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.26);
 }
 
 .container_campos_login h4, h6{
   color: #fff;
-  font-weight: 100;
-  font-size: large;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 24px;
   margin: 3%;
 }
 
@@ -572,6 +578,10 @@ input:checked + .slider:before {
   letter-spacing: 2px;
 }
 
+.container_campos_login a{
+  color: #d69b11;
+}
+
 .container_campos_login input{
   width: 70%;
   height: 6%;
@@ -583,13 +593,15 @@ input:checked + .slider:before {
 
 .container_campos_login button{
   width: 70%;
-  height: 6%;
+  height: 8%;
   border-radius: 5px;
   background-color: #d69b11;
   margin-top: 10%;
+  
 }
 
 .container_campos_login p{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-weight: 100;
   font-size: small;
   color: #ddd;
@@ -620,8 +632,9 @@ input:checked + .slider:before {
   width: 50%;
   height: 90%;
   margin-left: 2.5%;
-  background-color: #d69b11;
+  background-image: url(../fotos_usadas/tocando_violao.jpg);
   border-radius: 10px;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
 .container_campos_cadastro h4, h6{
@@ -629,6 +642,10 @@ input:checked + .slider:before {
   font-weight: 100;
   font-size: large;
   margin: 3%;
+}
+
+.container_campos_cadastro a{
+  color: #d69b11;
 }
 
 .container_campos_cadastro{
@@ -640,6 +657,7 @@ input:checked + .slider:before {
   width: 50%;
   height: 90%;
   letter-spacing: 2px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .container_campos_cadastro input{
