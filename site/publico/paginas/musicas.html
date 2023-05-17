@@ -30,30 +30,8 @@
 
   <!-- tela de cifra -->
 
-  <div class="tela_inteira_cifra escondido sobreposiçao">
-    <div class="menu_cifra">
-      <div class="nome_da_musica">
-        <h4>Behind blue eyes <b>Limp Biskit</b></h4>
-      </div>
-      <div class="rolar_pagina">
-        Auto rolagem
-
-        <label class="switch">
-          <input
-            id="checkboxScroll"
-            type="checkbox"
-            value="0"
-            onchange="opçao_rolar(this)"
-          />
-          <span class="slider round"></span>
-        </label>
-      </div>
-
-      <img src="/site/publico/fotos_usadas/background.jpg" />
-    </div>
-    <div id="cifra">
-
-    </div>
+  <div class="tela_inteira_cifra escondido" id="div_cifra">
+    
   </div>
   <div class="escondido range_valor" id="range">
     Auto rolagem
@@ -90,7 +68,7 @@
         <b></b>
       </div>
 
-      <div class="ranking" onclick="alterarCifra(1)">">
+      <div class="ranking" onclick="alterar_cifra(1)">
         <b></b>
       </div>
       <div class="ranking">
@@ -147,13 +125,16 @@
   </div>
 
   <!-- HTML -->
-<div id="cifra1" ></div>
-<div id="cifra2" onclick="alterarCifra(1)">Cifra 2</div>
-<div id="cifra3" onclick="alterarCifra(2)">Cifra 3</div>
 
-<pre id="visualizacaoCifra"></pre>
+
+
+
+
 <script>
+  
+
   var cifras = [{
+    musica: "Behind blue eyes",
     artista: "Limp Biskit",
     genero: "Rock",
     cifra: `
@@ -277,6 +258,7 @@
                 <b>C9</b>         <b>A5(9)</b>
      To be the sad man, behind blue eyes`},
      {
+      musica: "João e Maria",
       artista: "Chico Buarque",
       genero: "MPB",
       cifra: ` 
@@ -632,11 +614,45 @@
                 
                 `
      }]
+
      var tela_cifra = document.querySelector(".tela_inteira_cifra");
+     var tela_menu = document.querySelector(".tela_meio_musicas")
 
      function alterar_cifra(index){
+      var cifraAtual = cifras[index];
+      div_cifra.innerHTML = `<div class="menu_cifra">
+      <div class="nome_da_musica" >
+        <h4 id="h4_nome_musica">${cifraAtual.musica} <b id="b_artista">${cifraAtual.artista}</b></h4>
+      </div>
+      <div class="rolar_pagina">
+        Auto rolagem
+
+        <label class="switch">
+          <input
+            id="checkboxScroll"
+            type="checkbox"
+            value="0"
+            onchange="opçao_rolar(this)"
+          />
+          <span class="slider round"></span>
+        </label>
+      </div>
+
+      <img src="../fotos_usadas/background.jpg" />
+    </div>
+    <pre id="cifra">${cifraAtual.cifra}</pre>`
+    
+      
       tela_cifra.classList.remove("escondido");
       
+      tela_menu.classList.add("escondido")
+      
+     }
+     
+     function voltar() {
+      tela_cifra.classList.add("escondido");
+      
+      tela_menu.classList.remove("escondido")
      }
 
      var checkboxScroll = document.querySelector("#checkboxScroll");
@@ -679,7 +695,12 @@
     velocidade_range.classList.add("escondido");
     range.classList.remove("escondido")
     checkboxScroll.checked = false;
+
+
+
   }
+  
+  
 </script>
 
  
