@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 
 <head>
   <meta charset="UTF-8" />
@@ -11,184 +11,689 @@
 </head>
 
 <body>
-  <div class="gradiente_fundo"></div>
-  <div class="header">
-    <div class="logo_pagina">
+  <header>
+    
+    <div class="header">
+      <div class="logo_pagina">
+        <h1>
+          <a href="musicas.html">CIFRAEZ</a>
+        </h1>
+      </div>
+      <input type="text" id="ipt_pesquisa" placeholder="Buscar..." />
+      <div class="navbar">
+        <a href="sobre.html">Sobre</a>
+
+        <button id="btn_login" onclick="login()">Login</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- tela de cifra -->
+
+  <div class="tela_inteira_cifra escondido sobreposiçao">
+    <div class="menu_cifra">
+      <div class="nome_da_musica">
+        <h4>Behind blue eyes <b>Limp Biskit</b></h4>
+      </div>
+      <div class="rolar_pagina">
+        Auto rolagem
+
+        <label class="switch">
+          <input
+            id="checkboxScroll"
+            type="checkbox"
+            value="0"
+            onchange="opçao_rolar(this)"
+          />
+          <span class="slider round"></span>
+        </label>
+      </div>
+
+      <img src="/site/publico/fotos_usadas/background.jpg" />
+    </div>
+    <div id="cifra">
+
+    </div>
+  </div>
+  <div class="escondido range_valor" id="range">
+    Auto rolagem
+    <input
+      type="range"
+      min="0"
+      max="1000"
+      step="10"
+      value="0"
+      id="rolar"
+      class="range"
+      onclick="correr_pagina()" 
+    />
+
+    <div class="svg-btn" onclick="parar_rolagem()">
+      <svg
+        class="fechar"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 2048 2048"
+      >
+        <path
+          fill="currentColor"
+          d="m1115 1024l690 691l-90 90l-691-690l-691 690l-90-90l690-691l-690-691l90-90l691 690l691-690l90 90l-690 691z"
+        />
+      </svg>
+    </div>
+  </div>
+
+  <div class="tela_meio_musicas">
+    <div class="rankings">
+      <div class="ranking" onclick="alterar_cifra(0)">
+        <b></b>
+      </div>
+
+      <div class="ranking" onclick="alterarCifra(1)">">
+        <b></b>
+      </div>
+      <div class="ranking">
+        <p>Tempo perdido - Legião Urbana</p>
+      </div>
+      <div class="ranking">
+        <p>Dust in the wind - Kansas</p>
+      </div>
+      <div class="ranking">
+        <p>Chega de saudade - João Gilberto</p>
+      </div>
+      <div class="ranking">
+        <p>aaaaa</p>
+      </div>
+      <div class="ranking">
+        <p>aaaaa</p>
+      </div>
+      <div class="ranking">
+        <p>aaaaa</p>
+      </div>
+      <div class="ranking">
+        <p>aaaaa</p>
+      </div>
+      <div class="ranking">
+        <p>aaaaa</p>
+      </div>
+    </div>
+    </div>
+
+  
+  <div class="footer">
+    <div class="redes_sociais">
+      <div>
+        <a href="https://instagram.com/ali_aonde?igshid=ZDdkNTZiNTM="><img src="../fotos_usadas/instaLogo.png" /></a>
+      </div>
+      <div>
+        <a href="facebook.com"><img src="../fotos_usadas/faceLogo.png" /></a>
+      </div>
       <h1>
         <a href="musicas.html">CIFRAEZ</a>
       </h1>
+      <div>
+        <a href="github.com"><img src="../fotos_usadas/gitLogo.png" /></a>
+      </div>
+      <div>
+        <a href="Wa.me/5511975757745"><img src="../fotos_usadas/wppLogo.png" /></a>
+      </div>
     </div>
-    <input type="text" id="ipt_pesquisa" placeholder="Buscar..." />
-    <div class="navbar">
-      <a href="sobre.html">Sobre</a>
-  
-      <button id="btn_login" onclick="login()">login</button>
+    <div class="direitos">
+      <h6>
+        @ Todos os direitos reservados para Arthur Silemanali - 2023
+      </h6>
     </div>
   </div>
-      <div class="gradiente_fundo"></div>
-    <div class="tela_superior">
-      <div class="container-1">
-        <h5>Bem-vindo ao nosso site de cifras fáceis!</h5>
-        <h6>
-          Aqui você encontrará uma coleção abrangente de cifras para todas as
-          suas músicas favoritas
-        </h6>
-      </div>
-      <div class="container-2">
-        <h5></h5>
-      </div>
-    </div>
-    
-    </div>
-    <h2>RANKING DE MÚSICAS MAIS PROCURADAS</h2>
-    <div class="tela_meio_musicas">
-      <div class="rankings">
-        <div class="ranking" onclick="exibir_behind_blue_eyes()">
-          <p>Behind blue eyes - Limp Zisnik</p>
-        </div>
 
-        <div class="ranking" onclick="exibir_joao_e_maria()">
-          <p>João e Maria - Chico Buarque</p>
-        </div>
-        <div class="ranking">
-          <p>Tempo perdido - Legião Urbana</p>
-        </div>
-        <div class="ranking">
-          <p>Dust in the wind - Kansas</p>
-        </div>
-        <div class="ranking">
-          <p>Chega de saudade - João Gilberto</p>
-        </div>
-        <div class="ranking">
-          <p>aaaaa</p>
-        </div>
-        <div class="ranking">
-          <p>aaaaa</p>
-        </div>
-        <div class="ranking">
-          <p>aaaaa</p>
-        </div>
-        <div class="ranking">
-          <p>aaaaa</p>
-        </div>
-        <div class="ranking">
-          <p>aaaaa</p>
-        </div>
-      </div>
-      <div class="tela_musicas">
-        <div class="grafico">
-          <canvas id="myChart"></canvas>
-        </div>
+  <!-- HTML -->
+<div id="cifra1" ></div>
+<div id="cifra2" onclick="alterarCifra(1)">Cifra 2</div>
+<div id="cifra3" onclick="alterarCifra(2)">Cifra 3</div>
 
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-        <script>
-          const ctx = document.getElementById("myChart");
-
-          new Chart(ctx, {
-            type: "bar",
-            data: {
-              labels: [
-                "Behind blue eyes",
-                "João e Maria",
-                "Tempo perdido",
-                "Dust in the wind",
-                "Chega de saudade",
-              ],
-              datasets: [
-                {
-                  label: "PESQUISAS DIÁRIAS",
-                  data: [700, 560, 300, 500, 200],
-                  borderWidth: 5,
-                },
-              ],
-            },
-            options: {
-              scales: {
-                y: {
-                  beginAtZero: true,
-                },
-              },
-            },
-          });
-        </script>
-      </div>
-    </div>
-    <h2>RANKING DE ARTISTAS MAIS PROCURADOS</h2>
-    <div class="tela_meio_artistas">
-      <div class="rankings">
-        <div class="ranking">
-          <p>aaaaa</p>
-        </div>
-        <div class="ranking">
-          <p>aaaaa</p>
-        </div>
-        <div class="ranking">
-          <p>aaaaa</p>
-        </div>
-        <div class="ranking">
-          <p>aaaaa</p>
-        </div>
-        <div class="ranking">
-          <p>aaaaa</p>
-        </div>
-      </div>
-      <div class="tela_musicas"></div>
-    </div>
-    <h2>RANKING DE GÊNEROS MAIS PROCURADOS</h2>
-    <div class="tela_meio_generos">
-      <div class="rankings">
-        <div class="ranking">
-          <p>aaaaa</p>
-        </div>
-        <div class="ranking">
-          <p>aaaaa</p>
-        </div>
-        <div class="ranking">
-          <p>aaaaa</p>
-        </div>
-        <div class="ranking">
-          <p>aaaaa</p>
-        </div>
-        <div class="ranking">
-          <p>aaaaa <a href="home.html"></a></p>
-        </div>
-      </div>
-      <div class="tela_musicas"></div>
-    </div>
-
-    <div class="footer">
-      <div class="redes_sociais">
-        <div>
-          <a href="https://instagram.com/ali_aonde?igshid=ZDdkNTZiNTM="
-            ><img src="../fotos_usadas/instaLogo.png"
-          /></a>
-        </div>
-        <div>
-          <a href="facebook.com"
-            ><img src="../fotos_usadas/faceLogo.png"
-          /></a>
-        </div>
-        <div>
-          <a href="github.com"
-            ><img src="../fotos_usadas/gitLogo.png"
-          /></a>
-        </div>
-        <div>
-          <a href="Wa.me/5511975757745"
-            ><img src="../fotos_usadas/wppLogo.png"
-          /></a>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
-
+<pre id="visualizacaoCifra"></pre>
 <script>
-  function exibir_behind_blue_eyes() {
-    window.location.href = "./musicas_cifra/behind_blues_eyes.html";
+  var cifras = [{
+    artista: "Limp Biskit",
+    genero: "Rock",
+    cifra: `
+        Intro: <b>Em</b>  <b>G6</b>  <b>D5(9)</b>  <b>C9</b>  <b>A5(9)</b>
+        <b>Em</b>                <b>G6</b>
+     E|<u>----------</u>0<u>-----------------</u>0<u>------------</u>
+     B|<u>------------</u>0<u>------------------</u>3<u>---------</u>
+     G|<u>-------</u>0<u>------</u>0<u>-----------</u>0<u>------</u>0<u>-------</u>
+     D|<u>-----</u>2<u>----------</u>0<u>-------</u>0<u>----------</u>0<u>-----</u>
+     A|<u>---</u>2<u>------------------</u>2<u>------------------</u>
+     E|<u>-</u>0<u>----------------</u>3<u>----------------------</u>
+        <b>D5(9)</b>
+     E|<u>--------</u>0<u>---------------</u>0<u>----------------</u>
+     B|<u>-----</u>3<u>----</u>3<u>---</u>3<u>------</u>3<u>----</u>3<u>---</u>3<u>----------</u>
+     G|<u>---</u>2<u>--</u>2<u>-----</u>2<u>------</u>2<u>--</u>2<u>-----</u>2<u>------------</u>
+     D|<u>-</u>0<u>--------------</u>0<u>------------------------</u>
+     A|<u>-----------------------------------------</u>
+     E|<u>-----------------------------------------</u>
+        <b>C9</b>
+     E|<u>---------</u>0<u>---------------</u>0<u>---------------</u>
+     B|<u>-----</u>3<u>-----</u>3<u>---</u>3<u>-----</u>3<u>-----</u>3<u>---</u>3<u>---------</u>
+     G|<u>---</u>0<u>---</u>0<u>-----</u>0<u>-----</u>0<u>---</u>0<u>-----</u>0<u>-----------</u>
+     D|<u>-----------------------------------------</u>
+     A|<u>-</u>3<u>--------------</u>3<u>------------------------</u>
+     E|<u>-----------------------------------------</u>
+        <b>A5(9)</b>
+     E|<u>--------</u>0<u>----------------</u>0<u>---------------</u>
+     B|<u>----</u>0<u>-----</u>0<u>---</u>0<u>------</u>0<u>-----</u>0<u>---</u>0<u>---------</u>
+     G|<u>------</u>2<u>-----</u>2<u>----------</u>2<u>-----</u>2<u>-----------</u>
+     D|<u>---</u>2<u>---------------</u>2<u>---------------------</u>
+     A|<u>-</u>0<u>--------------</u>0<u>------------------------</u>
+     E|<u>-----------------------------------------</u>
+     
+     Verso 1:
+      <b>Em</b>                     <b>G6</b>              <b>D5(9)</b>
+     No one knows what it's like, to be the bad man,
+                <b>C9</b>         <b>A5(9)</b>
+     To be the sad man, behind blue eyes
+      <b>Em</b>                     <b>G6</b>         <b>D5(9)</b>
+     No one knows what it's like to be hated,
+            <b>C9</b>               <b>A5(9)</b>
+     To be fated, to telling only lies
+     Dedilhado das Estrofes:
+        <b>Em</b>                <b>G6</b>
+     E|<u>----------</u>0<u>-----------------</u>0<u>------------</u>
+     B|<u>------------</u>0<u>------------------</u>3<u>---------</u>
+     G|<u>-------</u>0<u>------</u>0<u>-----------</u>0<u>------</u>0<u>-------</u>
+     D|<u>-----</u>2<u>----------</u>0<u>-------</u>0<u>----------</u>0<u>-----</u>
+     A|<u>---</u>2<u>------------------</u>2<u>------------------</u>
+     E|<u>-</u>0<u>----------------</u>3<u>----------------------</u>
+        <b>D5(9)</b>
+     E|<u>--------</u>0<u>---------------</u>0<u>----------------</u>
+     B|<u>-----</u>3<u>----</u>3<u>---</u>3<u>------</u>3<u>----</u>3<u>---</u>3<u>----------</u>
+     G|<u>---</u>2<u>--</u>2<u>-----</u>2<u>------</u>2<u>--</u>2<u>-----</u>2<u>------------</u>
+     D|<u>-</u>0<u>--------------</u>0<u>------------------------</u>
+     A|<u>-----------------------------------------</u>
+     E|<u>-----------------------------------------</u>
+        <b>C9</b>
+     E|<u>---------</u>0<u>---------------</u>0<u>---------------</u>
+     B|<u>-----</u>3<u>-----</u>3<u>---</u>3<u>-----</u>3<u>-----</u>3<u>-------------</u>
+     G|<u>---</u>0<u>---</u>0<u>-----</u>0<u>-----</u>0<u>---</u>0<u>------</u>0<u>----------</u>
+     D|<u>-----------------------------------------</u>
+     A|<u>-</u>3<u>--------------</u>3<u>------------------------</u>
+     E|<u>-----------------------------------------</u>
+     
+     Refrão:
+              <b>C</b>   <b>D</b>                <b>G</b>
+     But my dreams, they aren't as empty,
+            <b>C</b>          <b>D</b>        <b>E</b>  <b>E4</b> <b>E</b> <b>E4</b> <b>E</b>
+     As my conscience seems to be
+             <b>Bm</b>          <b>C9</b>
+     I have hours, only lonely
+                 <b>D</b>                       <b>A5(9)</b>
+     My love is vengeance that's never free
+     
+     Verso 2:
+      <b>Em</b>                     <b>G6</b>                  <b>D5(9)</b>
+     No one knows what it's like to feel these feelings
+             <b>C9</b>              <b>A5(9)</b>
+     Like I do, and I blame you
+      <b>Em</b>                   <b>G6</b>           <b>D5(9)</b>
+     No one bites back as hard on their anger
+                 <b>C9</b>                       <b>A5(9)</b>
+     None of my pain and woe, can show through
+     
+     Refrão:
+              <b>C</b>   <b>D</b>                <b>G</b>
+     But my dreams, they aren't as empty,
+            <b>C</b>          <b>D</b>        <b>E</b>  <b>E4</b> <b>E</b> <b>E4</b> <b>E</b>
+     As my conscience seems to be
+             <b>Bm</b>          <b>C9</b>
+     I have hours, only lonely
+                 <b>D</b>                       <b>A5(9)</b>
+     My love is vengeance that's never free
+     
+     ( <b>Em</b>  <b>G6</b>  <b>D5(9)</b>  <b>C9</b>  <b>A5(9)</b> )
+     
+     Verso 3:
+      <b>Em</b>                    <b>G</b>               <b>D5(9)</b>
+     No one knows what its like, to be mistreated,
+              <b>C9</b>        <b>A5(9)</b>
+     To be defeated, behind blue eyes
+      <b>Em</b>                 <b>G</b>                 <b>D5(9)</b>
+     No one know how to say, that they're sorry
+                <b>C9</b>                <b>A5(9)</b>
+     And don't worry, I'm not telling lies
+     
+     Refrão:
+              <b>C</b>   <b>D</b>                <b>G</b>
+     But my dreams, they aren't as empty,
+            <b>C</b>          <b>D</b>        <b>E</b>  <b>E4</b> <b>E</b> <b>E4</b> <b>E</b>
+     As my conscience seems to be
+             <b>Bm</b>          <b>C9</b>
+     I have hours, only lonely
+                 <b>D</b>                       <b>A5(9)</b>
+     My love is vengeance that's never free
+     
+     Final:
+      <b>Em</b>                     <b>G6</b>              <b>D5(9)</b>
+     No one knows what it's like, to be the bad man,
+                <b>C9</b>         <b>A5(9)</b>
+     To be the sad man, behind blue eyes`},
+     {
+      artista: "Chico Buarque",
+      genero: "MPB",
+      cifra: ` 
+                [Intro] <b>Am9</b>  <b>F6</b>  <b>Am</b>  <b>F9</b>
+                <b>Am</b>  <b>F6</b>  <b>Am</b>  <b>F9</b>  <b>Am</b>
+                
+                [Tab - Intro]
+                
+                Parte 1 de 4
+                      <b>Am9</b>        <b>F6</b>            <b>Am</b>
+                e|<u>----</u>5<u>-------------------------</u>0<u>---------</u>0<u>-</u>|
+                B|<u>----</u>0<u>---</u>5<u>------</u>3<u>---</u>1<u>-</u>0h1p0<u>------</u>1<u>---------</u>|
+                G|<u>----</u>5<u>-----</u>5<u>----</u>2<u>-----------</u>2<u>------</u>2<u>---</u>2<u>---</u>|
+                D|<u>-</u>7<u>--</u>7<u>-</u>7<u>-----</u>7<u>--</u>0<u>-</u>0<u>------------------</u>2<u>-----</u>|
+                A|<u>----</u>0<u>-------------------------</u>0<u>-----------</u>|
+                E|<u>---------------</u>1<u>--------------------------</u>|
+                
+                Parte 2 de 4
+                   <b>F9</b>              <b>Am</b>         <b>F6</b>
+                e|<u>-</u>3<u>-</u>1<u>-</u>0h1p0<u>--------</u>5<u>-------------------</u>0<u>-</u>1<u>-</u>|
+                B|<u>-</u>1<u>--------</u>3<u>-</u>1<u>-</u>0<u>------</u>5<u>------</u>3<u>---</u>0<u>-</u>1<u>-</u>3<u>-----</u>|
+                G|<u>-</u>2<u>---------------------</u>5<u>----</u>2<u>-------------</u>|
+                D|<u>-</u>3<u>-----------------</u>7<u>-----</u>7<u>--</u>0<u>-</u>0<u>-----------</u>|
+                A|<u>-----------------</u>0<u>------------------------</u>|
+                E|<u>----------------------------</u>1<u>-------------</u>|
+                
+                Parte 3 de 4
+                   <b>Am</b>               <b>F9</b>
+                e|<u>-</u>0h1p0<u>---------</u>0<u>--</u>3<u>-</u>1<u>-</u>0h1p0<u>---------------</u>|
+                B|<u>-------</u>1<u>---</u>0<u>-</u>1<u>----</u>1<u>---------</u>3<u>-</u>1<u>-</u>0<u>---------</u>|
+                G|<u>---------</u>2<u>--------</u>2<u>-----------------------</u>|
+                D|<u>------------------</u>3<u>-----------------------</u>|
+                A|<u>-</u>0<u>----------------------------------------</u>|
+                E|<u>------------------------------------------</u>|
+                
+                Parte 4 de 4
+                   <b>Am</b>
+                e|<u>-------------</u>5<u>----------------------------</u>|
+                B|<u>-------</u>0<u>-</u>1/5<u>------------------------------</u>|
+                G|<u>-</u>2<u>-</u>1<u>-</u>2<u>------------------------------------</u>|
+                D|<u>------------------------------------------</u>|
+                A|<u>-</u>0<u>----------------------------------------</u>|
+                E|<u>------------------------------------------</u>|
+                
+                [Primeira Parte]
+                
+                [Tab - Primeira Parte]
+                
+                [Parte 1 de 5]
+                   <b>Dm7</b>          <b>Bm7(5-)</b>     <b>C</b>                       
+                e|<u>-----</u>1<u>---</u>1<u>--------------------</u>0<u>-----------</u>|
+                B|<u>-----</u>1<u>---</u>1<u>--------</u>3<u>---</u>3<u>-------</u>1<u>-----------</u>|
+                G|<u>---</u>2<u>---</u>2<u>----------</u>2<u>---</u>2<u>-----</u>0<u>-------------</u>|
+                D|<u>-</u>0<u>---------</u>0<u>----</u>3<u>---</u>3<u>----------</u>2<u>---</u>2<u>------</u>|
+                A|<u>--------------</u>2<u>---------</u>2<u>-</u>3<u>---------------</u>|
+                E|<u>---------------------------------</u>0<u>--------</u>|
+                
+                Parte 2 de 5
+                   <b>Am</b>           <b>Dm7</b>         <b>G7</b>                                         
+                e|<u>-----</u>0<u>---</u>0<u>--------</u>1<u>---</u>1<u>-------</u>1<u>---</u>1<u>-------</u>|
+                B|<u>-----</u>1<u>---</u>1<u>--------</u>1<u>---</u>1<u>-------</u>0<u>---</u>0<u>-------</u>|
+                G|<u>---</u>2<u>---</u>2<u>--------</u>2<u>---</u>2<u>-------</u>0<u>---</u>0<u>---------</u>|
+                D|<u>--------------</u>0<u>---------</u>0<u>-----------------</u>|
+                A|<u>-</u>0<u>---------</u>0<u>------------------------------</u>|
+                E|<u>--------------------------</u>3<u>---------</u>3<u>-----</u>|
+                
+                Parte 3 de 5
+                   <b>C</b>                        <b>B7</b>         <b>B7/F#</b>                
+                e|<u>----</u>0<u>---</u>0<u>-------</u>0<u>-------------</u>2<u>---</u>2<u>-------</u>|
+                B|<u>----</u>1<u>---</u>1<u>-------</u>1<u>-------------</u>4<u>---</u>4<u>-------</u>|
+                G|<u>--</u>0<u>---</u>0<u>---</u>0<u>---</u>0<u>---</u>0<u>---------</u>2<u>---</u>2<u>---------</u>|
+                D|<u>--------------------</u>2p0<u>-------------------</u>|
+                A|<u>-</u>3<u>----------</u>3<u>-----------</u>3<u>-</u>2<u>---------</u>2<u>-----</u>|
+                E|<u>--------------------------------------</u>2<u>---</u>|
+                
+                Parte 4 de 5
+                             <b>Em</b>                <b>C</b>                                
+                e|<u>---</u>2<u>---</u>2<u>-------------------------</u>0<u>---</u>0<u>----</u>|
+                B|<u>---</u>4<u>---</u>4<u>-------</u>0<u>---</u>0<u>-------------</u>1<u>---</u>1<u>----</u>|
+                G|<u>-</u>2<u>---</u>2<u>---------</u>0<u>---</u>0<u>-----------</u>0<u>---</u>0<u>------</u>|
+                D|<u>-------------</u>2<u>---</u>2<u>-------</u>2<u>-</u>0<u>--------------</u>|
+                A|<u>---------</u>2<u>-----------</u>2<u>-------</u>3<u>------------</u>|
+                E|<u>-----------</u>0<u>-----------</u>0<u>------------------</u>|
+                
+                Parte 5 de 5
+                       <b>F7</b>          <b>E7</b>              <b>Am</b>                                    
+                e|<u>-------------</u>1<u>-------</u>0<u>-------------</u>0<u>------</u>|
+                B|<u>---------</u>1<u>---</u>1<u>-------</u>3<u>-------------</u>1<u>------</u>|
+                G|<u>---------</u>2<u>---------</u>1<u>---------------</u>0<u>------</u>|
+                D|<u>-------</u>1<u>---</u>1<u>-----------</u>3<u>-</u>2<u>-</u>0<u>--------------</u>|
+                A|<u>-----------------------------</u>3<u>-</u>2<u>-</u>0<u>----</u>2<u>-</u>3<u>-</u>|
+                E|<u>-</u>3<u>-</u>2<u>-</u>1<u>---------</u>1<u>-</u>0<u>------------------------</u>|
+                
+                                  <b>Dm7</b>
+                Agora eu era o herói
+                           <b>Bm7(5-)</b>           <b>C</b>  <b>Am</b>
+                E o meu cavalo só falava inglês
+                               <b>Dm7</b>
+                A noiva do cowboy
+                       <b>G7</b>                  <b>C</b>
+                Era você além das outras três
+                                  <b>B7</b>
+                Eu enfrentava os batalhões
+                <b>B7/F#</b>               <b>Em</b>
+                      Os alemães e seus canhões
+                                  <b>C</b>
+                Guardava o meu bodoque e ensaiava
+                   <b>F7</b>               <b>E7</b>  <b>Am</b>
+                O rock para as matinês
+                
+                [Segunda Parte]
+                
+                [Tab - Segunda Parte]
+                
+                Parte 1 de 5
+                   <b>Dm7</b>          <b>Bm7(5-)</b>     <b>C</b>                       
+                e|<u>-----</u>1<u>---</u>1<u>--------------------</u>0<u>-----------</u>|
+                B|<u>-----</u>1<u>---</u>1<u>--------</u>3<u>---</u>3<u>-------</u>1<u>-----------</u>|
+                G|<u>---</u>2<u>---</u>2<u>----------</u>2<u>---</u>2<u>-----</u>0<u>-------------</u>|
+                D|<u>-</u>0<u>---------</u>0<u>----</u>3<u>---</u>3<u>----------</u>2<u>---</u>2<u>------</u>|
+                A|<u>--------------</u>2<u>---------</u>2<u>-</u>3<u>---------------</u>|
+                E|<u>---------------------------------</u>0<u>--------</u>|
+                
+                Parte 2 de 5
+                   <b>Am</b>           <b>Dm7</b>         <b>Bm7(5-)</b>                                         
+                e|<u>-----</u>0<u>---</u>0<u>--------</u>1<u>---</u>1<u>-------------------</u>|
+                B|<u>-----</u>1<u>---</u>1<u>--------</u>1<u>---</u>1<u>-------</u>3<u>---</u>3<u>-------</u>|
+                G|<u>---</u>2<u>---</u>2<u>--------</u>2<u>---</u>2<u>---------</u>2<u>---</u>2<u>-------</u>|
+                D|<u>--------------</u>0<u>---------</u>0<u>---</u>3<u>---</u>3<u>---------</u>|
+                A|<u>-</u>0<u>---------</u>0<u>--------------</u>2<u>---------</u>2<u>-----</u>|
+                E|<u>------------------------------------------</u>|
+                
+                Parte 3 de 5
+                   <b>Gm6/Bb</b>       <b>A7</b>  <b>G/B</b>  <b>A7/C#</b>  <b>Dm7</b>
+                e|<u>---------------------------------</u>1<u>---</u>1<u>----</u>|
+                B|<u>-----</u>3<u>---</u>3<u>----</u>2<u>----</u>3<u>----</u>5<u>--------</u>1<u>---</u>1<u>----</u>|
+                G|<u>-----</u>0<u>---</u>0<u>----</u>0<u>----</u>0<u>----</u>0<u>-</u>0<u>----</u>2<u>---</u>2<u>------</u>|
+                D|<u>---</u>2<u>---</u>2<u>---</u>2<u>----</u>2<u>----</u>0<u>-------</u>0<u>---------</u>0<u>--</u>|
+                A|<u>-</u>1<u>------------</u>0<u>----</u>2<u>----</u>4<u>-----------------</u>|
+                E|<u>------------------------------------------</u>|
+                
+                Parte 4 de 5
+                   <b>G7</b>          <b>C</b>             <b>F7</b> 
+                e|<u>-----</u>1<u>---</u>1<u>-------</u>0<u>---</u>0<u>-------------</u>1<u>------</u>|
+                B|<u>-----</u>0<u>---</u>0<u>-------</u>1<u>---</u>1<u>---------</u>1<u>---</u>1<u>------</u>|
+                G|<u>---</u>0<u>---</u>0<u>-------</u>0<u>---</u>0<u>-----------</u>2<u>----------</u>|
+                D|<u>-----------------------------</u>1<u>---</u>1<u>--------</u>|
+                A|<u>-------------</u>3<u>----------------------------</u>|
+                E|<u>-</u>3<u>---------</u>3<u>-----------</u>3<u>-</u>2<u>-</u>1<u>----------</u>1<u>---</u>|
+                
+                Parte 5 de 5
+                   <b>Bb7M</b>        <b>E7</b>          <b>Am9</b>    
+                e|<u>---------</u>1<u>-------------------</u>0<u>---</u>0<u>--------</u>|
+                B|<u>-----</u>3<u>---</u>3<u>-------</u>3<u>---</u>3<u>-------</u>1<u>---</u>1<u>--------</u>|
+                G|<u>-----</u>2<u>-----------</u>1<u>---</u>1<u>-----</u>4<u>---</u>4<u>----------</u>|
+                D|<u>---</u>3<u>---</u>3<u>-------</u>0<u>---</u>0<u>---------------</u>2<u>------</u>|
+                A|<u>-</u>1<u>---------</u>1<u>-------------</u>0<u>----------------</u>|
+                E|<u>-------------</u>0<u>---------</u>0<u>------------------</u>|
+                
+                e|<u>-----</u>0<u>---</u>0<u>--------------------------------</u>|
+                B|<u>-----</u>1<u>---</u>1<u>--------------------------------</u>|
+                G|<u>---</u>4<u>---</u>4<u>----------------------------------</u>|
+                D|<u>-----------</u>2<u>------------------------------</u>|
+                A|<u>-</u>0<u>----------------------------------------</u>|
+                E|<u>------------------------------------------</u>|
+                
+                                <b>Dm7</b>
+                Agora eu era o rei
+                         <b>Bm7(5-)</b>          <b>C</b>   <b>Am</b>
+                Era o bedel e era também juiz
+                              <b>Dm7</b>            <b>Bm7(5-)</b>
+                E pela minha lei a gente era obrigado
+                         <b>Gm6/Bb</b>  
+                A ser feliz
+                <b>A7</b>  <b>G/B</b>    <b>A7/C#</b>  <b>Dm7</b>
+                    E     vo_____cê
+                           <b>G7</b>
+                Era a princesa
+                               <b>C</b>
+                Que eu fiz coroar
+                           <b>F7</b>              <b>Bb7M</b>
+                E era tão linda de se admirar
+                            <b>E7</b>            <b>Am9</b>
+                Que andava nua pelo meu país
+                
+                [Refrão]
+                
+                [Tab - Refrão - Primeira Estrofe]
+                
+                Parte 1 de 3
+                   <b>Am9</b>         <b>E/G#</b>       <b>A/G</b>
+                e|<u>-----</u>0<u>---</u>0<u>--------------------------------</u>|
+                B|<u>-----</u>1<u>---</u>1<u>-------</u>5<u>---</u>5<u>------</u>2<u>---</u>2<u>---------</u>|
+                G|<u>---</u>4<u>---</u>4<u>---------</u>4<u>---</u>4<u>------</u>2<u>---</u>2<u>---------</u>|
+                D|<u>---------------</u>2<u>---</u>2<u>------</u>2<u>---</u>2<u>-----------</u>|
+                A|<u>-</u>0<u>---------</u>0<u>------------------------------</u>|
+                E|<u>-------------</u>4<u>---------</u>4<u>-</u>3<u>--------</u>3<u>-</u>2<u>-----</u>|
+                
+                Parte 2 de 3
+                   <b>Dm/F</b>           <b>Bm7(5-)</b>     <b>C</b>    
+                e|<u>-----</u>1<u>--------------</u>1<u>---</u>1<u>-------</u>0<u>---------</u>|
+                B|<u>-----</u>3<u>-</u>3<u>------------</u>3<u>---</u>3<u>-------</u>1<u>---------</u>|
+                G|<u>---</u>2<u>--------------</u>2<u>---</u>2<u>-------</u>0<u>---</u>0<u>-------</u>|
+                D|<u>----------</u>2p0<u>-----------------------</u>2p0<u>---</u>|
+                A|<u>--------------</u>3<u>-</u>2<u>---------</u>2<u>-</u>3<u>-----------</u>3<u>-</u>|
+                E|<u>-</u>1<u>----------------------------------------</u>|
+                
+                Parte 3 de 3
+                   <b>Bb7M</b>        <b>E7/B</b>
+                e|<u>------------------------------------------</u>|
+                B|<u>-----</u>3<u>---</u>3<u>-------</u>3<u>------------------------</u>|
+                G|<u>-----</u>2<u>---</u>2<u>-------</u>1<u>------------------------</u>|
+                D|<u>---</u>3<u>---</u>3<u>-------</u>1<u>---</u>1<u>---</u>1<u>------------------</u>|
+                A|<u>-</u>1<u>---------</u>1<u>-</u>2<u>----------------------------</u>|
+                E|<u>---------------------</u>0<u>--------------------</u>|
+                
+                               <b>E/G#</b>
+                Não, não fuja não
+                            <b>A/G</b>
+                Finja que agora
+                                   <b>Dm/F</b>
+                Eu era o seu brinquedo
+                <b>Bm7(5-)</b>                  <b>C</b>
+                       Eu era o seu pião
+                <b>Bb7M</b>              <b>E7/B</b>
+                O seu bicho preferido
+                
+                [Tab - Refrão - Segunda Estrofe]
+                
+                [Parte 1 de 3]
+                   <b>Am9</b>         <b>E7/B</b>        <b>A7/C#</b>
+                e|<u>-----</u>0<u>---</u>0<u>-------</u>0<u>---</u>0<u>-------</u>5<u>---</u>5<u>--------</u>|
+                B|<u>-----</u>1<u>---</u>1<u>-------</u>3<u>---</u>3<u>-------</u>5<u>---</u>5<u>--------</u>|
+                G|<u>---</u>4<u>---</u>4<u>-------</u>1<u>---</u>1<u>-------</u>0<u>---</u>0<u>----------</u>|
+                D|<u>------------------------------------------</u>|
+                A|<u>-</u>0<u>---------</u>0<u>-</u>2<u>---------</u>2<u>-</u>4<u>---------</u>4<u>------</u>|
+                E|<u>------------------------------------------</u>|
+                
+                Parte 2 de 3
+                   <b>Dm7</b>            <b>Bm7(5-)</b>     <b>C</b>    <b>Am7</b> <b>Am7/G</b>                   
+                e|<u>-----</u>1<u>---</u>1<u>---------------------</u>0<u>----------</u>|
+                B|<u>-----</u>1<u>---</u>1<u>---------</u>3<u>---</u>3<u>-------</u>1<u>----------</u>|
+                G|<u>---</u>2<u>---</u>2<u>-----------</u>2<u>---</u>2<u>-------</u>0<u>----------</u>|
+                D|<u>-</u>0<u>---------------</u>3<u>---</u>3<u>-------------</u>2<u>---</u>2<u>--</u>|
+                A|<u>-----------</u>0<u>-</u>1<u>-</u>2<u>---------</u>0<u>-</u>2<u>-</u>3<u>---</u>0<u>--------</u>|
+                E|<u>-------------------------------------</u>3<u>----</u>|
+                
+                Parte 3 de 3
+                  <b>F#m7(5-)</b> <b>F7M</b>  <b>E7</b> <b>Am9</b>
+                e|<u>---------------------</u>0<u>---</u>0<u>-------</u>0<u>----</u>0<u>---</u>|
+                B|<u>---</u>1<u>-----</u>1<u>----</u>3<u>------</u>1<u>---</u>1<u>-------</u>1<u>----</u>1<u>---</u>|
+                G|<u>---</u>2<u>-----</u>2<u>----</u>1<u>----</u>4<u>---</u>4<u>-------</u>4<u>----</u>4<u>-----</u>|
+                D|<u>---</u>2<u>-----</u>2<u>----</u>0<u>------------</u>2<u>--------------</u>|
+                A|<u>-----------------</u>0<u>-----------</u>0<u>----------</u>0<u>-</u>|
+                E|<u>-</u>2<u>-----</u>1<u>----</u>0<u>-----------------------------</u>|
+                
+                 <b>Am</b>           <b>E7/B</b>
+                Vem, me dê a mão
+                          <b>A7/C#</b>           
+                A gente agora
+                              <b>Dm7</b>
+                Já não tinha medo
+                <b>Bm7(5-)</b>                 <b>C</b>
+                        No tempo da maldade
+                   <b>Am7</b>      <b>Am7/G</b>   <b>F#m7(5-)</b>  
+                Acho que a gente   nem
+                <b>F7M</b>     <b>E7</b>    <b>Am9</b>
+                    Tinha nascido
+                
+                [Terceira Parte]
+                
+                [Tab - Terceira Parte]
+                
+                [Parte 1 de 5]
+                   <b>Dm7</b>          <b>Bm7(5-)</b>     <b>C</b>                       
+                e|<u>-----</u>1<u>---</u>1<u>--------------------</u>0<u>-----------</u>|
+                B|<u>-----</u>1<u>---</u>1<u>--------</u>3<u>---</u>3<u>-------</u>1<u>-----------</u>|
+                G|<u>---</u>2<u>---</u>2<u>----------</u>2<u>---</u>2<u>-----</u>0<u>-------------</u>|
+                D|<u>-</u>0<u>---------</u>0<u>----</u>3<u>---</u>3<u>----------</u>2<u>---</u>2<u>------</u>|
+                A|<u>--------------</u>2<u>---------</u>2<u>-</u>3<u>---------------</u>|
+                E|<u>---------------------------------</u>0<u>--------</u>|
+                
+                Parte 2 de 5
+                   <b>Am</b>           <b>Dm7</b>         <b>Bm7(5-)</b>                                         
+                e|<u>-----</u>0<u>---</u>0<u>--------</u>1<u>---</u>1<u>-------------------</u>|
+                B|<u>-----</u>1<u>---</u>1<u>--------</u>1<u>---</u>1<u>-------</u>3<u>---</u>3<u>-------</u>|
+                G|<u>---</u>2<u>---</u>2<u>--------</u>2<u>---</u>2<u>---------</u>2<u>---</u>2<u>-------</u>|
+                D|<u>--------------</u>0<u>---------</u>0<u>---</u>3<u>---</u>3<u>---------</u>|
+                A|<u>-</u>0<u>---------</u>0<u>--------------</u>2<u>---------</u>2<u>-----</u>|
+                E|<u>------------------------------------------</u>|
+                
+                Parte 3 de 5
+                   <b>Gm6/Bb</b>       <b>A7</b>  <b>G/B</b>  <b>A/C#</b>  <b>Dm7</b>
+                e|<u>---------------------------------</u>1<u>---</u>1<u>----</u>|
+                B|<u>-----</u>3<u>---</u>3<u>----</u>2<u>----</u>3<u>----</u>5<u>--------</u>1<u>---</u>1<u>----</u>|
+                G|<u>-----</u>0<u>---</u>0<u>----</u>0<u>----</u>0<u>----</u>0<u>-</u>0<u>----</u>2<u>---</u>2<u>------</u>|
+                D|<u>---</u>2<u>---</u>2<u>---</u>2<u>----</u>2<u>----</u>0<u>-------</u>0<u>---------</u>0<u>--</u>|
+                A|<u>-</u>1<u>------------</u>0<u>----</u>2<u>----</u>4<u>-----------------</u>|
+                E|<u>------------------------------------------</u>|
+                
+                Parte 4 de 5
+                   <b>G7</b>          <b>C</b>             <b>F7</b> 
+                e|<u>-----</u>1<u>---</u>1<u>-------</u>0<u>---</u>0<u>-------------</u>1<u>------</u>|
+                B|<u>-----</u>0<u>---</u>0<u>-------</u>1<u>---</u>1<u>---------</u>1<u>---</u>1<u>------</u>|
+                G|<u>---</u>0<u>---</u>0<u>-------</u>0<u>---</u>0<u>-----------</u>2<u>----------</u>|
+                D|<u>-----------------------------</u>1<u>---</u>1<u>--------</u>|
+                A|<u>-------------</u>3<u>----------------------------</u>|
+                E|<u>-</u>3<u>---------</u>3<u>-----------</u>3<u>-</u>2<u>-</u>1<u>----------</u>1<u>---</u>|
+                
+                Parte 5 de 5
+                   <b>Bb7M</b>        <b>E7</b>          <b>Am9</b>    
+                e|<u>---------</u>1<u>-------------------</u>0<u>---</u>0<u>--------</u>|
+                B|<u>-----</u>3<u>---</u>3<u>-------</u>3<u>---</u>3<u>-------</u>1<u>---</u>1<u>--------</u>|
+                G|<u>-----</u>2<u>-----------</u>1<u>---</u>1<u>-----</u>4<u>---</u>4<u>----------</u>|
+                D|<u>---</u>3<u>---</u>3<u>-------</u>0<u>---</u>0<u>----------------------</u>|
+                A|<u>-</u>1<u>---------</u>1<u>-------------</u>0<u>----------------</u>|
+                E|<u>-------------</u>0<u>---------</u>0<u>-------------</u>0<u>----</u>|
+                
+                             <b>Dm7</b>
+                Agora era fatal
+                              <b>Bm7(5-)</b>               
+                Que o faz-de-conta
+                              <b>C</b>  <b>Am</b>
+                Terminasse assim
+                                  <b>Dm7</b>
+                Pra lá desse quintal
+                         <b>Bm7(5-)</b>                <b>Gm6/Bb</b>
+                Era uma noite que não tem mais fim
+                <b>A7</b>  <b>G/B</b>   <b>A7/C#</b>  <b>Dm7</b>         <b>G7</b>
+                   Pois  vo_____cê sumiu no mundo
+                           <b>C</b>
+                Sem me avisar
+                           <b>F7</b>
+                E agora eu era
+                                  <b>Bb7M</b>
+                Um louco a perguntar
+                               <b>E7</b>
+                O que é que a vida vai
+                          <b>Am9</b>  
+                Fazer de mim
+                
+                [Final] <b>Am9</b>  <b>Am/G</b>  <b>Am9</b>  <b>F7M</b>  <b>Am9</b>
+                
+                [Tab - Final]
+                
+                   <b>F7M</b>         <b>Am9</b>          <b>F7M</b>         <b>Am9</b>
+                e|<u>-----</u>0<u>---</u>0<u>-------</u>0<u>---</u>0<u>--------</u>0<u>---</u>0<u>---</u>0<u>---</u>|
+                B|<u>-----</u>1<u>---</u>1<u>-------</u>1<u>---</u>1<u>--------</u>1<u>---</u>1<u>---</u>1<u>---</u>|
+                G|<u>---</u>2<u>---</u>2<u>-------</u>4<u>---</u>4<u>--------</u>2<u>---</u>2<u>-----</u>4<u>---</u>|
+                D|<u>--------------------------------------</u>2<u>---</u>|
+                A|<u>-------------</u>0<u>------------------------</u>0<u>---</u>|
+                E|<u>-</u>1<u>---------</u>0<u>------------</u>0<u>-</u>1<u>---------</u>0<u>-----</u>|
+                
+                `
+     }]
+     var tela_cifra = document.querySelector(".tela_inteira_cifra");
+
+     function alterar_cifra(index){
+      tela_cifra.classList.remove("escondido");
+      
+     }
+
+     var checkboxScroll = document.querySelector("#checkboxScroll");
+  var velocidade_range = document.querySelector("#range");
+  var range = document.getElementById("rolar");
+
+  var scrollInterval;
+
+  function opçao_rolar(element) {
+    if (element.checked) {
+      velocidade_range.classList.remove("escondido");
+    } else {
+      velocidade_range.classList.add("escondido");
+      range.classList.remove("escondido")
+      stopScroll();
+    }
   }
-  function exibir_joao_e_maria() {
-    window.location.href = "./musicas_cifra/joao_e_maria.html";
+
+  function correr_pagina() {
+    
+    var intervalo = parseInt(range.value);
+    var intervalo_liso = intervalo / 10;
+    range.classList.add("escondido")
+    scrollInterval = setInterval(function () {
+      window.scrollBy(0, 1);
+      if (
+        window.innerHeight + window.pageYOffset >=
+        document.body.offsetHeight
+      ) {
+        clearInterval(scrollInterval);
+        range.value = "";
+        parar_rolagem();
+        range.classList.remove("escondido")
+      }
+    }, intervalo_liso);
+  }
+
+  function parar_rolagem() {
+    clearInterval(scrollInterval);
+    velocidade_range.classList.add("escondido");
+    range.classList.remove("escondido")
+    checkboxScroll.checked = false;
   }
 </script>
+
+ 
+<!-- 
+{ artista: "Artista 1", genero: "Gênero 1", cifra: "Cifra 1" },
+{ artista: "Artista 2", genero: "Gênero 2", cifra: "Cifra 2" },
+{ artista: "Artista 3", genero: "Gênero 3", cifra: "Cifra 3" }
+];
+
+function alterarCifra(index) {
+var visualizacaoCifra = document.getElementById("visualizacaoCifra");
+var cifraAtual = cifras[index];
+
+visualizacaoCifra.textContent = "Artista: " + cifraAtual.artista + "\n";
+visualizacaoCifra.textContent += "Gênero: " + cifraAtual.genero + "\n\n";
+visualizacaoCifra.textContent += cifraAtual.cifra;
+} -->
