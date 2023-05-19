@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CIFRA | CIFRAEZ</title>
   <link rel="stylesheet" href="../css/style.css" />
+  <script src="js/funcoes.js"></script>
   
 </head>
 
@@ -16,7 +17,7 @@
     <div class="header">
       <div class="logo_pagina">
         <h1>
-          <a href="musicas.html">CIFRAEZ</a>
+          <a href="../index.html">CIFRAEZ</a>
         </h1>
       </div>
       <input type="text" id="ipt_pesquisa" placeholder="Buscar..." />
@@ -39,7 +40,7 @@
       <input type="text" id="ipt_email" placeholder="Email">
       <h6>Sua senha</h6>
       <input type="password" id="ipt_senha" placeholder="Senha">
-      <button onclick="logar_usuario()">Entrar</button>
+      <button onclick="entrar()">Entrar</button>
       <p>Não tem uma conta? crie <a href="cadastro.html">aqui</a></p>
     </div>
     </div>
@@ -49,16 +50,107 @@
   <div class="footer">
     <div class="redes_sociais">
       <div>
-        <a href="https://instagram.com/ali_aonde?igshid=ZDdkNTZiNTM="><img src="../css/logo_insta.png" /></a>
+        <a href="https://instagram.com/ali_aonde?igshid=ZDdkNTZiNTM="><img src="../fotos_usadas/instaLogo.png" /></a>
       </div>
       <div>
-        <a href="facebook.com"><img src="../css/Facebook-logo-circular.png" /></a>
+        <a href="facebook.com"><img src="../fotos_usadas/faceLogo.png" /></a>
+      </div>
+      <h1>
+        <a href="musicas.html">CIFRAEZ</a>
+      </h1>
+      <div>
+        <a href="github.com"><img src="../fotos_usadas/gitLogo.png" /></a>
       </div>
       <div>
-        <a href="github.com"><img src="" /></a>
-      </div>
-      <div>
-        <a href="Wa.me/5511975757745"><img src="../css/logo_wpp.png" /></a>
+        <a href="Wa.me/5511975757745"><img src="../fotos_usadas/wppLogo.png" /></a>
       </div>
     </div>
+    <div class="direitos">
+      <h6>
+        @ Todos os direitos reservados para Arthur Silemanali - 2023
+      </h6>
+    </div>
   </div>
+
+  <div id="div_aguardar" class="loading-div"></div>
+  <div id="div_erros_login"></div>
+    
+  <div class="login">
+    <div class="alerta_erro">
+        <div class="card_erro" id="cardErro">
+            <span id="mensagem_erro"></span>
+        </div>
+      </div> 
+    </div>                         
+
+<script>
+    function entrar() {
+      aguardar();
+
+      var emailVar = ipt_email.value;
+      var senhaVar = ipt_senha.value;
+
+      if (emailVar == "" || senhaVar == "") {
+          cardErro.style.display = "block"
+          mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+          finalizarAguardar();
+          return false;
+      }
+      else {
+          setInterval(sumirMensagem, 5000)
+      }
+
+      console.log("FORM LOGIN: ", emailVar);
+      console.log("FORM SENHA: ", senhaVar);
+
+      fetch("/usuarios/autenticar", {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+              emailServer: emailVar,
+              senhaServer: senhaVar
+          })
+      }).then(function (resposta) {
+          console.log("ESTOU NO THEN DO entrar()!")
+
+          if (resposta.ok) {
+              console.log(resposta);
+
+              resposta.json().then(json => {
+                  console.log(json);
+                  console.log(JSON.stringify(json));
+
+                  sessionStorage.EMAIL_USUARIO = json.email_usuario;
+                  sessionStorage.NOME_USUARIO = json.nome_usuario;
+                  sessionStorage.ID_USUARIO = json.id_usuario;
+
+                  setTimeout(function () {
+                      window.location = "../index.html";
+                  }, 500); // apenas para exibir o loading
+
+              });
+
+          } else {
+
+              console.log("Houve um erro ao tentar realizar o login!");
+
+              resposta.text().then(texto => {
+                  console.error(texto);
+                  finalizarAguardar(texto);
+              });
+          }
+
+      }).catch(function (erro) {
+          console.log(erro);
+      })
+
+      return false;
+  }
+
+  function sumirMensagem() {
+      cardErro.style.display = "none"
+  }
+
+</script>
