@@ -645,6 +645,7 @@
 
     var scrollInterval;
 
+<<<<<<< HEAD
     function opçao_rolar(element) {
       if (element.checked) {
         velocidade_range.classList.remove("escondido");
@@ -683,6 +684,42 @@
 
 
     }
+=======
+  function opçao_rolar(element) {
+    if (element.checked) {
+      document.querySelector("#range").classList.remove("escondido");
+    } else {
+      document.querySelector("#range").classList.add("escondido");
+      document.getElementById("rolar").classList.remove("escondido")
+      stopScroll();
+    }
+  }
+
+  function correr_pagina() {
+    
+    var intervalo = parseInt( document.getElementById("rolar").value);
+    var intervalo_liso = intervalo / 10;
+    document.getElementById("rolar").classList.add("escondido")
+    scrollInterval = setInterval(function () {
+      window.scrollBy(0, 1);
+      if (
+        window.innerHeight + window.pageYOffset >=
+        document.body.offsetHeight
+      ) {
+        clearInterval(scrollInterval);
+        document.getElementById("rolar").value = "";
+        parar_rolagem();
+        document.getElementById("rolar").classList.remove("escondido")
+      }
+    }, intervalo_liso);
+  }
+
+  function parar_rolagem() {
+    document.querySelector("#range").classList.add("escondido");
+    document.getElementById("rolar").classList.remove("escondido")
+    document.getElementById("checkboxScroll").checked = false;
+    clearInterval(scrollInterval);
+>>>>>>> 8540c86d1060a84818dd11de4b3a47ffbe790360
 
 
   </script>
