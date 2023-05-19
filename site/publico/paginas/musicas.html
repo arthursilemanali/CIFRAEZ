@@ -7,12 +7,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CIFRA | CIFRAEZ</title>
   <link rel="stylesheet" href="../css/style.css" />
-  
+
 </head>
 
 <body>
   <header>
-    
+
     <div class="header">
       <div class="logo_pagina">
         <h1>
@@ -31,33 +31,16 @@
   <!-- tela de cifra -->
 
   <div class="tela_inteira_cifra escondido" id="div_cifra">
-    
+
   </div>
   <div class="escondido range_valor" id="range">
     Auto rolagem
-    <input
-      type="range"
-      min="0"
-      max="1000"
-      step="10"
-      value="0"
-      id="rolar"
-      class="range"
-      onclick="correr_pagina()" 
-    />
+    <input type="range" min="0" max="1000" step="10" value="0" id="rolar" class="range" onclick="correr_pagina()" />
 
     <div class="svg-btn" onclick="parar_rolagem()">
-      <svg
-        class="fechar"
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 2048 2048"
-      >
-        <path
-          fill="currentColor"
-          d="m1115 1024l690 691l-90 90l-691-690l-691 690l-90-90l690-691l-690-691l90-90l691 690l691-690l90 90l-690 691z"
-        />
+      <svg class="fechar" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 2048 2048">
+        <path fill="currentColor"
+          d="m1115 1024l690 691l-90 90l-691-690l-691 690l-90-90l690-691l-690-691l90-90l691 690l691-690l90 90l-690 691z" />
       </svg>
     </div>
   </div>
@@ -96,9 +79,9 @@
         <p>aaaaa</p>
       </div>
     </div>
-    </div>
+  </div>
 
-  
+
   <div class="footer">
     <div class="redes_sociais">
       <div>
@@ -130,14 +113,14 @@
 
 
 
-<script>
-  
+  <script>
 
-  var cifras = [{
-    musica: "Behind blue eyes",
-    artista: "Limp Biskit",
-    genero: "Rock",
-    cifra: `
+
+    var cifras = [{
+      musica: "Behind blue eyes",
+      artista: "Limp Biskit",
+      genero: "Rock",
+      cifra: `
         Intro: <b>Em</b>  <b>G6</b>  <b>D5(9)</b>  <b>C9</b>  <b>A5(9)</b>
         <b>Em</b>                <b>G6</b>
      E|<u>----------</u>0<u>-----------------</u>0<u>------------</u>
@@ -257,7 +240,7 @@
      No one knows what it's like, to be the bad man,
                 <b>C9</b>         <b>A5(9)</b>
      To be the sad man, behind blue eyes`},
-     {
+    {
       musica: "João e Maria",
       artista: "Chico Buarque",
       genero: "MPB",
@@ -613,12 +596,12 @@
                 E|<u>-</u>1<u>---------</u>0<u>------------</u>0<u>-</u>1<u>---------</u>0<u>-----</u>|
                 
                 `
-     }]
+    }]
 
-     var tela_cifra = document.querySelector(".tela_inteira_cifra");
-     var tela_menu = document.querySelector(".tela_meio_musicas")
+    var tela_cifra = document.querySelector(".tela_inteira_cifra");
+    var tela_menu = document.querySelector(".tela_meio_musicas")
 
-     function alterar_cifra(index){
+    function alterar_cifra(index) {
       var cifraAtual = cifras[index];
       div_cifra.innerHTML = `<div class="menu_cifra">
       <div class="nome_da_musica" >
@@ -641,70 +624,71 @@
       <img src="../fotos_usadas/background.jpg" />
     </div>
     <pre id="cifra">${cifraAtual.cifra}</pre>`
-    
-      
+
+
       tela_cifra.classList.remove("escondido");
-      
+
       tela_menu.classList.add("escondido")
-      
-     }
-     
-     function voltar() {
+      tela_menu.classList.add("display_none")
+
+    }
+
+    function voltar() {
       tela_cifra.classList.add("escondido");
-      
+
       tela_menu.classList.remove("escondido")
-     }
+    }
 
-     var checkboxScroll = document.querySelector("#checkboxScroll");
-  var velocidade_range = document.querySelector("#range");
-  var range = document.getElementById("rolar");
+    var checkboxScroll = document.querySelector("#checkboxScroll");
+    var velocidade_range = document.querySelector("#range");
+    var range = document.getElementById("rolar");
 
-  var scrollInterval;
+    var scrollInterval;
 
-  function opçao_rolar(element) {
-    if (element.checked) {
-      velocidade_range.classList.remove("escondido");
-    } else {
+    function opçao_rolar(element) {
+      if (element.checked) {
+        velocidade_range.classList.remove("escondido");
+        checkboxScroll = 1;
+      } else {
+        velocidade_range.classList.add("escondido");
+        range.classList.remove("escondido")
+        stopScroll();
+      }
+    }
+
+    function correr_pagina() {
+
+      var intervalo = parseInt(range.value);
+      var intervalo_liso = intervalo / 10;
+      range.classList.add("escondido")
+      scrollInterval = setInterval(function () {
+        window.scrollBy(0, 1);
+        if (
+          window.innerHeight + window.pageYOffset >=
+          document.body.offsetHeight
+        ) {
+          clearInterval(scrollInterval);
+          range.value = "";
+          parar_rolagem();
+          range.classList.remove("escondido")
+        }
+      }, intervalo_liso);
+    }
+
+    function parar_rolagem() {
+      clearInterval(scrollInterval);
       velocidade_range.classList.add("escondido");
       range.classList.remove("escondido")
-      stopScroll();
+      document.getElementById("checkboxScroll").checked = false;
+
+
     }
-  }
-
-  function correr_pagina() {
-    
-    var intervalo = parseInt(range.value);
-    var intervalo_liso = intervalo / 10;
-    range.classList.add("escondido")
-    scrollInterval = setInterval(function () {
-      window.scrollBy(0, 1);
-      if (
-        window.innerHeight + window.pageYOffset >=
-        document.body.offsetHeight
-      ) {
-        clearInterval(scrollInterval);
-        range.value = "";
-        parar_rolagem();
-        range.classList.remove("escondido")
-      }
-    }, intervalo_liso);
-  }
-
-  function parar_rolagem() {
-    clearInterval(scrollInterval);
-    velocidade_range.classList.add("escondido");
-    range.classList.remove("escondido")
-    checkboxScroll.checked = false;
 
 
+  </script>
 
-  }
-  
-  
-</script>
 
- 
-<!-- 
+  <!-- 
 { artista: "Artista 1", genero: "Gênero 1", cifra: "Cifra 1" },
 { artista: "Artista 2", genero: "Gênero 2", cifra: "Cifra 2" },
 { artista: "Artista 3", genero: "Gênero 3", cifra: "Cifra 3" }
