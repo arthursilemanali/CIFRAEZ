@@ -5,6 +5,10 @@
 }
 
 
+.bi{
+  color: #d69b11;
+}
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #555;

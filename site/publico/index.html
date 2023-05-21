@@ -239,7 +239,9 @@
       <b>Em</b>                     <b>G6</b>              <b>D5(9)</b>
      No one knows what it's like, to be the bad man,
                 <b>C9</b>         <b>A5(9)</b>
-     To be the sad man, behind blue eyes`},
+     To be the sad man, behind blue eyes`,
+      id_musica: 100,
+      id_artista: 100},
     {
       musica: "João e Maria",
       artista: "Chico Buarque",
@@ -595,14 +597,19 @@
         A|<u>-------------</u>0<u>------------------------</u>0<u>---</u>|
         E|<u>-</u>1<u>---------</u>0<u>------------</u>0<u>-</u>1<u>---------</u>0<u>-----</u>|
         
-        `
+        `,
+      id_musica: 101,
+      id_artista: 101
     }]
 
     var tela_cifra = document.querySelector(".tela_inteira_cifra");
-    var tela_menu = document.querySelector(".tela_meio_musicas")
-
+    var tela_menu = document.querySelector(".tela_meio_musicas");
+    var musica = 0;
+    var artista = "";
     function alterar_cifra(index) {
       var cifraAtual = cifras[index];
+      musica = cifraAtual.id_musica;
+      artista = cifraAtual.id_artista;
       div_cifra.innerHTML = `<div class="menu_cifra">
       <div class="nome_da_musica" >
         <h4 id="h4_nome_musica">${cifraAtual.musica} <b id="b_artista">${cifraAtual.artista}</b></h4>
@@ -693,6 +700,38 @@
   }
 
   function favoritar(){
-    
-  }
+     
+        
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        
+        
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/favoritar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                musicaFavoritadaServer: musica,
+                artistaServer: artista,
+                usuarioServer: sessionStorage.ID_USUARIO
+            })
+        })
+      }
+
+      function pesquisar (){
+        var musica_pesquisada = ipt_pesquisa.value
+        for(var i = 0; i <= cifras; i++){
+          if (cifras.indexOf(musica_pesquisada)){
+            alterar_cifra();
+          }
+          
+        }
+      }
+  
   </script>

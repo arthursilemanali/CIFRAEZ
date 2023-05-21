@@ -31,8 +31,21 @@ function cadastrar(nome, email, senha, generoFav) {
     return database.executar(instrucao);
 }
 
+function favoritar(usuario, musica, artista) {
+
+    
+    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
+    //  e na ordem de inserção dos dados.
+    var instrucao = `
+        INSERT INTO musica_favorita (fk_usuario, fk_musica, fk_artista) VALUES (${usuario}, ${musica}, ${artista});
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
     entrar,
     cadastrar,
     listar,
+    favoritar
 };
