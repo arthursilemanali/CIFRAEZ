@@ -48,7 +48,6 @@ INSERT INTO musica values
 (null, 'João e Maria', '101', '101');
 
 CREATE TABLE musica_favorita (
-id_musica_fav INT auto_increment,
 fk_usuario int,
 constraint fk_usuario foreign key (fk_usuario)
 references usuario (id_usuario),
@@ -58,5 +57,17 @@ references musica (id_musica),
 fk_artista int,
 constraint fk_artista_fav foreign key (fk_artista)
 references artista (id_artista),
-constraint pk_composta_fav primary key (id_musica_fav, fk_usuario, fk_musica, fk_artista)
+constraint pk_composta_fav primary (fk_usuario, fk_musica, fk_artista)
 );
+
+SELECT 
+    fk_musica AS musica,
+    nome_musica AS nome_da_musica,
+    COUNT(fk_musica) AS votos
+FROM
+    musica_favorita
+        JOIN
+    musica ON musica.id_musica = musica_favorita.fk_musica
+GROUP BY fk_musica
+ORDER BY fk_musica DESC
+LIMIT 10;
