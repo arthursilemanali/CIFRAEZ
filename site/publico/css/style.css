@@ -372,6 +372,7 @@ h2 {
 .rolar_pagina{
   display: flex;
   align-items: center;
+  z-index: 2;
   margin-left: 15%;
   gap: 16px;
   margin-top: 10px;

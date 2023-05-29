@@ -7,17 +7,17 @@ nome_usuario VARCHAR(45) NOT NULL,
 email_usuario VARCHAR(200) NOT NULL,
 senha_usuario VARCHAR(20) NOT NULL,
 genero_usuario_fav VARCHAR(45) NOT NULL
-)auto_increment = 100;
+);
 
 CREATE TABLE artista (
 id_artista INT PRIMARY KEY AUTO_INCREMENT,
 nome_artista VARCHAR(45)
-)auto_increment = 100;
+);
 
 CREATE TABLE genero (
 id_genero INT PRIMARY KEY auto_increment,
 nome_genero VARCHAR(45)
-)auto_increment = 100;
+);
 
 INSERT INTO artista VALUES 
 (null, 'Limp Biskit'),
@@ -41,7 +41,7 @@ references genero (id_genero),
 fk_artista int,
 constraint fk_artista_musica foreign key (fk_artista)
 references artista (id_artista)
-)auto_increment = 100;
+);
 
 INSERT INTO musica values 
 (null, 'Behind blue eyes', '100', '100'),

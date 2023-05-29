@@ -9,6 +9,7 @@ function ranking() {
     artista.nome_artista AS nome_do_artista,
     musica.fk_genero AS id_genero,
     genero.nome_genero AS genero_musica,
+    cifra_musica as cifra,
     COUNT(fk_musica) AS votos
 FROM
     musica_favorita
