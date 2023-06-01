@@ -3,7 +3,7 @@ var router = express.Router();
 
 var pesquisaController = require("../controllers/pesquisaController");
 
-router.get("/", function (req, res) {
+router.get("/:nomeMusica", function (req, res) {
     pesquisaController.pesquisa(req, res);
 });
 

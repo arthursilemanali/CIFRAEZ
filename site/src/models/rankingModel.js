@@ -23,8 +23,7 @@ GROUP BY fk_musica
 ORDER BY votos DESC
 LIMIT 10;`
 
-    console.log("Executando a instrução SQL: \n" + instrucao);
-    console.log(instrucao[0].musica);
+ 
     
     
     

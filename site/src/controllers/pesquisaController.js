@@ -1,15 +1,15 @@
 var pesquisaModel = require("../models/pesquisaModel");
 
+
 function pesquisa(req, res) {
-    var musica_pesquisada = req.body.emailServer;
+    var pesquisa = req.params.nomeMusica;
 
-
-    if (musica_pesquisada == undefined) {
+    if (pesquisa == undefined) {
         res.status(400).send("Sua pesquisa está undefined!");
-    } 
+    }
      else {
         
-        pesquisaModel.pesquisa(musica_pesquisada)
+        pesquisaModel.pesquisar(pesquisa)
             .then(
                 function (resultado) {
                     console.log(`\nResultados encontrados: ${resultado.length}`);
@@ -19,13 +19,13 @@ function pesquisa(req, res) {
                         console.log(resultado);
                         res.json(resultado[0]);
                     } else if (resultado.length == 0) {
-                        res.status(403).send("Infelizmente não temos essa música");
+                        res.status(403).send("Música não encontrada");
                     }
                 }
             ).catch(
                 function (erro) {
                     console.log(erro);
-                    console.log("\nEssa música não foi encontrada", erro.sqlMessage);
+                    console.log("\nHouve um erro ao buscar a música! Erro: ", erro.sqlMessage);
                     res.status(500).json(erro.sqlMessage);
                 }
             );

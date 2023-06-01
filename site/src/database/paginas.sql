@@ -1567,3 +1567,36 @@ FROM
 GROUP BY fk_musica
 ORDER BY votos DESC
 LIMIT 10;
+
+
+INSERT INTO musica_favorita VALUES 
+(1, 1, 1);
+INSERT INTO musica_favorita VALUES 
+(1, 2, 2);
+INSERT INTO musica_favorita VALUES 
+(1, 3, 5);
+INSERT INTO musica_favorita VALUES 
+(1, 4, 5);
+INSERT INTO musica_favorita VALUES 
+(1, 5, 14);
+INSERT INTO musica_favorita VALUES 
+(2	, 5, 14);
+
+ SELECT 
+    nome_musica AS nome_da_musica,
+    musica.fk_artista AS id_artista,
+    artista.nome_artista AS nome_do_artista,
+    musica.fk_genero AS id_genero,
+    genero.nome_genero AS genero_musica,
+    cifra_musica AS cifra
+FROM
+    musica
+        JOIN
+    genero ON musica.fk_genero = genero.id_genero
+        JOIN
+    artista ON musica.fk_artista = artista.id_artista
+WHERE
+    musica.nome_musica = 'João e Maria';
+
+
+select * from musica;

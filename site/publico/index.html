@@ -11,7 +11,7 @@
 
 </head>
 
-<body>
+<body onload="ranking()">
   <header>
 
     <div class="header">
@@ -20,7 +20,8 @@
           <a href="index.html">CIFRAEZ</a>
         </h1>
       </div>
-      <input type="text" id="ipt_pesquisa" placeholder="Buscar..." />
+      <input type="text" id="ipt_pesquisa" placeholder="Buscar..." onkeyup="handleKeyUp(event)"/>
+   
       <div class="navbar">
         <a href="./paginas/sobre.html">Sobre</a>
 
@@ -212,56 +213,96 @@
         })
       })
     }
-    let cifraPesquisada = []
-    function pesquisar(cifra_pesquisada) {
 
-      var musica_pesquisa = ipt_pesquisa.value
+    function exibir_pesquisa (){
+      var cifra_mostrar = cifraPesquisada
+      musica = cifra_mostrar.nome_da_musica
+      artista = cifra_mostrar.nome_do_artista
+      cifra = cifra_mostrar.cifra
+      div_cifra.innerHTML = `<div class="menu_cifra">
+      <div class="nome_da_musica" >
+        <h4 id="h4_nome_musica">${musica} <b id="b_artista">${artista}</b></h4>
+      </div>
 
-      fetch("/pesquisa", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          musica_pesquisaServer: musica_pesquisa
-        })
-      }).then(function (resposta) {
-        console.log("ESTOU NO THEN DO pesquisa()!")
+      <div class="container_favoritar" onclick=favoritar()>
+    Favoritar música
+    <svg class="favoritar" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+    </svg>
+  </div>
 
-        if (resposta.ok) {
-          console.log(resposta);
+      <div class="rolar_pagina">
+        Auto rolagem
 
-          resposta.json().then(json => {
-            console.log(json);
-            console.log(JSON.stringify(json));
 
-            sessionStorage.MUSICA_PESQUISADA = json.nome_musica;
+        <label class="switch">
+          <input
+            id="checkboxScroll"
+            type="checkbox"
+            value="0"
+            onchange="opçao_rolar(this)"
+          />
+          <span class="slider round"></span>
+        </label>
+      </div>
 
+     
+      <img src="./fotos_usadas/background.jpg" />
       
+    </div>
+    <pre id="cifra">${cifra}</pre>
+    `
 
-
-          });
-
-        } else {
-
-          console.log("Música não encontrada");
-
-          resposta.text().then(texto => {
-            console.error(texto);
-            finalizarAguardar(texto);
-          });
-        }
-
-      }).catch(function (erro) {
-        console.log(erro);
-      })
-
-      return false;
+    tela_cifra.classList.remove("escondido");
+      tela_menu.classList.add("escondido");
+      tela_menu.classList.add("display_none");
     }
 
 
 
+    let cifraPesquisada = []
 
+
+    function pesquisar() {
+      var pesquisaVar = ipt_pesquisa.value;
+
+
+      console.log(pesquisaVar);
+
+      fetch("/pesquisa/"+pesquisaVar)
+      .then(async function (resposta) {
+          console.log("ESTOU NO THEN DO pesquisa()!aaaaaaaaaaaaaaaaaa")
+          console.log(pesquisaVar)
+      //  cifraPesquisada =  await resposta.json()
+
+          if (resposta.ok) {
+              console.log(resposta);
+
+              resposta.json().then(json => {
+                  console.log("Resposta Traduzida",json);
+                 
+                  cifraPesquisada = json;
+                 
+                  exibir_pesquisa();
+                  
+                 
+              });
+
+          } else {
+
+              console.log("Não temos essa música: ", pesquisaVar);
+
+              resposta.text().then(texto => {
+                  console.error(texto);
+                  finalizarAguardar(texto);
+              });
+          }
+
+      })
+
+      
+  }
+      
     const divRanking = document.getElementById("div_ranking")
 
 
@@ -273,7 +314,6 @@
         }
       }).then(async function (resposta) {
         cifrasBanco = await resposta.json()
-        console.log(cifrasBanco)
         div_ranking.innerHTML = ""
         for (var posicao = 0; posicao < cifrasBanco.length; posicao++) {
           var cifraAtual = cifrasBanco[posicao];
@@ -287,8 +327,15 @@
     }
 
     function gerar_rank() {
-      setInterval(ranking, 500)
+      setInterval(ranking, 20000)
     }
 
+
+    function handleKeyUp(event) {
+      
+      if (event.keyCode === 13) {
+        pesquisar();
+      }
+    }
 
   </script>
