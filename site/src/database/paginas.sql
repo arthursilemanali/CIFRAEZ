@@ -729,7 +729,10 @@ Nothing really matters to me
 ( <b>G</b>  <b>D</b>  <b>D°</b>  <b>A</b>  <b>Am</b>  <b>B7</b>  <b>E</b> )
 
 <b>A</b>    <b>E</b>       <b>G</b>     <b>B7</b>   <b>E</b>
-Any way the wind blows", '1', '5'),
+Any way the wind blows", '1', '5');
+
+INSERT INTO musica VALUES
+
 (null, 'Killer Queen', "          <b>Cm</b>
 She keeps Moet and Chandon,
 <b>A#</b>
@@ -875,7 +878,10 @@ In-satiable in appetite;
 Outro:
 
 <b>F7</b>  <b>A#</b>  <b>F7</b>  <b>A#</b>,
-<b>F7</b>  <b>A#</b>  <b>F7</b>  <b>A#</b>  <b>D#</b>", '1', '5'),
+<b>F7</b>  <b>A#</b>  <b>F7</b>  <b>A#</b>  <b>D#</b>", '1', '5');
+
+INSERT INTO musica VALUES 
+
 (null, 'Love of My Life', "[Intro] <b>D</b>  <b>Bm</b>  <b>Em</b>  <b>A</b>  <b>A7</b>
         <b>D</b>  <b>Bm</b>  <b>G6</b>  <b>D9/F#</b>  <b>E</b>
 
@@ -1111,7 +1117,7 @@ Na, na na na na na na ,na na na na, Hey Jude
            <b>Eb</b>           <b>Bb</b>               <b>F</b>
 Na, na na na na na na ,na na na na, Hey Jude
 
-Na, na na na na na na ,na na na na, Hey Jude", '14', '1'),
+Na, na na na na na na ,na na na na, Hey Jude", '1', '14'),
 (null, 'Let it be', "[Intro] <b>C</b>  <b>G</b>  <b>Am</b>  <b>F</b>  <b>C</b>  <b>G</b>  <b>F</b>   <b>C</b>
 
 [Primeira Parte] 
@@ -1283,6 +1289,250 @@ Don't let me down, don't let me down
 
 ( <b>F#m</b>  <b>E</b>  <b>F#m</b>  <b>E</b> )", '1', '14');
 
+INSERT INTO musica VALUES
+(null, 'Oceano', '[Primeira Parte]
+
+<b>D</b>       <b>G</b>                   <b>A</b>
+  Assim    que o dia amanheceu
+       <b>A#°</b>         <b>Bm</b>    
+Lá no mar alto da paixão
+                       <b>Am</b>  <b>D</b>
+Dava pra ver o tempo ruir
+<b>Gm</b>        <b>C</b>           <b>F#m</b>
+  Cadê você, que solidão
+<b>B7</b>         <b>E7</b>       <b>A7</b>
+   Esquecerá  de mim
+
+<b>D</b>       <b>G</b>                     <b>A7</b>
+  Enfim,   de tudo que há na terra
+        <b>A#°</b>               <b>Bm</b> 
+Não há nada em  lugar nenhum
+                             <b>Am</b>  <b>D</b>
+Que vá crescer sem você chegar
+<b>Gm</b>           <b>C</b>           <b>F#m</b>
+   Longe de ti   tudo parou
+<b>B7</b>         <b>E7</b>                <b>A7</b>
+   Ninguém sabe o que eu sofri
+
+[Refrão]
+
+<b>Dm</b>           <b>C</b>              <b>F</b>   
+Amar é um deserto e seus temores
+
+( <b>Em7</b>  <b>A7</b> )
+
+ <b>Dm</b>               <b>C</b>           <b>F</b>
+Vida que vai  na sela dessas dores
+     <b>Gm</b>      <b>Am</b>      <b>Bb7M</b>       <b>Em7</b>  <b>A7</b>
+Não sabe voltar, me dá   teu calor
+
+ <b>Dm</b>               <b>C</b>              <b>F</b>
+Vem me fazer feliz  porque eu te amo
+
+( <b>Em7</b>  <b>A7</b> )
+
+ <b>Dm</b>              <b>C</b>          <b>F</b>
+Você deságua em mim e eu oceano
+       <b>Gm</b>        <b>Am</b>       <b>Bb7M</b>     <b>Em7</b>  <b>A7</b>
+Me esqueço que amar  é  quase uma dor
+
+ <b>D</b>    <b>F</b>      <b>G</b>    <b>C</b>    <b>D</b>   <b>F</b>    <b>G</b>     <b>C</b>   <b>D</b>
+Só   sei    vi___ver  se  for  por   vo__cê
+
+( <b>F</b>  <b>G</b>  <b>C</b>  <b>D</b> )', '4', '2'),
+(null, 'Se', '[Intro] <b>A</b>  <b>D</b>  <b>F#m7</b>  <b>E</b>
+        <b>A</b>  <b>D</b>  <b>F#m7</b>  <b>E</b>
+        <b>A</b>  <b>D</b>  <b>F#m7</b>  <b>E</b>
+        <b>A</b>  <b>D</b>  <b>F#m7</b>  <b>E</b>
+
+[Primeira Parte]
+
+      <b>A</b>         <b>D</b>             <b>F#m7</b>
+Você disse que não sabe se não
+        <b>A</b>              <b>D</b>        <b>C#m7</b>
+Mas também não tem certeza que sim
+<b>D</b>         <b>G#m7</b>  <b>F#m7</b>      <b>B7</b>
+  Quer saber? Quando é assim
+       <b>D</b>   <b>C#m7</b>  <b>Bm7</b>    <b>E</b>  <b>G</b>
+Deixa vir do    coração
+
+      <b>A</b>           <b>D</b>             <b>F#m7</b>
+Você sabe que eu só penso em você
+      <b>A</b>         <b>D</b>              <b>C#m7</b>  
+Você diz que vive pensando em mim
+<b>D</b>       <b>G#m7</b>  
+  Pode ser
+ <b>F#m7</b>   <b>B7</b>
+Se é assim
+
+[Pré-Refrão]
+
+      <b>D</b>                <b>C#m7</b>
+Você tem que largar a mão do não
+ <b>D</b>                    <b>C#m7</b>
+Soltar essa louca, arder de paixão
+        <b>D</b>             <b>C#m7</b>
+Não há como doer pra decidir
+      <b>Bm7</b>
+Só dizer sim ou não
+     <b>D</b>   <b>C#m7</b>  <b>Bm7</b>  <b>E</b>     <b>A</b> 
+Mas você a____do___ra um Se
+
+( <b>D</b>  <b>F#m7</b>  <b>E</b> )
+
+[Refrão] 
+
+<b>A</b>         <b>D</b>              <b>F#m7</b>       <b>E</b>
+  Eu levo a sério mas você disfarça
+<b>A</b>       <b>D</b>                  <b>F#m7</b>        <b>E</b>
+  Você me diz à beça e eu nessa de horror
+<b>A</b>       <b>D</b>                  <b>F#m7</b>      <b>E</b>
+  E me remete ao frio que vem lá do Sul
+<b>A</b>         <b>D</b>                    <b>F#m7</b>      <b>E</b>
+  Insiste em zero a zero e eu quero um a um
+
+<b>A</b>               <b>D</b>           <b>F#m7</b>      <b>E</b>
+  Sei lá o que te dá, não quer meu calor
+<b>A</b>         <b>D</b>                    <b>F#m7</b>       <b>E</b>
+  São Jorge, por favor, me empresta o dragão
+<b>A</b>               <b>D</b>          <b>F#m7</b>    <b>E</b>
+  Mais fácil aprender japonês em Braille
+<b>A</b>         <b>D</b>            <b>F#m7</b>     <b>E</b>
+  Do que você decidir se dá ou não
+
+( <b>A</b>  <b>D</b>  <b>F#m7</b>  <b>E</b> )
+( <b>A</b>  <b>D</b>  <b>F#m7</b>  <b>E</b> )
+
+[Primeira Parte]
+
+      <b>A</b>         <b>D</b>             <b>F#m7</b>
+Você disse que não sabe se não
+        <b>A</b>              <b>D</b>        <b>C#m7</b>
+Mas também não tem certeza que sim
+<b>D</b>         <b>G#m7</b>  <b>F#m7</b>      <b>B7</b>
+  Quer saber? Quando é assim
+       <b>D</b>   <b>C#m7</b>  <b>Bm7</b>    <b>E</b>  <b>G</b>
+Deixa vir do    coração
+
+      <b>A</b>           <b>D</b>             <b>F#m7</b>
+Você sabe que eu só penso em você
+      <b>A</b>         <b>D</b>              <b>C#m7</b>  
+Você diz que vive pensando em mim
+<b>D</b>       <b>G#m7</b>  
+  Pode ser
+ <b>F#m7</b>   <b>B7</b>
+Se é assim
+
+[Pré-Refrão]
+
+      <b>D</b>                <b>C#m7</b>
+Você tem que largar a mão do não
+ <b>D</b>                    <b>C#m7</b>
+Soltar essa louca, arder de paixão
+        <b>D</b>             <b>C#m7</b>
+Não há como doer pra decidir
+      <b>Bm7</b>
+Só dizer sim ou não
+     <b>D</b>   <b>C#m7</b>  <b>Bm7</b>  <b>E</b>     <b>A</b> 
+Mas você a____do___ra um Se
+
+( <b>D</b>  <b>F#m7</b>  <b>E</b> )
+
+[Refrão] 
+
+<b>A</b>         <b>D</b>              <b>F#m7</b>       <b>E</b>
+  Eu levo a sério mas você disfarça
+<b>A</b>       <b>D</b>                  <b>F#m7</b>        <b>E</b>
+  Você me diz à beça e eu nessa de horror
+<b>A</b>       <b>D</b>                  <b>F#m7</b>      <b>E</b>
+  E me remete ao frio que vem lá do Sul
+<b>A</b>         <b>D</b>                    <b>F#m7</b>      <b>E</b>
+  Insiste em zero a zero e eu quero um a um
+
+<b>A</b>               <b>D</b>           <b>F#m7</b>      <b>E</b>
+  Sei lá o que te dá, não quer meu calor
+<b>A</b>         <b>D</b>                    <b>F#m7</b>       <b>E</b>
+  São Jorge, por favor, me empresta o dragão
+<b>A</b>               <b>D</b>          <b>F#m7</b>    <b>E</b>
+  Mais fácil aprender japonês em Braille
+<b>A</b>         <b>D</b>            <b>F#m7</b>     <b>E</b>
+  Do que você decidir se dá ou não', '2', '4');
+  
+  INSERT INTO musica VALUES 
+  (null, 'Chega de saudade', ' <b>Dm</b>          <b>E</b>      <b>Bbm</b>   <b>A</b>    <b>Dm</b>
+Vai  minha tristeza e diz a ela que sem ela
+          <b>A</b>   <b>Dm</b>     <b>E</b>    <b>Am</b>
+Não pode ser,    diz-lhe numa prece
+            <b>Bb</b>                 <b>Em</b>
+Que ela regresse, porque eu não posso
+      <b>A</b>    <b>Dm</b>       <b>E</b>        <b>Bbm</b>
+Mais sofrer_ chega de saudade a realidade
+    <b>A</b>    <b>Am</b>         <b>D</b>         <b>Gm</b>
+É que sem ela não há paz, não há beleza
+   <b>A</b>  <b>Dm</b>            
+É só tristeza e a melancolia
+         <b>E</b>            <b>Bbm</b>            <b>Dm</b>  <b>A</b>
+Que não sai de mim, não sai de mim, não sai
+
+ <b>D</b>   <b>B</b>   <b>E</b>
+Mas se ela voltar, se ela voltar
+           <b>G</b>     <b>A</b>    <b>D</b>
+Que coisa linda, que coisa louca
+      <b>D</b>        <b>F°</b>         <b>Em</b>
+Pois há menos peixinhos a nadar no mar
+              <b>Bm</b>
+Do que os beijinhos que eu darei
+        <b>Em</b>  <b>A</b>  <b>D</b>    <b>Bm</b>       <b>E</b>
+Na sua bo______ca,    dentro dos meus braços
+      <b>F#</b>          <b>Bm</b>     <b>Bbm</b>      <b>Am</b>
+Os abraços hão de ser, milhões de abraços
+<b>D</b>   <b>G</b>           <b>Gm</b>           <b>F#m</b>
+Aper__tado assim, colado assim, calado assim
+<b>B</b>            <b>E</b>       <b>A</b>          <b>F#m</b>
+Abraços e beijinhos e carinhos sem ter fim
+
+              <b>B</b>             <b>E</b>       <b>A</b>
+Que é pra acabar com este negócio de você
+           <b>D</b>
+Viver sem mim
+
+ <b>D</b>      <b>Gm</b>
+Não há paz,não há beleza
+   <b>A</b>  <b>Dm</b>               
+É só tristeza e a melancolia
+     <b>E</b>            <b>Bbm</b>            <b>Dm</b>  <b>A</b>
+Que não sai de mim, não sai de mim, não  sai
+
+ <b>D</b>   <b>B</b>   <b>E</b>
+Mas se ela voltar, se ela voltar
+           <b>G</b>     <b>A</b>    <b>D</b>
+Que coisa linda, que coisa louca
+      <b>D</b>        <b>F°</b>         <b>Em</b>
+Pois há menos peixinhos a nadar no mar
+              <b>Bm</b>
+Do que os beijinhos que eu darei
+        <b>Em</b>  <b>A</b>  <b>D</b>    <b>Bm</b>       <b>E</b>
+Na sua bo______ca,    dentro dos meus braços
+      <b>F#</b>          <b>Bm</b>     <b>Bbm</b>      <b>Am</b>
+Os abraços hão de ser, milhões de abraços
+<b>D</b>   <b>G</b>           <b>Gm</b>           <b>F#m</b>
+Aper__tado assim, colado assim, calado assim
+<b>B</b>         <b>E</b>       <b>A</b>             <b>F#m</b>
+Abraços e beijinhos e carinhos sem ter fim
+
+              <b>B</b>             <b>E</b>       <b>A</b>
+Que é pra acabar com este negócio de você
+           <b>D</b>
+Viver sem mim
+           <b>B</b>          <b>E</b>     <b>A</b>         <b>D</b>
+Não quero mais esse negócio de você longe de mim
+          <b>B</b>           <b>E</b>       <b>A</b>          <b>D</b>
+Vamos deixar com esse negócio de você viver sem mim', '4', '2');
+
+select * from artista;
+
+SELECT * FROM musica;
+
 
 CREATE TABLE musica_favorita (
 fk_usuario int,
@@ -1317,4 +1567,3 @@ FROM
 GROUP BY fk_musica
 ORDER BY votos DESC
 LIMIT 10;
-

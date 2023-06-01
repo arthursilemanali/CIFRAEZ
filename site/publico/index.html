@@ -48,8 +48,8 @@
 
   <div class="tela_meio_musicas">
     <div class="rankings" id="div_ranking">
-      
-      
+
+
     </div>
   </div>
 
@@ -57,7 +57,8 @@
   <div class="footer">
     <div class="redes_sociais">
       <div>
-        <a href="https://instagram.com/ali_aonde?igshid=ZDdkNTZiNTM="><img src="../publico/fotos_usadas/instaLogo.png" /></a>
+        <a href="https://instagram.com/ali_aonde?igshid=ZDdkNTZiNTM="><img
+            src="../publico/fotos_usadas/instaLogo.png" /></a>
       </div>
       <div>
         <a href="facebook.com"><img src="../publico/fotos_usadas/faceLogo.png" /></a>
@@ -88,13 +89,14 @@
   <script>
 
     gerar_rank()
-  
+
     var tela_cifra = document.querySelector(".tela_inteira_cifra");
     var tela_menu = document.querySelector(".tela_meio_musicas");
     var musica = ""
     var artista = "";
     var cifra = "";
     let cifrasBanco = []
+    
     function alterar_cifra(cifras) {
       var cifra_mostrar = cifrasBanco[cifras]
       musica = cifra_mostrar.nome_da_musica
@@ -134,10 +136,10 @@
     <pre id="cifra">${cifra}</pre>
     `
 
-    tela_cifra.classList.remove("escondido");
+      tela_cifra.classList.remove("escondido");
       tela_menu.classList.add("escondido");
       tela_menu.classList.add("display_none");
-  }
+    }
 
 
 
@@ -155,99 +157,138 @@
 
     var scrollInterval;
 
-  function opçao_rolar(element) {
-    if (element.checked) {
-      document.querySelector("#range").classList.remove("escondido");
-    } else {
+    function opçao_rolar(element) {
+      if (element.checked) {
+        document.querySelector("#range").classList.remove("escondido");
+      } else {
+        document.querySelector("#range").classList.add("escondido");
+        document.getElementById("rolar").classList.remove("escondido")
+        stopScroll();
+      }
+    }
+
+    function correr_pagina() {
+      var intervalo = parseInt(document.getElementById("rolar").value);
+      var intervalo_liso = intervalo / 10;
+      document.getElementById("rolar").classList.add("escondido")
+
+      scrollInterval = setInterval(function () {
+        window.scrollBy(0, 1);
+        if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
+          clearInterval(scrollInterval);
+          document.getElementById("rolar").value = "";
+          parar_rolagem();
+          document.getElementById("rolar").classList.remove("escondido")
+        }
+      }, intervalo_liso);
+    }
+
+    function parar_rolagem() {
       document.querySelector("#range").classList.add("escondido");
       document.getElementById("rolar").classList.remove("escondido")
-      stopScroll();
+      document.getElementById("checkboxScroll").checked = false;
+      clearInterval(scrollInterval);
+
     }
-  }
 
-  function correr_pagina() {
-    var intervalo = parseInt( document.getElementById("rolar").value);
-    var intervalo_liso = intervalo / 10;
-    document.getElementById("rolar").classList.add("escondido")
+    function login() {
+      window.location.href = "./paginas/login.html"
+    }
 
-    scrollInterval = setInterval(function () {
-      window.scrollBy(0, 1);
-      if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
-        clearInterval(scrollInterval);
-        document.getElementById("rolar").value = "";
-        parar_rolagem();
-        document.getElementById("rolar").classList.remove("escondido")
-      }
-    }, intervalo_liso);
-  }
+    function favoritar() {
 
-  function parar_rolagem() {
-    document.querySelector("#range").classList.add("escondido");
-    document.getElementById("rolar").classList.remove("escondido")
-    document.getElementById("checkboxScroll").checked = false;
-    clearInterval(scrollInterval);
 
-  }
+      fetch("/usuarios/favoritar", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
 
-  function login(){
-    window.location.href = "./paginas/login.html"
-  }
 
-  function favoritar(){
-     
-  
-        fetch("/usuarios/favoritar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                
-              
-                musicaFavoritadaServer: musica,
-                artistaServer: artista,
-                usuarioServer: sessionStorage.ID_USUARIO
-            })
+          musicaFavoritadaServer: musica,
+          artistaServer: artista,
+          usuarioServer: sessionStorage.ID_USUARIO
         })
-      }
+      })
+    }
+    let cifraPesquisada = []
+    function pesquisar(cifra_pesquisada) {
 
-      function pesquisar (){
-        var musica_pesquisada = ipt_pesquisa.value
-        for(var i = 0; i <= cifras; i++){
-          if (cifras.indexOf(musica_pesquisada)){
-            alterar_cifra();
-          }
-          
-        }
-      }
- 
-      const divRanking = document.getElementById("div_ranking")
+      var musica_pesquisa = ipt_pesquisa.value
 
-
-      function ranking(){
-        fetch("/ranking", {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json"
-            }
-        }).then(async function (resposta) {
-          cifrasBanco = await resposta.json()
-          console.log(cifrasBanco)
-          div_ranking.innerHTML = ""
-          for (var posicao = 0; posicao < cifrasBanco.length; posicao++) {
-            var cifraAtual = cifrasBanco[posicao];
-            artista = cifraAtual.nome_do_artista
-            musica = cifraAtual.nome_da_musica
-            div_ranking.innerHTML += `<div class="ranking" id="div_ranking_posicao" onclick="alterar_cifra(${posicao})">
-        <p id="p_musica">${musica} - ${artista} </p>
-      </div>`
-          }
+      fetch("/pesquisa", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          musica_pesquisaServer: musica_pesquisa
         })
-      }
+      }).then(function (resposta) {
+        console.log("ESTOU NO THEN DO pesquisa()!")
 
-      function gerar_rank (){
-        setInterval(ranking, 500)
-      }
+        if (resposta.ok) {
+          console.log(resposta);
+
+          resposta.json().then(json => {
+            console.log(json);
+            console.log(JSON.stringify(json));
+
+            sessionStorage.MUSICA_PESQUISADA = json.nome_musica;
 
       
+
+
+          });
+
+        } else {
+
+          console.log("Música não encontrada");
+
+          resposta.text().then(texto => {
+            console.error(texto);
+            finalizarAguardar(texto);
+          });
+        }
+
+      }).catch(function (erro) {
+        console.log(erro);
+      })
+
+      return false;
+    }
+
+
+
+
+    const divRanking = document.getElementById("div_ranking")
+
+
+    function ranking() {
+      fetch("/ranking", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }).then(async function (resposta) {
+        cifrasBanco = await resposta.json()
+        console.log(cifrasBanco)
+        div_ranking.innerHTML = ""
+        for (var posicao = 0; posicao < cifrasBanco.length; posicao++) {
+          var cifraAtual = cifrasBanco[posicao];
+          artista = cifraAtual.nome_do_artista
+          musica = cifraAtual.nome_da_musica
+          div_ranking.innerHTML += `<div class="ranking" id="div_ranking_posicao" onclick="alterar_cifra(${posicao})">
+        <p id="p_musica">${musica} - ${artista} </p>
+      </div>`
+        }
+      })
+    }
+
+    function gerar_rank() {
+      setInterval(ranking, 500)
+    }
+
+
   </script>
