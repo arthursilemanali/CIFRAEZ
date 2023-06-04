@@ -7,8 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CIFRA | CIFRAEZ</title>
   <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="" />
   <script src="./js/funcoes.js"></script>
-
 </head>
 
 <body>
@@ -31,33 +31,34 @@
 
   <div class="tela_inteira_cadastro">
     <div class="container_cadastro">
-    <div class="container_imagem_cadastro">
+      <div class="container_imagem_cadastro">
+        <img
+          src="https://cdn.leonardo.ai/users/01544f8a-270a-42ea-8b82-34efe2829c3e/generations/d2802d8f-d445-4667-8d22-d77978aa7d8c/DreamShaper_v5_one_hundred_different_musical_notes_flying_in_a_2.jpg"
+          alt="" />
+      </div>
+      <div class="container_campos_cadastro">
+        <h4>Cadastre-se</h4>
+        <h6>Digite o nome de usuário</h6>
+        <input type="text" id="ipt_nome" placeholder="Nome" />
+        <h6>Insira seu email</h6>
+        <input type="text" id="ipt_email" placeholder="exemplo@exemplo.com.br" />
+        <h6>Insira sua senha</h6>
+        <input type="password" id="ipt_senha" placeholder="Senha" />
+        <h6>Confirme sua senha</h6>
+        <input type="password" id="ipt_senha_confirmada" placeholder="Confirmar senha" />
+        <h6>Gênero musical favorito</h6>
+        <select name="genero_musical" id="ipt_genero_fav">
+          <option value="Rock">Rock</option>
+          <option value="MPB">MPB</option>
+          <option value="Samba">Samba</option>
+          <option value="Sertanejo">Sertanejo</option>
+        </select>
 
-    </div>
-    <div class="container_campos_cadastro">
-      <h4>Cadastre-se</h4>
-      <h6>Digite o nome de usuário</h6>
-      <input type="text" id="ipt_nome" placeholder="Nome">
-      <h6>Insira seu email</h6>
-      <input type="text" id="ipt_email" placeholder="Email">
-      <h6>Insira sua senha</h6>
-      <input type="password" id="ipt_senha" placeholder="Senha">
-      <h6>Confirme sua senha</h6>
-      <input type="password" id="ipt_senha_confirmada" placeholder="Confirmar senha">
-      <h6>Gênero musical favorito</h6>
-      <select name="genero_musical" id="ipt_genero_fav">
-        <option value="Rock">Rock</option>
-        <option value="MPB">MPB</option>
-        <option value="Samba">Samba</option>
-        <option value="Sertanejo">Sertanejo</option>
-      </select>
-
-      <button onclick="cadastrar()">Entrar</button>
-      <p>Já tem cadastro? logue <a href="./login.html">aqui</a></p>
-    </div>
+        <button onclick="cadastrar()">Entrar</button>
+        <p>Já tem cadastro? logue <a href="./login.html">aqui</a></p>
+      </div>
     </div>
   </div>
-
 
   <div class="footer">
     <div class="redes_sociais">
@@ -78,90 +79,103 @@
       </div>
     </div>
     <div class="direitos">
-      <h6>
-        @ Todos os direitos reservados para Arthur Silemanali - 2023
-      </h6>
+      <h6>@ Todos os direitos reservados para Arthur Silemanali - 2023</h6>
     </div>
   </div>
 
   <div id="div_aguardar" class="loading-div"></div>
   <div id="div_erros_login"></div>
-    
+
   <div class="login">
     <div class="alerta_erro">
-        <div class="card_erro" id="cardErro">
-            <span id="mensagem_erro"></span>
-        </div>
-      </div> 
-    </div>                         
+      <div class="card_erro" id="cardErro">
+        <span id="mensagem_erro"></span>
+      </div>
+    </div>
+  </div>
 
   <script>
     function cadastrar() {
-        aguardar();
+      aguardar();
 
-        //Recupere o valor da nova input pelo nome do id
-        // Agora vá para o método fetch logo abaixo
-        var nomeVar = ipt_nome.value; 
-        var emailVar = ipt_email.value;
-        var senhaVar = ipt_senha.value;
-        var confirmacaoSenhaVar = ipt_senha_confirmada.value;
-        var generoFavVar = ipt_genero_fav.value
-        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "" || generoFavVar == "") {
-            
-          alert("Atenção! Preencha todos os campos para a realização do cadastro!")
+      //Recupere o valor da nova input pelo nome do id
+      // Agora vá para o método fetch logo abaixo
+      var nomeVar = ipt_nome.value;
+      var emailVar = ipt_email.value;
+      var senhaVar = ipt_senha.value;
+      var confirmacaoSenhaVar = ipt_senha_confirmada.value;
+      var generoFavVar = ipt_genero_fav.value;
+      if (
+        nomeVar == "" ||
+        emailVar == "" ||
+        senhaVar == "" ||
+        confirmacaoSenhaVar == "" ||
+        generoFavVar == ""
+      ) {
+        alert(
+          "Atenção! Preencha todos os campos para a realização do cadastro!"
+        );
 
+        finalizarAguardar();
+        return false;
+      }
+      if (
+        emailVar.indexOf("@") == -1 ||
+        emailVar.indexOf(".com") == -1 ||
+        emailVar.indexOf(".br") == -1
+      ) {
+        alert(
+          "Atenção! Para o email siga o seguinte exemplo: aaa@exemplo.com.br"
+        );
+        return false;
+      }
+
+      // Enviando o valor da nova input
+      fetch("/usuarios/cadastrar", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            // crie um atributo que recebe o valor recuperado aqui
+            // Agora vá para o arquivo routes/usuario.js
+            nomeServer: nomeVar,
+            emailServer: emailVar,
+            senhaServer: senhaVar,
+            generoFavServer: generoFavVar,
+          }),
+        })
+        .then(function (resposta) {
+          console.log("resposta: ", resposta);
+
+          if (resposta.ok) {
+            cardErro.style.display = "block";
+
+            mensagem_erro.innerHTML =
+              "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+            setTimeout(() => {
+              window.location = "login.html";
+            }, "2000");
+
+            limparFormulario();
             finalizarAguardar();
-            return false;
-        }
-          if ((emailVar.indexOf('@') == -1 || (emailVar.indexOf('.com') == -1 || emailVar.indexOf('.br') == -1))){
-            alert("Atenção! Para o email siga o seguinte exemplo: aaa@exemplo.com.br")
-            return false
+          } else {
+            throw "Houve um erro ao tentar realizar o cadastro!";
           }
-          
-  
-
-        // Enviando o valor da nova input
-        fetch("/usuarios/cadastrar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
-                nomeServer: nomeVar,
-                emailServer: emailVar,
-                senhaServer: senhaVar,
-                generoFavServer: generoFavVar
-            })
-        }).then(function (resposta) {
-
-            console.log("resposta: ", resposta);
-
-            if (resposta.ok) {
-                cardErro.style.display = "block";
-
-                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
-                setTimeout(() => {
-                    window.location = "login.html";
-                }, "2000")
-
-                limparFormulario();
-                finalizarAguardar();
-            } else {
-                throw ("Houve um erro ao tentar realizar o cadastro!");
-            }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-            finalizarAguardar();
+        })
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+          finalizarAguardar();
         });
 
-        return false;
+      return false;
     }
 
     function sumirMensagem() {
-        cardErro.style.display = "none"
+      cardErro.style.display = "none";
     }
+  </script>
+</body>
 
-</script>
+</html>

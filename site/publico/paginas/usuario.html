@@ -7,12 +7,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CIFRA | CIFRAEZ</title>
   <link rel="stylesheet" href="../css/style.css" />
-
 </head>
 
 <body>
   <header>
-
     <div class="header">
       <div class="logo_pagina">
         <h1>
@@ -23,15 +21,15 @@
       <div class="navbar">
         <a href="./paginas/sobre.html">Sobre</a>
 
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-          </svg>
-          
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-circle"
+          viewBox="0 0 16 16">
+          <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+          <path fill-rule="evenodd"
+            d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+        </svg>
       </div>
     </div>
   </header>
-
 
   <div class="footer">
     <div class="redes_sociais">
@@ -52,22 +50,20 @@
       </div>
     </div>
     <div class="direitos">
-      <h6>
-        @ Todos os direitos reservados para Arthur Silemanali - 2023
-      </h6>
+      <h6>@ Todos os direitos reservados para Arthur Silemanali - 2023</h6>
     </div>
   </div>
 
   <script>
     favoritas();
 
-function alterar_cifra(cifras) {
-      var cifra_mostrar = musicas_favoritas[cifras]
+    function alterar_cifra(cifras) {
+      var cifra_mostrar = musicas_favoritas[cifras];
       id_musica = cifra_mostrar.musica;
-      id_artista =  cifra_mostrar.id_artista
-      musica = cifra_mostrar.nome_da_musica
-      artista = cifra_mostrar.nome_do_artista
-      cifra = cifra_mostrar.cifra
+      id_artista = cifra_mostrar.id_artista;
+      musica = cifra_mostrar.nome_da_musica;
+      artista = cifra_mostrar.nome_do_artista;
+      cifra = cifra_mostrar.cifra;
       div_cifra.innerHTML = `<div class="menu_cifra">
       <div class="nome_da_musica" >
         <h4 id="h4_nome_musica">${musica} <b id="b_artista">${artista}</b></h4>
@@ -100,7 +96,7 @@ function alterar_cifra(cifras) {
       
     </div>
     <pre id="cifra">${cifra}</pre>
-    `
+    `;
 
       tela_cifra.classList.remove("escondido");
       tela_menu.classList.add("escondido");
@@ -110,44 +106,36 @@ function alterar_cifra(cifras) {
 
     var musicas_favoritas = "";
 
-function favoritas() {
+    function favoritas() {
       var usuarioVar = sessionStorage.getItem("ID_USUARIO");
-
 
       console.log(usuarioVar);
 
-      fetch("/pesquisa/"+usuarioVar)
-      .then(async function (resposta) {
-          console.log("ESTOU NO THEN DO favoritas()!")
-          console.log(usuarioVar)
+      fetch("/pesquisa/" + usuarioVar).then(async function (resposta) {
+        console.log("ESTOU NO THEN DO favoritas()!");
+        console.log(usuarioVar);
 
-          if (resposta.ok) {
-              console.log(resposta);
+        if (resposta.ok) {
+          console.log(resposta);
 
-              resposta.json().then(json => {
-                  console.log("Resposta Traduzida",json);
-                 
-                      musicas_favoritas = json;
-                 
-                  exibir_favoritas();
-                  
-                 
-              });
+          resposta.json().then((json) => {
+            console.log("Resposta Traduzida", json);
 
-          } else {
+            musicas_favoritas = json;
 
-              console.log("Usuário não encontrado: ", usuarioVar);
+            exibir_favoritas();
+          });
+        } else {
+          console.log("Usuário não encontrado: ", usuarioVar);
 
-              resposta.text().then(texto => {
-                  console.error(texto);
-                  finalizarAguardar(texto);
-              });
-          }
-
-      })
-
-      
-  }
-
-
+          resposta.text().then((texto) => {
+            console.error(texto);
+            finalizarAguardar(texto);
+          });
+        }
+      });
+    }
   </script>
+</body>
+
+</html>

@@ -10,7 +10,6 @@ var app = express();
 
 
 var usuarioRouter = require("./src/routes/usuarios");
-var avisosRouter = require("./src/routes/avisos");
 var rankingRouter = require("./src/routes/ranking");
 var pesquisaRouter = require("./src/routes/pesquisa");
 var favoritasRouter = require("./src/routes/favoritas");
@@ -25,7 +24,6 @@ app.use(cors());
 
 
 app.use("/usuarios", usuarioRouter);
-app.use("/avisos", avisosRouter);
 app.use("/ranking", rankingRouter);
 app.use("/pesquisa", pesquisaRouter);
 app.use("/favoritas", favoritasRouter);

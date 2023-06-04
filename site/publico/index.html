@@ -7,13 +7,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CIFRA | CIFRAEZ</title>
   <link rel="stylesheet" href="./css/style.css" />
+  <link rel="shortcut icon" href="" type="image/x-icon" />
   <script src=""></script>
-
 </head>
 
 <body onload="ranking()">
   <header>
-
     <div class="header">
       <div class="logo_pagina">
         <h1>
@@ -35,16 +34,13 @@
               d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
           </svg>
         </a>
-
       </div>
     </div>
   </header>
 
   <!-- tela de cifra -->
 
-  <div class="tela_inteira_cifra escondido" id="div_cifra">
-
-  </div>
+  <div class="tela_inteira_cifra escondido" id="div_cifra"></div>
   <div class="escondido range_valor" id="range">
     Auto rolagem
     <input type="range" min="0" max="1000" step="10" value="0" id="rolar" class="range" onclick="correr_pagina()" />
@@ -58,12 +54,8 @@
   </div>
 
   <div class="tela_meio_musicas">
-    <div class="rankings" id="div_ranking">
-
-
-    </div>
+    <div class="rankings" id="div_ranking"></div>
   </div>
-
 
   <div class="footer">
     <div class="redes_sociais">
@@ -84,23 +76,15 @@
       </div>
     </div>
     <div class="direitos">
-      <h6>
-        @ Todos os direitos reservados para Arthur Silemanali - 2023
-      </h6>
+      <h6>@ Todos os direitos reservados para Arthur Silemanali - 2023</h6>
     </div>
   </div>
 
   <!-- HTML -->
 
-
-
-
-
   <script>
-
-    gerar_rank()
-    autenticar_login()
-    
+    gerar_rank();
+    autenticar_login();
 
     var tela_cifra = document.querySelector(".tela_inteira_cifra");
     var tela_menu = document.querySelector(".tela_meio_musicas");
@@ -109,15 +93,16 @@
     var artista = "";
     var id_artista = "";
     var cifra = "";
-    let cifrasBanco = []
+    let cifrasBanco = [];
 
     function alterar_cifra(cifras) {
-      var cifra_mostrar = cifrasBanco[cifras]
+      const botao_favoritar = document.getElementById("#btn_favoritar");
+      var cifra_mostrar = cifrasBanco[cifras];
       id_musica = cifra_mostrar.musica;
-      id_artista = cifra_mostrar.id_artista
-      musica = cifra_mostrar.nome_da_musica
-      artista = cifra_mostrar.nome_do_artista
-      cifra = cifra_mostrar.cifra
+      id_artista = cifra_mostrar.id_artista;
+      musica = cifra_mostrar.nome_da_musica;
+      artista = cifra_mostrar.nome_do_artista;
+      cifra = cifra_mostrar.cifra;
       div_cifra.innerHTML = `<div class="menu_cifra">
       <div class="nome_da_musica" >
         <h4 id="h4_nome_musica">${musica} <b id="b_artista">${artista}</b></h4>
@@ -150,22 +135,20 @@
       
     </div>
     <pre id="cifra">${cifra}</pre>
-    `
+    `;
 
       tela_cifra.classList.remove("escondido");
       tela_menu.classList.add("escondido");
       tela_menu.classList.add("display_none");
-      bloquear_fav()
+      
+      autenticar_permissao()
+      
     }
-
-
-
-
 
     function voltar() {
       tela_cifra.classList.add("escondido");
 
-      tela_menu.classList.remove("escondido")
+      tela_menu.classList.remove("escondido");
     }
 
     var checkboxScroll = document.querySelector("#checkboxScroll");
@@ -179,7 +162,7 @@
         document.querySelector("#range").classList.remove("escondido");
       } else {
         document.querySelector("#range").classList.add("escondido");
-        document.getElementById("rolar").classList.remove("escondido")
+        document.getElementById("rolar").classList.remove("escondido");
         stopScroll();
       }
     }
@@ -187,56 +170,55 @@
     function correr_pagina() {
       var intervalo = parseInt(document.getElementById("rolar").value);
       var intervalo_liso = intervalo / 10;
-      document.getElementById("rolar").classList.add("escondido")
+      document.getElementById("rolar").classList.add("escondido");
 
       scrollInterval = setInterval(function () {
         window.scrollBy(0, 1);
-        if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
+        if (
+          window.innerHeight + window.pageYOffset >=
+          document.body.offsetHeight
+        ) {
           clearInterval(scrollInterval);
           document.getElementById("rolar").value = "";
           parar_rolagem();
-          document.getElementById("rolar").classList.remove("escondido")
+          document.getElementById("rolar").classList.remove("escondido");
         }
       }, intervalo_liso);
     }
 
     function parar_rolagem() {
       document.querySelector("#range").classList.add("escondido");
-      document.getElementById("rolar").classList.remove("escondido")
+      document.getElementById("rolar").classList.remove("escondido");
       document.getElementById("checkboxScroll").checked = false;
       clearInterval(scrollInterval);
-
     }
 
     function login() {
-      window.location.href = "./paginas/login.html"
+      window.location.href = "./paginas/login.html";
     }
 
     function favoritar() {
-
-
       fetch("/usuarios/favoritar", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
-
-
           musicaFavoritadaServer: id_musica,
           artistaServer: id_artista,
-          usuarioServer: sessionStorage.ID_USUARIO
-        })
-      })
+          usuarioServer: sessionStorage.ID_USUARIO,
+        }),
+      });
     }
 
     function exibir_pesquisa() {
-      var cifra_mostrar = cifraPesquisada
+      const botao_favoritar = document.getElementById("#btn_favoritar");
+      var cifra_mostrar = cifraPesquisada;
       id_musica = cifra_mostrar.musica;
-      id_artista = cifra_mostrar.id_artista
-      musica = cifra_mostrar.nome_da_musica
-      artista = cifra_mostrar.nome_do_artista
-      cifra = cifra_mostrar.cifra
+      id_artista = cifra_mostrar.id_artista;
+      musica = cifra_mostrar.nome_da_musica;
+      artista = cifra_mostrar.nome_do_artista;
+      cifra = cifra_mostrar.cifra;
       div_cifra.innerHTML = `<div class="menu_cifra">
       <div class="nome_da_musica" >
         <h4 id="h4_nome_musica">${musica} <b id="b_artista">${artista}</b></h4>
@@ -269,93 +251,78 @@
       
     </div>
     <pre id="cifra">${cifra}</pre>
-    `
+    `;
 
       tela_cifra.classList.remove("escondido");
       tela_menu.classList.add("escondido");
       tela_menu.classList.add("display_none");
-      bloquear_fav()
-
+        
+      autenticar_permissao()
+      
     }
 
-
-
-    let cifraPesquisada = []
-
+    let cifraPesquisada = [];
 
     function pesquisar() {
       var pesquisaVar = ipt_pesquisa.value;
 
-
       console.log(pesquisaVar);
 
-      fetch("/pesquisa/" + pesquisaVar)
-        .then(async function (resposta) {
-          console.log("ESTOU NO THEN DO pesquisa()!aaaaaaaaaaaaaaaaaa")
-          console.log(pesquisaVar)
-          //  cifraPesquisada =  await resposta.json()
+      fetch("/pesquisa/" + pesquisaVar).then(async function (resposta) {
+        console.log("ESTOU NO THEN DO pesquisa()!aaaaaaaaaaaaaaaaaa");
+        console.log(pesquisaVar);
+        //  cifraPesquisada =  await resposta.json()
 
-          if (resposta.ok) {
-            console.log(resposta);
+        if (resposta.ok) {
+          console.log(resposta);
 
-            resposta.json().then(json => {
-              console.log("Resposta Traduzida", json);
+          resposta.json().then((json) => {
+            console.log("Resposta Traduzida", json);
 
-              cifraPesquisada = json;
+            cifraPesquisada = json;
 
-              exibir_pesquisa();
+            exibir_pesquisa();
+          });
+        } else {
+          console.log("Não temos essa música: ", pesquisaVar);
 
-
-            });
-
-          } else {
-
-            console.log("Não temos essa música: ", pesquisaVar);
-
-            resposta.text().then(texto => {
-              console.error(texto);
-              finalizarAguardar(texto);
-            });
-          }
-
-        })
-
-
+          resposta.text().then((texto) => {
+            console.error(texto);
+            
+          });
+        }
+      });
     }
 
-    const divRanking = document.getElementById("div_ranking")
-
+    const divRanking = document.getElementById("div_ranking");
 
     function ranking() {
       fetch("/ranking", {
         method: "GET",
         headers: {
-          "Content-Type": "application/json"
-        }
+          "Content-Type": "application/json",
+        },
       }).then(async function (resposta) {
-        cifrasBanco = await resposta.json()
-        div_ranking.innerHTML = ""
+        cifrasBanco = await resposta.json();
+        div_ranking.innerHTML = "";
         for (var posicao = 0; posicao < cifrasBanco.length; posicao++) {
           var cifraAtual = cifrasBanco[posicao];
-          artista = cifraAtual.nome_do_artista
-          musica = cifraAtual.nome_da_musica
+          artista = cifraAtual.nome_do_artista;
+          musica = cifraAtual.nome_da_musica;
           div_ranking.innerHTML += `<div class="ranking" id="div_ranking_posicao" onclick="alterar_cifra(${posicao})">
-        <p id="p_musica">${musica} - ${artista} </p>
-      </div>`
+          <p id="p_musica"<b>${posicao + 1}</b> ${musica} - ${artista} </p>
+      </div>`;
         }
-      })
+      });
     }
 
     function gerar_rank() {
-      setInterval(ranking, 20000)
+      setInterval(ranking, 20000);
     }
 
-
     function handleKeyUp(event) {
-
       if (event.keyCode === 13) {
         pesquisar();
-
 
         // setTimeout(function (){
         // }, 2000)
@@ -365,26 +332,36 @@
     function autenticar_login() {
       const botao_login = document.getElementById("btn_login");
       const botao_usuario = document.getElementById("btn_user");
-      
-      
+
 
       if (sessionStorage.length != 0) {
         botao_login.classList.add("display_none");
         botao_usuario.classList.remove("display_none");
-      }      
-    }
 
-    function bloquear_fav (){
+       
 
-      const botao_favoritar = document.getElementById("#btn_favoritar")  
-      let usuario = sessionStorage.ID_USUARIO
-
-      if (usuario != ""){
-        botao_favoritar.classList.remove("display_none");
-        botao_favoritar.classList.add("container_favoritar");
       }
-      
     }
 
+    function autenticar_permissao() {
+      
+      const botao_fav = document.getElementById("btn_favoritar");
+      
+
+      if (sessionStorage.length != 0) {
+        
+        botao_fav.classList.add("container_favoritar");
+        
+       
+
+      }
+    }
+
+   
+      
+    
 
   </script>
+</body>
+
+</html>

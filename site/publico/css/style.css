@@ -28,6 +28,7 @@ body {
   font-family: 'Poppins', sans-serif;
   background-repeat: no-repeat;
   background-color: #1E1E1E;
+
   /* background-color: #f7d4f8; */
 }
 
@@ -563,11 +564,17 @@ input:checked + .slider:before {
 
 .container_imagem_login{
   width: 50%;
-  height: 90%;
+  height: 95%;
   margin-left: 2.5%;
-  background-color: #d69b11;
+  background-color: #363636;
   border-radius: 10px;
-  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.26);
+  /* box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.26); */
+}
+
+.container_imagem_login img{
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: lighten;
 }
 
 .container_campos_login h4, h6{
@@ -640,12 +647,19 @@ input:checked + .slider:before {
 
 .container_imagem_cadastro{
   width: 50%;
-  height: 90%;
+  height: 95%;
   margin-left: 2.5%;
-  background-image: url(../fotos_usadas/tocando_violao.jpg);
+  background-color: #363636;
   border-radius: 10px;
-  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
+
+.container_imagem_cadastro img{
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: lighten;
+}
+
+
 
 .container_campos_cadastro h4, h6{
   color: #fff;
@@ -701,6 +715,11 @@ input:checked + .slider:before {
 
 .sobreposiçao{
   z-index: 100;
+}
+
+.banner_violao{
+  background-image: url(../fotos_usadas/background.jpg);
+  background-repeat: no-repeat;
 }
 
 .container_favoritar{

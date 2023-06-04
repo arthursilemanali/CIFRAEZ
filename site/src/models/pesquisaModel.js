@@ -1,7 +1,7 @@
-var database = require("../database/config")
+var database = require("../database/config");
 
 function pesquisar(pesquisa) {
-   // console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", email, senha)
+    // console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", email, senha)
     var instrucao = `
     SELECT 
     id_musica AS musica,
@@ -25,6 +25,5 @@ WHERE
 }
 
 module.exports = {
-    pesquisar
+    pesquisar,
 };
-
