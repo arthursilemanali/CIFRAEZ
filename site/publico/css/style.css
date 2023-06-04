@@ -386,6 +386,7 @@ h2 {
 }
 
 pre{
+  margin-left: 8%;
   color: rgb(194, 194, 194);
   font-size: larger;
 }
@@ -716,3 +717,24 @@ input:checked + .slider:before {
   margin-bottom: 5%;
   margin-top: 3%;
 }
+
+.bi-person-circle{
+  color: #d69b11;
+}
+
+.bi{
+  color: #d69b11;
+}
+
+select {
+  width: 70%;
+  height: 6%;
+  background-color: #cccccccb;
+  border: 1px solid rgba(0, 0, 0, 0.849);
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+
+
+

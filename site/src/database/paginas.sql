@@ -1583,6 +1583,7 @@ INSERT INTO musica_favorita VALUES
 (2	, 5, 14);
 
  SELECT 
+   id_musica AS musica,
     nome_musica AS nome_da_musica,
     musica.fk_artista AS id_artista,
     artista.nome_artista AS nome_do_artista,

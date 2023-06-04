@@ -45,7 +45,13 @@
       <h6>Confirme sua senha</h6>
       <input type="password" id="ipt_senha_confirmada" placeholder="Confirmar senha">
       <h6>Gênero musical favorito</h6>
-      <input type="text" id="ipt_genero_fav" placeholder="Gênero musical">
+      <select name="genero_musical" id="ipt_genero_fav">
+        <option value="Rock">Rock</option>
+        <option value="MPB">MPB</option>
+        <option value="Samba">Samba</option>
+        <option value="Sertanejo">Sertanejo</option>
+      </select>
+
       <button onclick="cadastrar()">Entrar</button>
       <p>Já tem cadastro? logue <a href="./login.html">aqui</a></p>
     </div>
@@ -101,15 +107,18 @@
         var confirmacaoSenhaVar = ipt_senha_confirmada.value;
         var generoFavVar = ipt_genero_fav.value
         if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "" || generoFavVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            
+          alert("Atenção! Preencha todos os campos para a realização do cadastro!")
 
             finalizarAguardar();
             return false;
         }
-        else {
-            setInterval(sumirMensagem, 5000)
-        }
+          if ((emailVar.indexOf('@') == -1 || (emailVar.indexOf('.com') == -1 || emailVar.indexOf('.br') == -1))){
+            alert("Atenção! Para o email siga o seguinte exemplo: aaa@exemplo.com.br")
+            return false
+          }
+          
+  
 
         // Enviando o valor da nova input
         fetch("/usuarios/cadastrar", {
