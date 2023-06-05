@@ -1,118 +1,166 @@
 <!DOCTYPE html>
 <html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CIFRA | CIFRAEZ</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="shortcut icon" href="" type="image/x-icon" />
+    <script src="../publico/fotos_usadas/Kansas.jpg"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CIFRA | CIFRAEZ</title>
-  <link rel="stylesheet" href="./css/style.css" />
-  <link rel="shortcut icon" href="" type="image/x-icon" />
-  <script src=""></script>
-</head>
+  <body onload="ranking()">
+    <header>
+      <div class="header">
+        <div class="logo_pagina">
+          <h1>
+            <a href="index.html">CIFRAEZ</a>
+          </h1>
+        </div>
+        <input
+          type="text"
+          id="ipt_pesquisa"
+          placeholder="Buscar..."
+          onkeyup="handleKeyUp(event)"
+        />
 
-<body onload="ranking()">
-  <header>
-    <div class="header">
-      <div class="logo_pagina">
+        <div class="navbar">
+          <a href="./paginas/sobre.html">Sobre</a>
+
+          <button id="btn_login" onclick="login()">Login</button>
+
+          <a href="./paginas/usuario.html">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              fill="currentColor"
+              id="btn_user"
+              class="bi bi-person-circle display_none"
+              viewBox="0 0 16 16"
+            >
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+              <path
+                fill-rule="evenodd"
+                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- tela de cifra -->
+
+    <div class="tela_inteira_cifra escondido" id="div_cifra"></div>
+    <div class="escondido range_valor" id="range">
+      Auto rolagem
+      <input
+        type="range"
+        min="0"
+        max="1000"
+        step="10"
+        value="0"
+        id="rolar"
+        class="range"
+        onclick="correr_pagina()"
+      />
+
+      <div class="svg-btn" onclick="parar_rolagem()">
+        <svg
+          class="fechar"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 2048 2048"
+        >
+          <path
+            fill="currentColor"
+            d="m1115 1024l690 691l-90 90l-691-690l-691 690l-90-90l690-691l-690-691l90-90l691 690l691-690l90 90l-690 691z"
+          />
+        </svg>
+      </div>
+    </div>
+
+    <!-- fim tela cifra -->
+
+    <div class="container_menu">
+      Bem-vindo ao nosso site de <b>cifras fáceis!</b>
+      Aqui você encontrará uma coleção abrangente de cifras para todas as suas
+      músicas favoritas
+    </div>
+
+    <div class="carrossel">
+      <div class="container_carrossel" id="carrossel">
+        
+      </div>
+    </div>
+
+    <div class="tela_meio_musicas">
+      <div class="rankings" id="div_ranking"></div>
+    </div>
+
+    <div class="footer">
+      <div class="redes_sociais">
+        <div>
+          <a href="https://instagram.com/ali_aonde?igshid=ZDdkNTZiNTM="
+            ><img src="./fotos_usadas/instaLogo.png"
+          /></a>
+        </div>
+        <div>
+          <a href="facebook.com"><img src="./fotos_usadas/faceLogo.png" /></a>
+        </div>
         <h1>
           <a href="index.html">CIFRAEZ</a>
         </h1>
+        <div>
+          <a href="github.com"><img src="./fotos_usadas/gitLogo.png" /></a>
+        </div>
+        <div>
+          <a href="Wa.me/5511975757745"
+            ><img src="./fotos_usadas/wppLogo.png"
+          /></a>
+        </div>
       </div>
-      <input type="text" id="ipt_pesquisa" placeholder="Buscar..." onkeyup="handleKeyUp(event)" />
-
-      <div class="navbar">
-        <a href="./paginas/sobre.html">Sobre</a>
-
-        <button id="btn_login" onclick="login()">Login</button>
-
-        <a href="./paginas/usuario.html">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" id="btn_user"
-            class="bi bi-person-circle display_none" viewBox="0 0 16 16">
-            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-            <path fill-rule="evenodd"
-              d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
-          </svg>
-        </a>
+      <div class="direitos">
+        <h6>@ Todos os direitos reservados para Arthur Silemanali - 2023</h6>
       </div>
     </div>
-  </header>
 
-  <!-- tela de cifra -->
+    <!-- HTML -->
 
-  <div class="tela_inteira_cifra escondido" id="div_cifra"></div>
-  <div class="escondido range_valor" id="range">
-    Auto rolagem
-    <input type="range" min="0" max="1000" step="10" value="0" id="rolar" class="range" onclick="correr_pagina()" />
+    <script>
+      gerar_rank();
+      autenticar_login();
 
-    <div class="svg-btn" onclick="parar_rolagem()">
-      <svg class="fechar" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 2048 2048">
-        <path fill="currentColor"
-          d="m1115 1024l690 691l-90 90l-691-690l-691 690l-90-90l690-691l-690-691l90-90l691 690l691-690l90 90l-690 691z" />
-      </svg>
-    </div>
-  </div>
+      var tela_cifra = document.querySelector(".tela_inteira_cifra");
+      var tela_menu = document.querySelector(".tela_meio_musicas");
+      var musica = "";
+      var id_musica = "";
+      var artista = "";
+      var id_artista = "";
+      var cifra = "";
+      let cifrasBanco = [];
 
-  <div class="tela_meio_musicas">
-    <div class="rankings" id="div_ranking"></div>
-  </div>
-
-  <div class="footer">
-    <div class="redes_sociais">
-      <div>
-        <a href="https://instagram.com/ali_aonde?igshid=ZDdkNTZiNTM="><img src="./fotos_usadas/instaLogo.png" /></a>
-      </div>
-      <div>
-        <a href="facebook.com"><img src="./fotos_usadas/faceLogo.png" /></a>
-      </div>
-      <h1>
-        <a href="index.html">CIFRAEZ</a>
-      </h1>
-      <div>
-        <a href="github.com"><img src="./fotos_usadas/gitLogo.png" /></a>
-      </div>
-      <div>
-        <a href="Wa.me/5511975757745"><img src="./fotos_usadas/wppLogo.png" /></a>
-      </div>
-    </div>
-    <div class="direitos">
-      <h6>@ Todos os direitos reservados para Arthur Silemanali - 2023</h6>
-    </div>
-  </div>
-
-  <!-- HTML -->
-
-  <script>
-    gerar_rank();
-    autenticar_login();
-
-    var tela_cifra = document.querySelector(".tela_inteira_cifra");
-    var tela_menu = document.querySelector(".tela_meio_musicas");
-    var musica = "";
-    var id_musica = "";
-    var artista = "";
-    var id_artista = "";
-    var cifra = "";
-    let cifrasBanco = [];
-
-    function alterar_cifra(cifras) {
-      const botao_favoritar = document.getElementById("#btn_favoritar");
-      var cifra_mostrar = cifrasBanco[cifras];
-      id_musica = cifra_mostrar.musica;
-      id_artista = cifra_mostrar.id_artista;
-      musica = cifra_mostrar.nome_da_musica;
-      artista = cifra_mostrar.nome_do_artista;
-      cifra = cifra_mostrar.cifra;
-      div_cifra.innerHTML = `<div class="menu_cifra">
+      function alterar_cifra(cifras) {
+        const botao_favoritar = document.getElementById("#btn_favoritar");
+        var cifra_mostrar = cifrasBanco[cifras];
+        id_musica = cifra_mostrar.musica;
+        id_artista = cifra_mostrar.id_artista;
+        musica = cifra_mostrar.nome_da_musica;
+        artista = cifra_mostrar.nome_do_artista;
+        cifra = cifra_mostrar.cifra;
+        div_cifra.innerHTML = `<div class="menu_cifra">
       <div class="nome_da_musica" >
         <h4 id="h4_nome_musica">${musica} <b id="b_artista">${artista}</b></h4>
       </div>
 
       <div class="display_none" id="btn_favoritar" onclick=favoritar()>
     Favoritar música
-    <svg class="favoritar" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
-      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#1E1E1E" class="bi bi-heart-fill" viewBox="0 0 16 16" id="svg_fav">
+  <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+</svg>
   </div>
 
       <div class="rolar_pagina">
@@ -137,98 +185,111 @@
     <pre id="cifra">${cifra}</pre>
     `;
 
-      tela_cifra.classList.remove("escondido");
-      tela_menu.classList.add("escondido");
-      tela_menu.classList.add("display_none");
-      
-      autenticar_permissao()
-      
-    }
+        tela_cifra.classList.remove("escondido");
+        tela_menu.classList.add("escondido");
+        tela_menu.classList.add("display_none");
 
-    function voltar() {
-      tela_cifra.classList.add("escondido");
+        autenticar_permissao();
 
-      tela_menu.classList.remove("escondido");
-    }
+        const svg_fav = document.getElementById("svg_fav");
+        svg_fav.addEventListener("click", function () {
+          svg_fav.setAttribute("fill", "red");
+        });
+      }
 
-    var checkboxScroll = document.querySelector("#checkboxScroll");
-    var velocidade_range = document.querySelector("#range");
-    var range = document.getElementById("rolar");
+      var checkboxScroll = document.querySelector("#checkboxScroll");
+      var velocidade_range = document.querySelector("#range");
+      var range = document.getElementById("rolar");
 
-    var scrollInterval;
+      var scrollInterval;
 
-    function opçao_rolar(element) {
-      if (element.checked) {
-        document.querySelector("#range").classList.remove("escondido");
-      } else {
+      function opçao_rolar(element) {
+        if (element.checked) {
+          document.querySelector("#range").classList.remove("escondido");
+        } else {
+          document.querySelector("#range").classList.add("escondido");
+          document.getElementById("rolar").classList.remove("escondido");
+
+          stopScroll();
+        }
+      }
+
+      function correr_pagina() {
+        var intervalo = parseInt(document.getElementById("rolar").value);
+        var intervalo_liso = intervalo / 10;
+
+        document.getElementById("rolar").classList.add("escondido");
+
+        scrollInterval = setInterval(function () {
+          window.scrollBy(0, 1);
+
+          if (
+            window.innerHeight + window.pageYOffset >=
+            document.body.offsetHeight
+          ) {
+            clearInterval(scrollInterval);
+
+            document.getElementById("rolar").value = "";
+
+            parar_rolagem();
+
+            document.getElementById("rolar").classList.remove("escondido");
+          }
+        }, intervalo_liso);
+      }
+
+      function parar_rolagem() {
         document.querySelector("#range").classList.add("escondido");
         document.getElementById("rolar").classList.remove("escondido");
-        stopScroll();
+        document.getElementById("checkboxScroll").checked = false;
+
+        clearInterval(scrollInterval);
       }
-    }
 
-    function correr_pagina() {
-      var intervalo = parseInt(document.getElementById("rolar").value);
-      var intervalo_liso = intervalo / 10;
-      document.getElementById("rolar").classList.add("escondido");
+      function login() {
+        window.location.href = "./paginas/login.html";
+      }
 
-      scrollInterval = setInterval(function () {
-        window.scrollBy(0, 1);
-        if (
-          window.innerHeight + window.pageYOffset >=
-          document.body.offsetHeight
-        ) {
-          clearInterval(scrollInterval);
-          document.getElementById("rolar").value = "";
-          parar_rolagem();
-          document.getElementById("rolar").classList.remove("escondido");
-        }
-      }, intervalo_liso);
-    }
+      function favoritar() {
+        fetch("/usuarios/favoritar", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            musicaFavoritadaServer: id_musica,
+            artistaServer: id_artista,
+            usuarioServer: sessionStorage.ID_USUARIO,
+          }),
+        }).then(function (resposta) {
+          console.log("ESTOU NO THEN DO favoritar()!");
 
-    function parar_rolagem() {
-      document.querySelector("#range").classList.add("escondido");
-      document.getElementById("rolar").classList.remove("escondido");
-      document.getElementById("checkboxScroll").checked = false;
-      clearInterval(scrollInterval);
-    }
+          if (resposta.ok) {
+            alert("Música adicionada à sua lista de favoritos com sucesso!");
+          } else {
+            alert("Esta música já está adicionada à sua lista de favoritos!");
+          }
+        });
+      }
 
-    function login() {
-      window.location.href = "./paginas/login.html";
-    }
-
-    function favoritar() {
-      fetch("/usuarios/favoritar", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          musicaFavoritadaServer: id_musica,
-          artistaServer: id_artista,
-          usuarioServer: sessionStorage.ID_USUARIO,
-        }),
-      });
-    }
-
-    function exibir_pesquisa() {
-      const botao_favoritar = document.getElementById("#btn_favoritar");
-      var cifra_mostrar = cifraPesquisada;
-      id_musica = cifra_mostrar.musica;
-      id_artista = cifra_mostrar.id_artista;
-      musica = cifra_mostrar.nome_da_musica;
-      artista = cifra_mostrar.nome_do_artista;
-      cifra = cifra_mostrar.cifra;
-      div_cifra.innerHTML = `<div class="menu_cifra">
+      function exibir_pesquisa() {
+        const botao_favoritar = document.getElementById("#btn_favoritar");
+        var cifra_mostrar = cifraPesquisada;
+        id_musica = cifra_mostrar.musica;
+        id_artista = cifra_mostrar.id_artista;
+        musica = cifra_mostrar.nome_da_musica;
+        artista = cifra_mostrar.nome_do_artista;
+        cifra = cifra_mostrar.cifra;
+        div_cifra.innerHTML = `<div class="menu_cifra">
       <div class="nome_da_musica" >
         <h4 id="h4_nome_musica">${musica} <b id="b_artista">${artista}</b></h4>
       </div>
 
       <div class="display_none" id="btn_favoritar" onclick=favoritar()>
     Favoritar música
-    <svg class="favoritar" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
-      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16" id="svg_fav">
+  <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+</svg>
   </div>
 
       <div class="rolar_pagina">
@@ -253,115 +314,121 @@
     <pre id="cifra">${cifra}</pre>
     `;
 
-      tela_cifra.classList.remove("escondido");
-      tela_menu.classList.add("escondido");
-      tela_menu.classList.add("display_none");
-        
-      autenticar_permissao()
-      
-    }
+        tela_cifra.classList.remove("escondido");
+        tela_menu.classList.add("escondido");
+        tela_menu.classList.add("display_none");
 
-    let cifraPesquisada = [];
+        autenticar_permissao();
+        const svg_fav = document.getElementById("svg_fav");
+        svg_fav.addEventListener("click", function () {
+          svg_fav.setAttribute("fill", "red");
+        });
+      }
 
-    function pesquisar() {
-      var pesquisaVar = ipt_pesquisa.value;
+      let cifraPesquisada = [];
 
-      console.log(pesquisaVar);
+      function pesquisar() {
+        var pesquisaVar = ipt_pesquisa.value;
 
-      fetch("/pesquisa/" + pesquisaVar).then(async function (resposta) {
-        console.log("ESTOU NO THEN DO pesquisa()!aaaaaaaaaaaaaaaaaa");
         console.log(pesquisaVar);
-        //  cifraPesquisada =  await resposta.json()
 
-        if (resposta.ok) {
-          console.log(resposta);
+        fetch("/pesquisa/" + pesquisaVar).then(async function (resposta) {
+          console.log("ESTOU NO THEN DO pesquisa()!aaaaaaaaaaaaaaaaaa");
+          console.log(pesquisaVar);
+          //  cifraPesquisada =  await resposta.json()
 
-          resposta.json().then((json) => {
-            console.log("Resposta Traduzida", json);
+          if (resposta.ok) {
+            console.log(resposta);
 
-            cifraPesquisada = json;
+            resposta.json().then((json) => {
+              console.log("Resposta Traduzida", json);
 
-            exibir_pesquisa();
-          });
-        } else {
-          console.log("Não temos essa música: ", pesquisaVar);
+              cifraPesquisada = json;
 
-          resposta.text().then((texto) => {
-            console.error(texto);
-            
-          });
+              exibir_pesquisa();
+            });
+          } else {
+            console.log("Não temos essa música: ", pesquisaVar);
+            alert("Infelizmente não temos essa música");
+
+            resposta.text().then((texto) => {
+              console.error(texto);
+            });
+          }
+        });
+      }
+
+      const divRanking = document.getElementById("div_ranking");
+
+      function ranking() {
+        fetch("/ranking", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }).then(async function (resposta) {
+          cifrasBanco = await resposta.json();
+          div_ranking.innerHTML = "";
+          for (var posicao = 0; posicao < cifrasBanco.length; posicao++) {
+            var cifraAtual = cifrasBanco[posicao];
+            artista = cifraAtual.nome_do_artista;
+            musica = cifraAtual.nome_da_musica;
+            carrossel.innerHTML = "";
+            carrossel.innerHTML += `<button onclick="voltar_carrossel()" id="btn_prev" > <- </button>`;
+            for (var posicao = 0; posicao < cifrasBanco.length; posicao++) {
+            var cifraAtual = cifrasBanco[posicao];
+            artista = cifraAtual.nome_do_artista;
+            musica = cifraAtual.nome_da_musica;
+            carrossel.innerHTML += `<img src="../fotos_usadas/Kansas.jpg" onclick="alterar_cifra(${posicao})">`;
+          }
+            carrossel.innerHTML += `<button onclick="passar_carrossel()" id="btn_prox"> -> </button>`
+          }
+        });
+      }
+
+      function gerar_rank() {
+        setInterval(ranking, 20000);
+      }
+
+      function handleKeyUp(event) {
+        if (event.keyCode === 13) {
+          pesquisar();
+
+          
         }
-      });
-    }
+      }
 
-    const divRanking = document.getElementById("div_ranking");
+      function autenticar_login() {
+        const botao_login = document.getElementById("btn_login");
+        const botao_usuario = document.getElementById("btn_user");
 
-    function ranking() {
-      fetch("/ranking", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }).then(async function (resposta) {
-        cifrasBanco = await resposta.json();
-        div_ranking.innerHTML = "";
-        for (var posicao = 0; posicao < cifrasBanco.length; posicao++) {
-          var cifraAtual = cifrasBanco[posicao];
-          artista = cifraAtual.nome_do_artista;
-          musica = cifraAtual.nome_da_musica;
-          div_ranking.innerHTML += `<div class="ranking" id="div_ranking_posicao" onclick="alterar_cifra(${posicao})">
-          <p id="p_musica"<b>${posicao + 1}</b> ${musica} - ${artista} </p>
-      </div>`;
+        if (sessionStorage.length != 0) {
+          botao_login.classList.add("display_none");
+          botao_usuario.classList.remove("display_none");
         }
-      });
-    }
-
-    function gerar_rank() {
-      setInterval(ranking, 20000);
-    }
-
-    function handleKeyUp(event) {
-      if (event.keyCode === 13) {
-        pesquisar();
-
-        // setTimeout(function (){
-        // }, 2000)
       }
-    }
 
-    function autenticar_login() {
-      const botao_login = document.getElementById("btn_login");
-      const botao_usuario = document.getElementById("btn_user");
+      function autenticar_permissao() {
+        const botao_fav = document.getElementById("btn_favoritar");
 
-
-      if (sessionStorage.length != 0) {
-        botao_login.classList.add("display_none");
-        botao_usuario.classList.remove("display_none");
-
-       
-
+        if (sessionStorage.length != 0) {
+          botao_fav.classList.add("container_favoritar");
+        }
       }
-    }
-
-    function autenticar_permissao() {
       
-      const botao_fav = document.getElementById("btn_favoritar");
-      
-
-      if (sessionStorage.length != 0) {
-        
-        botao_fav.classList.add("container_favoritar");
-        
-       
-
+      function passar_carrossel(){
+        document.getElementById("carrossel").style.transform="translateX(-110%)";
+        document.getElementById("btn_prox").classList.add("display_none");
+        document.getElementById("btn_prev").classList.remove("display_none");
       }
-    }
 
-   
+      function voltar_carrossel(){
+        document.getElementById("carrossel").style.transform="translateX(1%)";
+        document.getElementById("btn_prox").classList.remove("display_none");
+        document.getElementById("btn_prev").classList.add("display_none");
+      }
+
       
-    
-
-  </script>
-</body>
-
+    </script>
+  </body>
 </html>
