@@ -26,7 +26,6 @@
         />
 
         <div class="navbar">
-          <a href="./paginas/sobre.html">Sobre</a>
 
           <button id="btn_login" onclick="login()">Login</button>
 
@@ -36,9 +35,9 @@
               width="32"
               height="32"
               fill="currentColor"
-              id="btn_user"
               class="bi bi-person-circle display_none"
               viewBox="0 0 16 16"
+              id="btn_user"
             >
               <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
               <path
@@ -86,39 +85,75 @@
     <!-- fim tela cifra -->
 
     <div class="container_menu">
-      Bem-vindo ao nosso site de <b>cifras fáceis!</b>
-      Aqui você encontrará uma coleção abrangente de cifras para todas as suas
-      músicas favoritas
-    </div>
-
-    <div class="carrossel">
-      <div class="container_carrossel" id="carrossel">
-        
+      <p>Bem-vindo ao nosso site de <b>cifras fáceis!</b></p>
+      <div class="thin">
+        Aqui você encontrará uma coleção abrangente de cifras </br> para todas as suas músicas favoritas
       </div>
     </div>
 
-    <div class="tela_meio_musicas">
-      <div class="rankings" id="div_ranking"></div>
+    <div class="carrossel">
+      <div class="container_carrossel" id="carrossel"></div>
+      <div class="btn-carousel display_none left" id="btn_prev">
+        <div class="bg-carousel"></div>
+        <button class="btn-carousel-btn" onclick="voltar_carrossel()">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill="white"
+              d="M15.707 4.293a1 1 0 0 1 0 1.414L9.414 12l6.293 6.293a1 1 0 0 1-1.414 1.414l-7-7a1 1 0 0 1 0-1.414l7-7a1 1 0 0 1 1.414 0Z"
+            />
+          </svg>
+        </button>
+      </div>
+      <div class="btn-carousel right" id="btn_prox">
+        <div class="bg-carousel"></div>
+        <button class="btn-carousel-btn" onclick="passar_carrossel()">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill="white"
+              d="M8.293 4.293a1 1 0 0 0 0 1.414L14.586 12l-6.293 6.293a1 1 0 1 0 1.414 1.414l7-7a1 1 0 0 0 0-1.414l-7-7a1 1 0 0 0-1.414 0Z"
+            />
+          </svg>
+        </button>
+      </div>
     </div>
+   
+
+    
 
     <div class="footer">
       <div class="redes_sociais">
         <div>
-          <a href="https://instagram.com/ali_aonde?igshid=ZDdkNTZiNTM="
+          <a
+            href="https://instagram.com/ali_aonde?igshid=ZDdkNTZiNTM="
+            target="_blank"
             ><img src="./fotos_usadas/instaLogo.png"
           /></a>
         </div>
         <div>
-          <a href="facebook.com"><img src="./fotos_usadas/faceLogo.png" /></a>
+          <a href="facebook.com" target="_blank"
+            ><img src="./fotos_usadas/faceLogo.png"
+          /></a>
         </div>
         <h1>
           <a href="index.html">CIFRAEZ</a>
         </h1>
         <div>
-          <a href="github.com"><img src="./fotos_usadas/gitLogo.png" /></a>
+          <a href="github.com" target="_blank"
+            ><img src="./fotos_usadas/gitLogo.png"
+          /></a>
         </div>
         <div>
-          <a href="Wa.me/5511975757745"
+          <a href="Wa.me/5511975757745" target="_blank"
             ><img src="./fotos_usadas/wppLogo.png"
           /></a>
         </div>
@@ -132,10 +167,10 @@
 
     <script>
       gerar_rank();
-      autenticar_login();
+      autenticar_login()
 
       var tela_cifra = document.querySelector(".tela_inteira_cifra");
-      var tela_menu = document.querySelector(".tela_meio_musicas");
+      var tela_menu = document.querySelector(".carrossel");
       var musica = "";
       var id_musica = "";
       var artista = "";
@@ -358,7 +393,7 @@
         });
       }
 
-      const divRanking = document.getElementById("div_ranking");
+      
 
       function ranking() {
         fetch("/ranking", {
@@ -368,20 +403,19 @@
           },
         }).then(async function (resposta) {
           cifrasBanco = await resposta.json();
-          div_ranking.innerHTML = "";
+          carrossel.innerHTML = "";
           for (var posicao = 0; posicao < cifrasBanco.length; posicao++) {
             var cifraAtual = cifrasBanco[posicao];
             artista = cifraAtual.nome_do_artista;
             musica = cifraAtual.nome_da_musica;
             carrossel.innerHTML = "";
-            carrossel.innerHTML += `<button onclick="voltar_carrossel()" id="btn_prev" > <- </button>`;
             for (var posicao = 0; posicao < cifrasBanco.length; posicao++) {
-            var cifraAtual = cifrasBanco[posicao];
-            artista = cifraAtual.nome_do_artista;
-            musica = cifraAtual.nome_da_musica;
-            carrossel.innerHTML += `<img src="../fotos_usadas/Kansas.jpg" onclick="alterar_cifra(${posicao})">`;
-          }
-            carrossel.innerHTML += `<button onclick="passar_carrossel()" id="btn_prox"> -> </button>`
+              var cifraAtual = cifrasBanco[posicao];
+              artista = cifraAtual.nome_do_artista;
+              musica = cifraAtual.nome_da_musica;
+              carrossel.innerHTML += `<img src="../fotos_usadas/Kansas.jpg" onclick="alterar_cifra(${posicao})">
+              `;
+            }
           }
         });
       }
@@ -393,8 +427,6 @@
       function handleKeyUp(event) {
         if (event.keyCode === 13) {
           pesquisar();
-
-          
         }
       }
 
@@ -415,20 +447,19 @@
           botao_fav.classList.add("container_favoritar");
         }
       }
-      
-      function passar_carrossel(){
-        document.getElementById("carrossel").style.transform="translateX(-110%)";
+
+      function passar_carrossel() {
+        document.getElementById("carrossel").style.transform =
+          "translateX(calc(-100vw + 75px))";
         document.getElementById("btn_prox").classList.add("display_none");
         document.getElementById("btn_prev").classList.remove("display_none");
       }
 
-      function voltar_carrossel(){
-        document.getElementById("carrossel").style.transform="translateX(1%)";
+      function voltar_carrossel() {
+        document.getElementById("carrossel").style.transform = "translateX(0)";
         document.getElementById("btn_prox").classList.remove("display_none");
         document.getElementById("btn_prev").classList.add("display_none");
       }
-
-      
     </script>
   </body>
 </html>

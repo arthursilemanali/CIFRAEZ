@@ -11,7 +11,7 @@ function favoritas(usuario) {
     artista.nome_artista AS nome_do_artista,
     musica.fk_genero AS id_genero,
     genero.nome_genero AS genero_musica,
-    cifra_musica as cifra,
+    cifra_musica as cifra
 FROM
     musica_favorita
         JOIN
@@ -20,7 +20,9 @@ FROM
     artista ON musica.fk_artista = artista.id_artista
         JOIN
     genero ON musica.fk_genero = genero.id_genero
-GROUP BY fk_musica WHERE id_usuario = ${usuario};
+    JOIN usuario
+    on musica_favorita.fk_usuario = usuario.id_usuario
+    WHERE fk_usuario = ${usuario}
 
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);

@@ -1,13 +1,12 @@
 var favoritasModel = require("../models/favoritasModel");
 
 function favoritas(req, res) {
-    var favoritas = req.params.idUsuario;
+    var usuario = req.params.idUsuario;
 
-    if (favoritas == undefined) {
-        res.status(400).send("Você não tem favoritas!");
+    if (usuario == undefined) {
+        res.status(400).send("Logue primeiro");
     } else {
-        favoritasModel
-            .favoritas(usuario)
+        favoritasModel.favoritas(usuario)
             .then(function (resultado) {
                 console.log(`\nResultados encontrados: ${resultado.length}`);
                 console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
@@ -31,5 +30,5 @@ function favoritas(req, res) {
 }
 
 module.exports = {
-    favoritas,
+    favoritas
 };

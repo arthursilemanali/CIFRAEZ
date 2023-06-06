@@ -1,141 +1,138 @@
 <!DOCTYPE html>
 <html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CIFRA | CIFRAEZ</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CIFRA | CIFRAEZ</title>
-  <link rel="stylesheet" href="../css/style.css" />
-</head>
+  <body>
+    <header>
+      <div class="header">
+        <div class="logo_pagina">
+          <h1>
+            <a href="../index.html">CIFRAEZ</a>
+          </h1>
+        </div>
+        <input type="text" id="ipt_pesquisa" placeholder="Buscar..." />
+        <div class="navbar">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            fill="currentColor"
+            class="bi bi-person-circle"
+            viewBox="0 0 16 16"
+          >
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+            <path
+              fill-rule="evenodd"
+              d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+            />
+          </svg>
+        </div>
+      </div>
+    </header>
 
-<body>
-  <header>
-    <div class="header">
-      <div class="logo_pagina">
+    <div class="tela_user">
+      <div class="container_perfil">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="150"
+          height="150"
+          fill="currentColor"
+          class="bi bi-person-circle"
+          viewBox="0 0 16 16"
+          id="btn_user"
+        >
+          <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+          <path
+            fill-rule="evenodd"
+            d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+          />
+        </svg>
+        <b id="b_user">Olá, user</b>
+        <button class="lista_user" onclick="favoritas()"><h3>Músicas favoritas</h3></button>
+        
+      <button class="recom_user"><h3>Ver recomendações</h3></button>
+      <b>sair</b>
+      </div>
+      
+      <div class="musicas_user">
+        <div class="musica_user" >
+          <h3>aaaa</h3>
+        </div>
+      </div>
+      </div>
+      
+      
+    </div>
+
+    <div class="footer">
+      <div class="redes_sociais">
+        <div>
+          <a
+            href="https://instagram.com/ali_aonde?igshid=ZDdkNTZiNTM="
+            target="_blank"
+            ><img src="../fotos_usadas/instaLogo.png"
+          /></a>
+        </div>
+        <div>
+          <a href="facebook.com" target="_blank"
+            ><img src="../fotos_usadas/faceLogo.png"
+          /></a>
+        </div>
         <h1>
           <a href="../index.html">CIFRAEZ</a>
         </h1>
+        <div>
+          <a href="github.com" target="_blank"
+            ><img src="../fotos_usadas/gitLogo.png"
+          /></a>
+        </div>
+        <div>
+          <a href="Wa.me/5511975757745" target="_blank"
+            ><img src="../fotos_usadas/wppLogo.png"
+          /></a>
+        </div>
       </div>
-      <input type="text" id="ipt_pesquisa" placeholder="Buscar..." />
-      <div class="navbar">
-        <a href="./paginas/sobre.html">Sobre</a>
-
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-circle"
-          viewBox="0 0 16 16">
-          <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-          <path fill-rule="evenodd"
-            d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
-        </svg>
-      </div>
-    </div>
-  </header>
-
-  <div class="footer">
-    <div class="redes_sociais">
-      <div>
-        <a href="https://instagram.com/ali_aonde?igshid=ZDdkNTZiNTM="><img src="../fotos_usadas/instaLogo.png" /></a>
-      </div>
-      <div>
-        <a href="facebook.com"><img src="../fotos_usadas/faceLogo.png" /></a>
-      </div>
-      <h1>
-        <a href="../index.html">CIFRAEZ</a>
-      </h1>
-      <div>
-        <a href="github.com"><img src="../fotos_usadas/gitLogo.png" /></a>
-      </div>
-      <div>
-        <a href="Wa.me/5511975757745"><img src="../fotos_usadas/wppLogo.png" /></a>
+      <div class="direitos">
+        <h6>@ Todos os direitos reservados para Arthur Silemanali - 2023</h6>
       </div>
     </div>
-    <div class="direitos">
-      <h6>@ Todos os direitos reservados para Arthur Silemanali - 2023</h6>
-    </div>
-  </div>
 
-  <script>
-    favoritas();
-
-    function alterar_cifra(cifras) {
-      var cifra_mostrar = musicas_favoritas[cifras];
-      id_musica = cifra_mostrar.musica;
-      id_artista = cifra_mostrar.id_artista;
-      musica = cifra_mostrar.nome_da_musica;
-      artista = cifra_mostrar.nome_do_artista;
-      cifra = cifra_mostrar.cifra;
-      div_cifra.innerHTML = `<div class="menu_cifra">
-      <div class="nome_da_musica" >
-        <h4 id="h4_nome_musica">${musica} <b id="b_artista">${artista}</b></h4>
-      </div>
-
-      <div class="container_favoritar" id="btn_favoritar_rank" onclick=favoritar()>
-    Favoritar música
-    <svg class="favoritar" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
-      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-    </svg>
-  </div>
-
-      <div class="rolar_pagina">
-        Auto rolagem
-
-
-        <label class="switch">
-          <input
-            id="checkboxScroll"
-            type="checkbox"
-            value="0"
-            onchange="opçao_rolar(this)"
-          />
-          <span class="slider round"></span>
-        </label>
-      </div>
-
-     
-      <img src="./fotos_usadas/background.jpg" />
+    <script>
       
-    </div>
-    <pre id="cifra">${cifra}</pre>
-    `;
 
-      tela_cifra.classList.remove("escondido");
-      tela_menu.classList.add("escondido");
-      tela_menu.classList.add("display_none");
-      window.location.href = "#header";
-    }
+      
 
-    var musicas_favoritas = "";
 
-    function favoritas() {
-      var usuarioVar = sessionStorage.getItem("ID_USUARIO");
+      let favoritasUsuario = []
+      function favoritas() {
+        var usuarioVar = Number(sessionStorage.ID_USUARIO);
 
-      console.log(usuarioVar);
-
-      fetch("/pesquisa/" + usuarioVar).then(async function (resposta) {
-        console.log("ESTOU NO THEN DO favoritas()!");
         console.log(usuarioVar);
 
-        if (resposta.ok) {
-          console.log(resposta);
+        fetch(`/favoritas/${usuarioVar}`).then(function (resposta) {
+          console.log("ESTOU NO THEN DO favoritas()!");
+          console.log(usuarioVar);
 
-          resposta.json().then((json) => {
-            console.log("Resposta Traduzida", json);
+          if (resposta.ok) {
+            console.log(resposta);
 
-            musicas_favoritas = json;
+            resposta.json().then((json) => {
+              console.log("Resposta Traduzida", json);
 
-            exibir_favoritas();
-          });
-        } else {
-          console.log("Usuário não encontrado: ", usuarioVar);
+              favoritasUsuario = json;
 
-          resposta.text().then((texto) => {
-            console.error(texto);
-            finalizarAguardar(texto);
-          });
-        }
-      });
-    }
-  </script>
-</body>
-
+              
+            });
+          }
+        });
+      }
+    
+    </script>
+  </body>
 </html>

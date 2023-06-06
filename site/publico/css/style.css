@@ -36,6 +36,7 @@ header {
   width: 100%;
   height: 10vh;
   background-color: #1e1e1e;
+  margin-bottom: 5%;
 }
 
 .header {
@@ -57,21 +58,20 @@ header {
 
 .navbar {
   display: flex;
-  justify-content: space-around;
+  gap: 40px;
   align-items: center;
-  width: 30%;
   height: 50%;
+  margin-right: 50px;
 }
 
 .navbar a {
   text-decoration: none;
   color: white;
-  transition: all 0s;
+  transition: all ease 0.3s;
 }
 
 .navbar a:hover {
   color: #d69b11;
-  transition: all 0s;
 }
 
 .footer {
@@ -118,13 +118,22 @@ header {
   color: white;
   font-style: normal;
   font-weight: 800;
-  font-size: 16px;
+  font-size: 22px;
   line-height: 23px;
 }
 
+.container_menu p {
+  margin: 0 0 10px 0;
+}
+
 .container_menu b {
-  color: #d69b11;
-  
+  color: #FF9800;
+}
+
+.container_menu .thin {
+  font-weight: 300;
+  color: #aaa;
+  font-size: 16px;
 }
 
 .container_menu h6 {
@@ -181,7 +190,6 @@ header {
 
 #ipt_pesquisa {
   background-color: #333333;
-  margin-left: 10%;
   width: 50%;
   height: 40px;
   border-radius: 10px;
@@ -189,8 +197,11 @@ header {
   padding: 0 20px;
   outline: none;
   border: none;
-  /* border: 1px solid rgba(0, 0, 0, 0.849); */
-  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+  transition: all ease 0.2s;
+}
+
+#ipt_pesquisa:focus {
+  background-color: #444;
 }
 
 .logo_pagina {
@@ -244,18 +255,20 @@ header {
 }
 
 #btn_login {
-  width: 25%;
+  width: 100px;
   height: 80%;
   background-color: #d69b11;
   border: 0;
   border-radius: 10px;
   color: white;
   font-size: large;
+  transition: all ease 0.3s;
+  cursor: pointer;
 }
 
 #btn_login:hover {
-  transform: translateY(1px);
   background-color: hsl(42, 85%, 55%);
+  box-shadow: 0 0 10px #d69b11, 0 0 40px #d69b11;
 }
 
 .container-1 h1 {
@@ -331,6 +344,7 @@ h2 {
   top: 50%;
   transform: translateY(-50%);
   mix-blend-mode: lighten;
+  box-shadow: inset -16px -39px 6px #000000;
   opacity: 0.5;
 }
 
@@ -706,6 +720,7 @@ h6 {
   margin-left: 8%;
   margin-bottom: 5%;
   margin-top: 3%;
+  z-index: 2;
 }
 
 .bi-person-circle {
@@ -733,67 +748,170 @@ select {
   fill: red;
 }
 
-
-.carrossel{
+.carrossel {
   display: flex;
   flex-direction: row;
   align-items: center;
   width: 100%;
-  height: 20%;
-
+  height: 200px;
+  overflow: hidden;
+  padding: 40px 0;
 }
 
-.container_carrossel{
+.container_carrossel {
   display: flex;
   flex-direction: row !important;
   width: 90%;
   height: 100%;
   align-items: center;
-  transition: all ease-in-out .5s;
-  
+  transition: all ease-in-out 0.5s;
+  gap: 2%;
 }
 
-.container_carrossel img{
-  width: 20%;
-  height: 100%;
-  margin-left: 1%;
-  margin-right: 1%;
+.container_carrossel img {
+  width: calc(20% - 10px);
+  height: 85%;
   transition: 0.5s;
-  border-radius: 10px
-  ;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.205);
 }
 
-.container_carrossel img:hover{
-  width: 21%;
-  height: 101%;
-  z-index: 2;
-  transition: 0.5s;
+.container_carrossel img:hover {
+  transform: scale(1.05);
 }
 
-.passar_carrossel{
-  margin-right: 90%;
+.container_carrossel img:first-child {
+  margin-left: 50px;
 }
 
+.container_carrossel img:nth-child(5n + 1) {
+  transform-origin: center left;
+}
+.container_carrossel img:nth-child(5n) {
+  transform-origin: center right;
+}
 
-
-.carrossel button{
+.btn-carousel {
   position: absolute;
-  width: 4%;
-  height: 20%;
+  width: 50px;
+  height: 200px;
+  border: none;
+  background-color: transparent;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all ease-in-out 0.3s;
+  pointer-events: all;
 }
 
-#btn_prox{
-  font-size: 2em;
-  font-weight: 900;
+.btn-carousel .bg-carousel {
+  position: absolute;
+  width: 100%;
+  height: 200px;
+  background-color: #1e1e1e80;
+  mix-blend-mode: darken;
+  margin: 0;
+  padding: 0;
+}
+
+.btn-carousel .btn-carousel-btn {
+  position: absolute;
+  width: 100%;
+  height: 200px;
+  border: none;
+  background-color: transparent;
+  color: #FFF;
+  margin: 0;
+  padding: 0;
+  z-index: 2;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all ease 0.3s;
+}
+
+.btn-carousel-btn:hover {
+  transform: scale(1.5);
+}
+
+.carrossel:hover .btn-carousel .btn-carousel-btn {
+  opacity: 1;
+  visibility: visible;
+}
+
+.btn-carousel.right{
+  right: 0;
+}
+
+.tela_user{
+  display: flex;
+  flex-direction: row !important;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.container_perfil{
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  align-items: center;
+  width: 35%;
+  height: 90vh;
+}
+
+.container_perfil b{
+  margin-top: 10%;
   color: white;
-  height: 20%;
-  left: 110%;
-  left: 96%;
-  background-color: #1e1e1e59;
 }
 
-#btn_prev{
-  width: 4%;
-  height: 20%;
-  left: 110%;
+.musicas_user{
+  display: flex;
+  width: 65%;
+  height: 100%;
+}
+
+.lista_user{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  height: 8%;
+  border-radius: 20px;
+  margin-top: 10%;
+  color: white;
+  background-color: #d69b1185;
+  border: 0;
+}
+
+.recom_user{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  height: 8%;
+  border-radius: 20px;
+  margin-top: 5%;
+  color: white;
+  background-color: #d69b1185;
+  border: 0;
+}
+
+
+.musica_user{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 15%;
+  background-color: #cccccc81;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+
+.musica_user:hover{
+  transform: scale(1.005);
 }
