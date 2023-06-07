@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CIFRA | CIFRAEZ</title>
     <link rel="stylesheet" href="./css/style.css" />
-    <link rel="shortcut icon" href="" type="image/x-icon" />
+    <link rel="shortcut icon" href="../fotos_usadas/logocifraez.jpg" type="image/x-icon" />
     <script src="../publico/fotos_usadas/Kansas.jpg"></script>
   </head>
 
@@ -84,7 +84,7 @@
 
     <!-- fim tela cifra -->
 
-    <div class="container_menu">
+    <div class="container_menu" id="menu">
       <p>Bem-vindo ao nosso site de <b>cifras fáceis!</b></p>
       <div class="thin">
         Aqui você encontrará uma coleção abrangente de cifras </br> para todas as suas músicas favoritas
@@ -140,7 +140,7 @@
           /></a>
         </div>
         <div>
-          <a href="facebook.com" target="_blank"
+          <a href="https://www.facebook.com/profile.php?id=100008668959795" target="_blank"
             ><img src="./fotos_usadas/faceLogo.png"
           /></a>
         </div>
@@ -148,7 +148,7 @@
           <a href="index.html">CIFRAEZ</a>
         </h1>
         <div>
-          <a href="github.com" target="_blank"
+          <a href="https://github.com/arthursilemanali" target="_blank"
             ><img src="./fotos_usadas/gitLogo.png"
           /></a>
         </div>
@@ -176,7 +176,7 @@
       var artista = "";
       var id_artista = "";
       var cifra = "";
-      let cifrasBanco = [];
+      let cifrasBanco;
 
       function alterar_cifra(cifras) {
         const botao_favoritar = document.getElementById("#btn_favoritar");
@@ -187,7 +187,7 @@
         artista = cifra_mostrar.nome_do_artista;
         cifra = cifra_mostrar.cifra;
         div_cifra.innerHTML = `<div class="menu_cifra">
-      <div class="nome_da_musica" >
+      <div class="nome_da_musica">
         <h4 id="h4_nome_musica">${musica} <b id="b_artista">${artista}</b></h4>
       </div>
 
@@ -223,6 +223,8 @@
         tela_cifra.classList.remove("escondido");
         tela_menu.classList.add("escondido");
         tela_menu.classList.add("display_none");
+        menu.style.display = "none";
+
 
         autenticar_permissao();
 
@@ -352,6 +354,7 @@
         tela_cifra.classList.remove("escondido");
         tela_menu.classList.add("escondido");
         tela_menu.classList.add("display_none");
+        menu.style.display = "none";
 
         autenticar_permissao();
         const svg_fav = document.getElementById("svg_fav");
@@ -404,18 +407,20 @@
         }).then(async function (resposta) {
           cifrasBanco = await resposta.json();
           carrossel.innerHTML = "";
-          for (var posicao = 0; posicao < cifrasBanco.length; posicao++) {
-            var cifraAtual = cifrasBanco[posicao];
-            artista = cifraAtual.nome_do_artista;
-            musica = cifraAtual.nome_da_musica;
-            carrossel.innerHTML = "";
             for (var posicao = 0; posicao < cifrasBanco.length; posicao++) {
               var cifraAtual = cifrasBanco[posicao];
               artista = cifraAtual.nome_do_artista;
               musica = cifraAtual.nome_da_musica;
-              carrossel.innerHTML += `<img src="../fotos_usadas/Kansas.jpg" onclick="alterar_cifra(${posicao})">
-              `;
-            }
+              carrossel.innerHTML += `
+              <div class="musica">
+                <img src="../fotos_usadas/Kansas.jpg" onclick="alterar_cifra(${posicao})">
+                <div class="label">
+                  ${posicao + 1}ª  ${musica} - ${artista}
+                </div>
+              </div>
+              `
+              
+            
           }
         });
       }

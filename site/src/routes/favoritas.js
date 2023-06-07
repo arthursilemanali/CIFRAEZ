@@ -3,7 +3,7 @@ var router = express.Router();
 
 var favoritasController = require("../controllers/favoritasController");
 
-router.get("/favoritas/:idUsuario", function (req, res) {
+router.get("/:idUsuario", function (req, res) {
     favoritasController.favoritas(req, res);
 });
 

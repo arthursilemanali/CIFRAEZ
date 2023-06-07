@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CIFRA | CIFRAEZ</title>
     <link rel="stylesheet" href="../css/style.css" />
+    <link rel="shortcut icon" href="../fotos_usadas/logocifraez.jpg" type="image/x-icon" />
+    
   </head>
 
   <body>
@@ -16,7 +18,12 @@
             <a href="../index.html">CIFRAEZ</a>
           </h1>
         </div>
-        <input type="text" id="ipt_pesquisa" placeholder="Buscar..." />
+        <input
+          type="text"
+          id="ipt_pesquisa"
+          placeholder="Buscar..."
+          onkeyup="handleKeyUp(event)"
+        />
         <div class="navbar">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +43,41 @@
       </div>
     </header>
 
-    <div class="tela_user">
+    <!-- tela_cifra -->
+    <div class="tela_inteira_cifra escondido" id="musica_selecionada"></div>
+    <div class="escondido range_valor" id="range">
+      Auto rolagem
+      <input
+        type="range"
+        min="0"
+        max="1000"
+        step="10"
+        value="0"
+        id="rolar"
+        class="range"
+        onclick="correr_pagina()"
+      />
+
+      <div class="svg-btn" onclick="parar_rolagem()">
+        <svg
+          class="fechar"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 2048 2048"
+        >
+          <path
+            fill="currentColor"
+            d="m1115 1024l690 691l-90 90l-691-690l-691 690l-90-90l690-691l-690-691l90-90l691 690l691-690l90 90l-690 691z"
+          />
+        </svg>
+      </div>
+    </div>
+
+    <!-- fim tela cifra -->
+
+
+    <div class="tela_user" id="usuario">
       <div class="container_perfil">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -54,17 +95,22 @@
           />
         </svg>
         <b id="b_user">Olá, user</b>
-        <button class="lista_user" onclick="favoritas()"><h3>Músicas favoritas</h3></button>
+        <button class="lista_user"><h3>Músicas favoritas</h3></button>
         
-      <button class="recom_user"><h3>Ver recomendações</h3></button>
-      <b>sair</b>
+      
+      <div class="logout" onclick="logout()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
+          <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+        </svg><b>sair</b>
       </div>
       
-      <div class="musicas_user">
-        <div class="musica_user" >
-          <h3>aaaa</h3>
-        </div>
       </div>
+      
+      <div class="musicas_user" id="musicafav">
+        
+      </div>
+      
       </div>
       
       
@@ -105,13 +151,90 @@
 
     <script>
       
+      const tela_cifra = document.querySelector(".tela_inteira_cifra");
+      const tela_user = document.querySelector(".tela_user")
+      
+      var artista = "";
+      var musica = "";
 
+      favoritas()
+      autenticar_login()
       
 
 
+      function alterar_cifra(cifras) {
+        const botao_favoritar = document.getElementById("#btn_favoritar");
+        var cifra_mostrar = favoritasUsuario[cifras];
+        id_musica = cifra_mostrar.musica;
+        id_artista = cifra_mostrar.id_artista;
+        musica = cifra_mostrar.nome_da_musica;
+        artista = cifra_mostrar.nome_do_artista;
+        cifra = cifra_mostrar.cifra;
+        musica_selecionada.innerHTML = `<div class="menu_cifra">
+      <div class="nome_da_musica">
+        <h4 id="h4_nome_musica">${musica} <b id="b_artista">${artista}</b></h4>
+      </div>
+
+    
+
+      <div class="rolar_pagina">
+        Auto rolagem
+
+
+        <label class="switch">
+          <input
+            id="checkboxScroll"
+            type="checkbox"
+            value="0"
+            onchange="opçao_rolar(this)"
+          />
+          <span class="slider round"></span>
+        </label>
+      </div>
+
+     
+      <img src="../fotos_usadas/background.jpg" />
+      
+    </div>
+    <pre id="cifra">${cifra}</pre>
+    `;
+        
+        tela_cifra.classList.remove("escondido");
+        usuario.style.display = "none"
+       
+       
+
+        autenticar_permissao();
+
+        const svg_fav = document.getElementById("svg_fav");
+        svg_fav.addEventListener("click", function () {
+          svg_fav.setAttribute("fill", "red");
+        });
+      }
+
+      var checkboxScroll = document.querySelector("#checkboxScroll");
+      var velocidade_range = document.querySelector("#range");
+      var range = document.getElementById("rolar");
+
+      var scrollInterval;
+
+      function opçao_rolar(element) {
+        if (element.checked) {
+          document.querySelector("#range").classList.remove("escondido");
+        } else {
+          document.querySelector("#range").classList.add("escondido");
+          document.getElementById("rolar").classList.remove("escondido");
+
+          stopScroll();
+        }
+      }
+
+
+      var artista = "";
+      var musica = "";
       let favoritasUsuario = []
       function favoritas() {
-        var usuarioVar = Number(sessionStorage.ID_USUARIO);
+        var usuarioVar = sessionStorage.getItem("ID_USUARIO");
 
         console.log(usuarioVar);
 
@@ -124,15 +247,151 @@
 
             resposta.json().then((json) => {
               console.log("Resposta Traduzida", json);
-
+              
               favoritasUsuario = json;
+              for (var posicao = 0; posicao < favoritasUsuario.length; posicao++) {
+
+                var cifraAtual = favoritasUsuario[posicao];
+                artista = cifraAtual.nome_do_artista;
+                musica = cifraAtual.nome_da_musica;
+
+                    console.log(cifraAtual)
+
+                    musicafav.innerHTML += `<div class="musica_user"  onclick="alterar_cifra(${posicao})">
+                  <h3>${musica} - ${artista}</h3>
+                </div>`
+          }
 
               
             });
           }
         });
       }
-    
+
+      function logout (){
+        sessionStorage.clear()
+        window.location.href = "../index.html"
+      }
+      
+      function autenticar_login(){
+        const usuario = sessionStorage.NOME_USUARIO
+        b_user.innerHTML = `Olá, ${usuario}` 
+      }
+      
+
+      function exibir_pesquisa() {
+        const botao_favoritar = document.getElementById("#btn_favoritar");
+        var cifra_mostrar = cifraPesquisada;
+        id_musica = cifra_mostrar.musica;
+        id_artista = cifra_mostrar.id_artista;
+        musica = cifra_mostrar.nome_da_musica;
+        artista = cifra_mostrar.nome_do_artista;
+        cifra = cifra_mostrar.cifra;
+        musica_selecionada.innerHTML = `<div class="menu_cifra">
+      <div class="nome_da_musica" >
+        <h4 id="h4_nome_musica">${musica} <b id="b_artista">${artista}</b></h4>
+      </div>
+
+     
+
+      <div class="rolar_pagina">
+        Auto rolagem
+
+
+        <label class="switch">
+          <input
+            id="checkboxScroll"
+            type="checkbox"
+            value="0"
+            onchange="opçao_rolar(this)"
+          />
+          <span class="slider round"></span>
+        </label>
+      </div>
+
+     
+      <img src="../fotos_usadas/background.jpg" />
+      
+    </div>
+    <pre id="cifra">${cifra}</pre>
+    `;
+
+    tela_cifra.classList.remove("escondido");
+        usuario.style.display = "none"
+
+       
+  };
+
+      function pesquisar() {
+        var pesquisaVar = ipt_pesquisa.value;
+
+        console.log(pesquisaVar);
+
+        fetch("/pesquisa/" + pesquisaVar).then(async function (resposta) {
+          console.log("ESTOU NO THEN DO pesquisa()!");
+          console.log(pesquisaVar);
+          //  cifraPesquisada =  await resposta.json()
+
+          if (resposta.ok) {
+            console.log(resposta);
+
+            resposta.json().then((json) => {
+              console.log("Resposta Traduzida", json);
+
+              cifraPesquisada = json;
+
+              exibir_pesquisa();
+            });
+          } else {
+            console.log("Não temos essa música: ", pesquisaVar);
+            alert("Infelizmente não temos essa música");
+
+            resposta.text().then((texto) => {
+              console.error(texto);
+            });
+          }
+        });
+      }
+
+      
+      function handleKeyUp(event) {
+        if (event.keyCode === 13) {
+          pesquisar();
+        }
+      }
+
+      function correr_pagina() {
+        var intervalo = parseInt(document.getElementById("rolar").value);
+        var intervalo_liso = intervalo / 10;
+
+        document.getElementById("rolar").classList.add("escondido");
+
+        scrollInterval = setInterval(function () {
+          window.scrollBy(0, 1);
+
+          if (
+            window.innerHeight + window.pageYOffset >=
+            document.body.offsetHeight
+          ) {
+            clearInterval(scrollInterval);
+
+            document.getElementById("rolar").value = "";
+
+            parar_rolagem();
+
+            document.getElementById("rolar").classList.remove("escondido");
+          }
+        }, intervalo_liso);
+      }
+
+      function parar_rolagem() {
+        document.querySelector("#range").classList.add("escondido");
+        document.getElementById("rolar").classList.remove("escondido");
+        document.getElementById("checkboxScroll").checked = false;
+
+        clearInterval(scrollInterval);
+      }
+
     </script>
   </body>
 </html>
