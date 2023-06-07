@@ -58,6 +58,7 @@ INSERT INTO usuario VALUES
 
 CREATE TABLE musica (
 id_musica int primary key auto_increment,
+foto_banda VARCHAR(3000),
 nome_musica VARCHAR(45) NOT NULL,
 cifra_musica LONGTEXT,
 fk_genero int,
@@ -71,7 +72,7 @@ references artista (id_artista)
 select * from musica;
 
 INSERT INTO musica values 
-(null, 'Behind blue eyes', "Intro: <b>Em</b>  <b>G6</b>  <b>D5(9)</b>  <b>C9</b>  <b>A5(9)</b>
+(null, 'https://g1.globo.com/Noticias/Musica/foto/0,,21126413-EX,00.jpg', 'Behind blue eyes', "Intro: <b>Em</b>  <b>G6</b>  <b>D5(9)</b>  <b>C9</b>  <b>A5(9)</b>
    <b>Em</b>                <b>G6</b>
 E|<u>----------</u>0<u>-----------------</u>0<u>------------</u>
 B|<u>------------</u>0<u>------------------</u>3<u>---------</u>
@@ -192,7 +193,7 @@ No one knows what it's like, to be the bad man,
 To be the sad man, behind blue eyes", '1', '1'),
 
 
-(null, 'João e Maria', '[Intro] <b>Am9</b>  <b>F6</b>  <b>Am</b>  <b>F9</b>
+(null, 'https://www.rbsdirect.com.br/imagesrc/25256887.jpg?w=700', 'João e Maria', '[Intro] <b>Am9</b>  <b>F6</b>  <b>Am</b>  <b>F9</b>
         <b>Am</b>  <b>F6</b>  <b>Am</b>  <b>F9</b>  <b>Am</b>
 
 <span class="tablatura">[Tab - Intro]
@@ -543,7 +544,7 @@ A|<u>-------------</u>0<u>------------------------</u>0<u>---</u>|
 E|<u>-</u>1<u>---------</u>0<u>------------</u>0<u>-</u>1<u>---------</u>0<u>-----</u>|</span></span>', '2', '2');
 
 insert into musica values
-(null, 'Bohemian Rhapsody', "[Primeira Parte]
+(null, 'https://www.cafm.com.br/uploads/esse.jpg', 'Bohemian Rhapsody', "[Primeira Parte]
 
 <b>F#m</b>
 Is this the real life?
@@ -733,7 +734,7 @@ Any way the wind blows", '1', '5');
 
 INSERT INTO musica VALUES
 
-(null, 'Killer Queen', "          <b>Cm</b>
+(null, 'https://www.cafm.com.br/uploads/esse.jpg', 'Killer Queen', "          <b>Cm</b>
 She keeps Moet and Chandon,
 <b>A#</b>
  In her pretty cabinet.
@@ -882,7 +883,7 @@ Outro:
 
 INSERT INTO musica VALUES 
 
-(null, 'Love of My Life', "[Intro] <b>D</b>  <b>Bm</b>  <b>Em</b>  <b>A</b>  <b>A7</b>
+(null, 'https://www.cafm.com.br/uploads/esse.jpg', 'Love of My Life', "[Intro] <b>D</b>  <b>Bm</b>  <b>Em</b>  <b>A</b>  <b>A7</b>
         <b>D</b>  <b>Bm</b>  <b>G6</b>  <b>D9/F#</b>  <b>E</b>
 
 [Primeira Parte]
@@ -961,7 +962,7 @@ What it means to me
 Love of my life
  <b>F#m</b>             <b>G</b>  <b>Gm</b>  <b>D</b>
 Love of my life", '1', '5'),
-(null, 'Yesterday', "[Intro] <b>G</b>
+(null, 'https://cultura.uol.com.br/upload/tvcultura/entretenimento/20211129185634_beatles.jpg', 'Yesterday', "[Intro] <b>G</b>
 
 [Primeira Parte]
 
@@ -1031,7 +1032,7 @@ Oh, I believe in yesterday
 
  <b>Em</b>      <b>A</b>       <b>C</b>   <b>G</b>
 Hum hum hum hum hum hum hum", '1', '14'),
-(null, 'Hey Jude', "[Primeira Parte]
+(null, 'https://cultura.uol.com.br/upload/tvcultura/entretenimento/20211129185634_beatles.jpg', 'Hey Jude', "[Primeira Parte]
 
       <b>F</b>                   <b>C</b>
 Hey, Jude, don't make it bad
@@ -1118,7 +1119,7 @@ Na, na na na na na na ,na na na na, Hey Jude
 Na, na na na na na na ,na na na na, Hey Jude
 
 Na, na na na na na na ,na na na na, Hey Jude", '1', '14'),
-(null, 'Let it be', "[Intro] <b>C</b>  <b>G</b>  <b>Am</b>  <b>F</b>  <b>C</b>  <b>G</b>  <b>F</b>   <b>C</b>
+(null, 'https://cultura.uol.com.br/upload/tvcultura/entretenimento/20211129185634_beatles.jpg', 'Let it be', "[Intro] <b>C</b>  <b>G</b>  <b>Am</b>  <b>F</b>  <b>C</b>  <b>G</b>  <b>F</b>   <b>C</b>
 
 [Primeira Parte] 
 
@@ -1210,7 +1211,7 @@ Let it be, let it be
 Let it be, let it be
                   <b>G</b>              <b>F</b>  <b>C</b>
 Whisper words of wisdom, let it be", '1', '14'),
-(null, 'Dont let me down', "[Refrão]
+(null, 'https://cultura.uol.com.br/upload/tvcultura/entretenimento/20211129185634_beatles.jpg', 'Dont let me down', "[Refrão]
 
 <b>E</b>               <b>F#m</b>                <b>E</b>
   Don't let me down, don't let me down
@@ -1289,8 +1290,11 @@ Don't let me down, don't let me down
 
 ( <b>F#m</b>  <b>E</b>  <b>F#m</b>  <b>E</b> )", '1', '14');
 
+select * from artista;
+
+
 INSERT INTO musica VALUES
-(null, 'Oceano', '[Primeira Parte]
+(null, 'https://s2.glbimg.com/hPLROzKum-l086HHgesLjd3MiCM=/0x0:1280x853/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_da025474c0c44edd99332dddb09cabe8/internal_photos/bs/2022/n/9/Kji6qySu6k9sGBluAkaQ/3.glbimg.com-v1-auth-0ae9f161c1ff459593599b7ffa1a1292-images-escenic-2022-3-14-15-1647282296492.jpeg', 'Oceano', '[Primeira Parte]
 
 <b>D</b>       <b>G</b>                   <b>A</b>
   Assim    que o dia amanheceu
@@ -1339,8 +1343,8 @@ Me esqueço que amar  é  quase uma dor
  <b>D</b>    <b>F</b>      <b>G</b>    <b>C</b>    <b>D</b>   <b>F</b>    <b>G</b>     <b>C</b>   <b>D</b>
 Só   sei    vi___ver  se  for  por   vo__cê
 
-( <b>F</b>  <b>G</b>  <b>C</b>  <b>D</b> )', '4', '2'),
-(null, 'Se', '[Intro] <b>A</b>  <b>D</b>  <b>F#m7</b>  <b>E</b>
+( <b>F</b>  <b>G</b>  <b>C</b>  <b>D</b> )', '2', '4'),
+(null, 'https://s2.glbimg.com/hPLROzKum-l086HHgesLjd3MiCM=/0x0:1280x853/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_da025474c0c44edd99332dddb09cabe8/internal_photos/bs/2022/n/9/Kji6qySu6k9sGBluAkaQ/3.glbimg.com-v1-auth-0ae9f161c1ff459593599b7ffa1a1292-images-escenic-2022-3-14-15-1647282296492.jpeg', 'Se', '[Intro] <b>A</b>  <b>D</b>  <b>F#m7</b>  <b>E</b>
         <b>A</b>  <b>D</b>  <b>F#m7</b>  <b>E</b>
         <b>A</b>  <b>D</b>  <b>F#m7</b>  <b>E</b>
         <b>A</b>  <b>D</b>  <b>F#m7</b>  <b>E</b>
@@ -1459,7 +1463,7 @@ Mas você a____do___ra um Se
   Do que você decidir se dá ou não', '2', '4');
   
   INSERT INTO musica VALUES 
-  (null, 'Chega de saudade', ' <b>Dm</b>          <b>E</b>      <b>Bbm</b>   <b>A</b>    <b>Dm</b>
+  (null, 'https://www.cnnbrasil.com.br/wp-content/uploads/sites/12/2021/06/41047_271A38BE8B744F2B.jpg?w=876&h=484&crop=1', 'Chega de saudade', ' <b>Dm</b>          <b>E</b>      <b>Bbm</b>   <b>A</b>    <b>Dm</b>
 Vai  minha tristeza e diz a ela que sem ela
           <b>A</b>   <b>Dm</b>     <b>E</b>    <b>Am</b>
 Não pode ser,    diz-lhe numa prece
@@ -1527,7 +1531,7 @@ Viver sem mim
            <b>B</b>          <b>E</b>     <b>A</b>         <b>D</b>
 Não quero mais esse negócio de você longe de mim
           <b>B</b>           <b>E</b>       <b>A</b>          <b>D</b>
-Vamos deixar com esse negócio de você viver sem mim', '4', '2');
+Vamos deixar com esse negócio de você viver sem mim', '2', '3');
 
 select * from artista;
 
@@ -1549,6 +1553,7 @@ constraint pk_composta_fav primary key(fk_usuario, fk_musica, fk_artista)
 
  SELECT 
     fk_musica AS musica,
+    foto_banda as foto,
     nome_musica AS nome_da_musica,
     musica.fk_artista AS id_artista,
     artista.nome_artista AS nome_do_artista,
@@ -1572,15 +1577,15 @@ LIMIT 10;
 INSERT INTO musica_favorita VALUES 
 (1, 1, 1);
 INSERT INTO musica_favorita VALUES 
-(1, 2, 2);
+(1, 3, 2);
 INSERT INTO musica_favorita VALUES 
 (1, 3, 5);
 INSERT INTO musica_favorita VALUES 
 (1, 4, 5);
 INSERT INTO musica_favorita VALUES 
-(1, 5, 14);
+(1, 8, 14);
 INSERT INTO musica_favorita VALUES 
-(2	, 5, 14);
+(2	, 10, 14);
 
  SELECT 
    id_musica AS musica,

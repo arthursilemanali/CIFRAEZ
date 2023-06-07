@@ -4,6 +4,7 @@ function ranking() {
     var instrucao = `
     SELECT 
     fk_musica AS musica,
+    foto_banda as foto,
     nome_musica AS nome_da_musica,
     musica.fk_artista AS id_artista,
     artista.nome_artista AS nome_do_artista,

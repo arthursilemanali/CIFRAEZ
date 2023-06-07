@@ -177,6 +177,7 @@
       var id_artista = "";
       var cifra = "";
       let cifrasBanco;
+      var foto = "";
 
       function alterar_cifra(cifras) {
         const botao_favoritar = document.getElementById("#btn_favoritar");
@@ -411,9 +412,10 @@
               var cifraAtual = cifrasBanco[posicao];
               artista = cifraAtual.nome_do_artista;
               musica = cifraAtual.nome_da_musica;
+              foto = cifraAtual.foto
               carrossel.innerHTML += `
               <div class="musica">
-                <img src="../fotos_usadas/Kansas.jpg" onclick="alterar_cifra(${posicao})">
+                <img src="${foto}" onclick="alterar_cifra(${posicao})">
                 <div class="label">
                   ${posicao + 1}ª  ${musica} - ${artista}
                 </div>
