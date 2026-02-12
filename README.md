@@ -1,5 +1,8 @@
 
 ========================
+
+
+
 Sobre o Projeto
 ========================
 O aprendizado musical exige dedicação e foco. O CIFRAEZ foi desenvolvido com o objetivo de simplificar e acelerar essa jornada para novos músicos.
