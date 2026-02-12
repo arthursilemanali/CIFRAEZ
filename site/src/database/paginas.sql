@@ -1,3 +1,5 @@
+
+
 CREATE DATABASE CIFRAEZ;
 USE CIFRAEZ;
 
@@ -1606,3 +1608,7 @@ WHERE
 
 
 select * from musica;
+
+UPDATE musica
+SET foto_banda = 'https://rollingstone.com.br/wp-content/uploads/abbey-road-capa.jpg'
+WHERE id_musica in (6, 7, 8) ;
