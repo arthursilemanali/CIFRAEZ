@@ -1,6 +1,29 @@
-A música tem várioas formas de ser expressada, porém para aprende-la deve-se dedicar tempo e muita atenção
+CIFRAEZ
+Sobre o Projeto
+O aprendizado musical exige dedicação e foco. O CIFRAEZ foi desenvolvido com o objetivo de simplificar e acelerar essa jornada para novos músicos.
 
-O projeto CIFRAEZ tem como objetivo facilitar que novos integrantes do mundo da música possam aprender de maneira simples e rápida como tocar suas músicas favoritas.
-Ele é um site ágil que faz uso de consultas ao banco de dados através de uma API em Node.js, e assim formulando e construindo todo o HTML para o usuário. Com isso, foi pensado para o usuário ferrementas cruciais para seu desenvolvimento, que são: Uma página de cadastro e login de usuários, um botão de favoritar música que garante a quem usa que terá um acesso fácil e sem engasgos em sua página de usuário que se encontra com um botão link no canto superior da tela. Há também uma funcionalidade interessante que facilita o dia a dia de quem vai aprender as suas músicas, que é a função de autoscroll nas páginas de cifra do site, entregando uma ótima visualização do que deve ser executado no tempo da música. E é claro, o mais importante, as ferramentas para que o usuário encontre novas músicas: Um carrossel ranqueado que informa as músicas que estão sendo mais favoritadas pelos usuários, e uma barra de busca que vai até o banco de dados e traz todas as informações da música.
+Trata-se de uma plataforma ágil que consome dados através de uma API em Node.js, gerando interfaces dinâmicas para o usuário final. O projeto foca na experiência do usuário (UX), oferecendo ferramentas essenciais para o estudo de instrumentos, como visualização otimizada de cifras e organização de repertório.
 
-As tecnologias utilizadas são: Node.js para o backend, HTML e CSS para a estilização, JS para funções dentro do site e MySQL para o banco de dados.
+Funcionalidades Principais
+O sistema conta com recursos pensados para facilitar o dia a dia do estudante de música:
+
+Autenticação de Usuários: Sistema completo de cadastro e login para acesso personalizado.
+
+Gestão de Favoritos: Permite ao usuário salvar suas músicas preferidas para acesso rápido e sem interrupções através de um painel dedicado.
+
+Leitura Dinâmica (Auto-scroll): Funcionalidade de rolagem automática na página da cifra, garantindo que o músico possa tocar sem precisar usar as mãos para descer a tela, mantendo o foco na execução.
+
+Músicas em Alta: Um carrossel interativo na página inicial que exibe um ranking das músicas mais favoritadas pela comunidade.
+
+Busca Integrada: Barra de pesquisa otimizada que consulta o banco de dados em tempo real para localizar artistas e canções.
+
+Tecnologias Utilizadas
+Este projeto foi construído utilizando as seguintes tecnologias:
+
+Back-end: Node.js
+
+Banco de Dados: MySQL
+
+Front-end: HTML5, CSS3 e JavaScript
+
+Arquitetura: Integração via API REST
