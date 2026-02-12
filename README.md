@@ -1,13 +1,13 @@
 CIFRAEZ
 ========================================================================================
 Sobre o Projeto
-========================================================================================
+========================
 O aprendizado musical exige dedicação e foco. O CIFRAEZ foi desenvolvido com o objetivo de simplificar e acelerar essa jornada para novos músicos.
 
 Trata-se de uma plataforma ágil que consome dados através de uma API em Node.js, gerando interfaces dinâmicas para o usuário final. O projeto foca na experiência do usuário (UX), oferecendo ferramentas essenciais para o estudo de instrumentos, como visualização otimizada de cifras e organização de repertório.
 
 Funcionalidades Principais
-========================================================================================
+===========================
 O sistema conta com recursos pensados para facilitar o dia a dia do estudante de música:
 
 Autenticação de Usuários: Sistema completo de cadastro e login para acesso personalizado.
@@ -21,7 +21,7 @@ Músicas em Alta: Um carrossel interativo na página inicial que exibe um rankin
 Busca Integrada: Barra de pesquisa otimizada que consulta o banco de dados em tempo real para localizar artistas e canções.
 
 Tecnologias Utilizadas
-==========================================================================================
+===============================
 Este projeto foi construído utilizando as seguintes tecnologias:
 
 Back-end: Node.js
